@@ -30,7 +30,7 @@ process.on('SIGINT', function() {
     process.exit(0);
   });
 });
-
+//denied,pending,confirmed,sent,delivered
 /** Order SCHEMA **/
 var orderSchema = new mongoose.Schema({
   orderID :  {type: Number, unique: true},
@@ -39,16 +39,15 @@ var orderSchema = new mongoose.Schema({
   orderDate: { type: Date, default: new Date() },
   status : String
 });
-mongoose.model( 'OrderModel', orderSchema,"Order_TBL" );
+mongoose.model( 'OrderModel', orderSchema,"orders" );
 
 /** Order Details SCHEMA **/
 var orderDetailsSchema = new mongoose.Schema({
   orderID :  {type: Number, unique: true},
   productID :  {type: Number, unique: true},
-  productName : String,
   quantity : { type: Number, min: 0, max: 100 }
 });
-mongoose.model( 'OrderDetailsModel', orderDetailsSchema,"OrderDetails_TBL" );
+mongoose.model( 'OrderDetailsModel', orderDetailsSchema,"orderdetails" );
 
 /** Product SCHEMA **/
 var productSchema = new mongoose.Schema({
@@ -56,12 +55,12 @@ var productSchema = new mongoose.Schema({
   productName : String,
   unitPrice : { type: Number, min: 0, max: 10000 }
 });
-mongoose.model( 'ProductModel', productSchema,"Product_TBL" );
+mongoose.model( 'ProductModel', productSchema,"products" );
 
 /** Payment SCHEMA **/
 var paymentSchema = new mongoose.Schema({
-  productID :  {type: Number, unique: true},
+  orderID :  {type: Number, unique: true},
   paymentAmount : { type: Number },
   paymentDate : { type: Date, default: new Date() }
 });
-mongoose.model( 'PaymentModel', paymentSchema,"Payment_TBL" );
+mongoose.model( 'PaymentModel', paymentSchema,"payments" );
