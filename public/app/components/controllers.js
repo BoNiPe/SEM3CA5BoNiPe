@@ -2,6 +2,7 @@ angular.module('myAppRename.controllers', []).
   controller('AppCtrl', function ($scope, $http, $window,$location) {
 
     function url_base64_decode(str) {
+      console.log('Hello from url_base_64_decode with: ' + str);
       var output = str.replace('-', '+').replace('_', '/');
       switch (output.length % 4) {
         case 0:
@@ -31,12 +32,15 @@ angular.module('myAppRename.controllers', []).
       $http
         .post('/authenticate', $scope.user)
         .success(function (data, status, headers, config) {
+            console.log('The data when /authenticate successes is ' + data );
           $window.sessionStorage.token = data.token;
           $scope.isAuthenticated = true;
           var encodedProfile = data.token.split('.')[1];
           var profile = JSON.parse(url_base64_decode(encodedProfile));
           $scope.username = profile.username;
+            console.log('Username (taken from Profile, parsed from base64.. via json parse) :' + $scope.username);
           $scope.isAdmin = profile.role == "admin";
+            console.log('isAdmin variable becomes: ' + $scope.isAdmin);
           $scope.isUser = !$scope.isAdmin;
           $scope.error = null;
         })

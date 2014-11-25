@@ -64,3 +64,11 @@ var paymentSchema = new mongoose.Schema({
   paymentDate : { type: Date, default: new Date() }
 });
 mongoose.model( 'PaymentModel', paymentSchema,"payments" );
+/** Starting version User schema**/
+var usersSchema = new mongoose.Schema({
+  userName : String,
+  email: {type: String, unique: true},
+  pw: String,
+  created: { type: Date, default: new Date() }
+});
+mongoose.model( 'User', usersSchema,"testusers" );
