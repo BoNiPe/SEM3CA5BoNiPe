@@ -1,19 +1,4 @@
 var mongoose = require( 'mongoose' );
-
-/*
-
-Note:
-To this test project as it is:
-
-Start your MongoDB database.
-Start mongo.exe and do:
-  use testdb
-  db.testusers.insert({userName : "Lars", email :"lam@cphbusiness.dk",pw: "test",created : new Date()})
-  db.testusers.insert({userName : "Henrik", email :"hsty@cphbusiness.dk",pw: "test",created : new Date()})
-  db.testusers.insert({userName : "Tobias", email :"tog@cphbusiness.dk",pw: "test",created : new Date()})
-  db.testusers.insert({userName : "Anders", email :"aka@cphbusiness.dk",pw: "test",created : new Date()})
-
-*/
 var dbURI;
 
 //This is set by the backend tests
@@ -46,15 +31,37 @@ process.on('SIGINT', function() {
   });
 });
 
-
-/** User SCHEMA **/
-/** Replace this Schema with your own(s) **/
-var usersSchema = new mongoose.Schema({
-  userName : String,
-  email: {type: String, unique: true},
-  pw: String,
-  created: { type: Date, default: new Date() }
+/** Order SCHEMA **/
+var orderSchema = new mongoose.Schema({
+  orderID :  {type: Number, unique: true},
+  customerID : { type: Number},
+  employeeID : { type: Number},
+  orderDate: { type: Date, default: new Date() },
+  status : String
 });
+mongoose.model( 'OrderModel', orderSchema,"Order_TBL" );
 
-mongoose.model( 'User', usersSchema,"testusers" );
+/** Order Details SCHEMA **/
+var orderDetailsSchema = new mongoose.Schema({
+  orderID :  {type: Number, unique: true},
+  productID :  {type: Number, unique: true},
+  productName : String,
+  quantity : { type: Number, min: 0, max: 100 }
+});
+mongoose.model( 'OrderDetailsModel', orderDetailsSchema,"OrderDetails_TBL" );
 
+/** Product SCHEMA **/
+var productSchema = new mongoose.Schema({
+  productID :  {type: Number, unique: true},
+  productName : String,
+  unitPrice : { type: Number, min: 0, max: 10000 }
+});
+mongoose.model( 'ProductModel', productSchema,"Product_TBL" );
+
+/** Payment SCHEMA **/
+var paymentSchema = new mongoose.Schema({
+  productID :  {type: Number, unique: true},
+  paymentAmount : { type: Number },
+  paymentDate : { type: Date, default: new Date() }
+});
+mongoose.model( 'PaymentModel', paymentSchema,"Payment_TBL" );
