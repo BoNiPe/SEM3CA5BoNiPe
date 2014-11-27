@@ -23,21 +23,10 @@ function readData(path) {
 function getOrders() {
     return orders.map(function (e) {
         return {
-            orderID: e.orderID,
-            customerID: e.customerID,
-            employeeID: e.employeeID,
-            orderDate: e.orderDate.substring(0, 10),
-            status: e.status
-        };
-    });
-};
-
-function getOrderDetails() {
-    return orderdetails.map(function (e) {
-        return {
-            orderID: e.orderID,
-            productID: e.productID,
-            quantity: e.quantity
+            status : e.status,
+            productID : e.productID,
+            quantity : e.quantity,
+            orderDate: e.orderDate.substring(0, 10)
         };
     });
 };
@@ -45,7 +34,6 @@ function getOrderDetails() {
 function getProducts() {
     return products.map(function (e) {
         return {
-            productID: e.productID,
             productName: e.productName,
             unitPrice: e.unitPrice
         };
@@ -63,7 +51,6 @@ function getPayments() {
 };
 
 var orders = readData('orders.json');
-var orderdetails = readData('orderdetails.json');
 var products = readData('products.json');
 var payments = readData('payments.json');
 
@@ -77,7 +64,6 @@ db.connection.on('error', function (err) {
 });
 
 model.OrderModel.remove({}).exec();
-model.OrderDetailsModel.remove({}).exec();
 model.ProductModel.remove({}).exec();
 model.PaymentModel.remove({}).exec();
 
@@ -109,11 +95,9 @@ function addData(data, dataModel, doneIndex) {
     });
 }
 
-
 addData(getOrders(), model.OrderModel, 0);
-addData(getOrderDetails(), model.OrderDetailsModel, 1);
-addData(getProducts(), model.ProductModel, 2);
-addData(getPayments(), model.PaymentModel, 3);
+addData(getProducts(), model.ProductModel, 1);
+addData(getPayments(), model.PaymentModel, 2);
 
 
 

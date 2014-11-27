@@ -6,7 +6,7 @@ if( typeof global.TEST_DATABASE != "undefined" ) {
   dbURI = global.TEST_DATABASE;
 }
 else{
-  dbURI = 'mongodb://localhost/testdb';
+  dbURI = 'mongodb://localhost/wiki';
 }
 
 mongoose.connect(dbURI);
@@ -30,24 +30,14 @@ process.on('SIGINT', function() {
     process.exit(0);
   });
 });
-//denied,pending,confirmed,sent,delivered
 /** Order SCHEMA **/
 var orderSchema = new mongoose.Schema({
-  orderID :  {type: Number, unique: true},
-  customerID : { type: Number},
-  employeeID : { type: Number},
-  orderDate: { type: Date, default: new Date() },
-  status : String
+  status : String,
+  productID :  {type: Number, unique: true},
+  quantity : { type: Number, min: 0, max: 100 },
+  orderDate: { type: Date, default: new Date() }
 });
 mongoose.model( 'OrderModel', orderSchema,"orders" );
-
-/** Order Details SCHEMA **/
-var orderDetailsSchema = new mongoose.Schema({
-  orderID :  {type: Number, unique: true},
-  productID :  {type: Number, unique: true},
-  quantity : { type: Number, min: 0, max: 100 }
-});
-mongoose.model( 'OrderDetailsModel', orderDetailsSchema,"orderdetails" );
 
 /** Product SCHEMA **/
 var productSchema = new mongoose.Schema({
@@ -59,7 +49,7 @@ mongoose.model( 'ProductModel', productSchema,"products" );
 
 /** Payment SCHEMA **/
 var paymentSchema = new mongoose.Schema({
-  orderID :  {type: Number, unique: true},
+  orderID :  {type: String, unique: true},
   paymentAmount : { type: Number },
   paymentDate : { type: Date, default: new Date() }
 });

@@ -1,3 +1,3 @@
-productID,productName,unitPrice
-[[1,"Banana",2],[1,"Dog",200],[3,"My Brain",23.50],[4,"Fresh meat",350],[5,"Trance Music",9000],[6,"Preslava's New Single",150]]
+productName,unitPrice
+[["Banana",2],["Dog",200],["My Brain",23.50],["Fresh meat",350],["Trance Music",9000],["Preslava's New Single",150]]
 
