@@ -33,7 +33,7 @@ process.on('SIGINT', function() {
 /** Order SCHEMA **/
 var orderSchema = new mongoose.Schema({
   status : String,
-  productID :  {type: Number, unique: true},
+  productID :  {type: String, unique: true},
   quantity : { type: Number, min: 0, max: 100 },
   orderDate: { type: Date, default: new Date() }
 });
