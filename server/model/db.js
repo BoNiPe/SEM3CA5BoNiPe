@@ -40,8 +40,8 @@ var orderSchema = new mongoose.Schema({
 mongoose.model( 'OrderModel', orderSchema,"orders" );
 
 /** Product SCHEMA **/
+//Add description .
 var productSchema = new mongoose.Schema({
-  productID :  {type: Number, unique: true},
   productName : String,
   unitPrice : { type: Number, min: 0, max: 10000 }
 });

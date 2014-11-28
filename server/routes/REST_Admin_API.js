@@ -5,6 +5,10 @@ var OrderDataLayerModel = require('../model/OrderDataLayer');
 var ProductDataLayerModel = require('../model/ProductDataLayer');
 var PaymentDataLayerModel = require('../model/PaymentDataLayer');
 
+//see all users, see all user details, create new admin user etc. customer <<
+//***additional : change see user details (also admin should see all users details + change see delete
+//lasted added Products
+
 router.get('/order', function (req, res) {
     if (typeof global.mongo_error !== "undefined") {
         res.status(500);
