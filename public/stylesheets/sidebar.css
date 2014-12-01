@@ -163,3 +163,8 @@ ul li a {
     padding: 10px 20px;
     text-decoration: none;
 }
+
+.content{
+    padding-left: 300px;
+    padding-top: 50px;
+}
