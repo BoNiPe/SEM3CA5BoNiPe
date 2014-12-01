@@ -5,6 +5,8 @@
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css"/>
   <link rel="stylesheet" href="../vendor/bootstrap/dist/css/bootstrap.css">
+  <link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="stylesheets/sidebar.css">
 </head>
 <body >
 
@@ -51,9 +53,40 @@
     </div>
   </nav>
 
-  <div class="container">
-    <div class="alert alert-danger" role="alert" ng-show="error">{{error}}</div>
-    <div ng-view="ng-view"></div>
+  <div class="nav-side-menu">
+    <hr>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content" ></i>
+
+    <div class="menu-list">
+      <!--<div class="col-sm-1">-->
+
+      <ul class="brand">
+        <li><a href="#">Stock</a></li>
+        <li><a href="#">Orders</a></li>
+        <li><a href="#">Users</a></li>
+      </ul>
+      </div>
+      </div>
+  </div>
+
+  <!--<div class="nav-side-menu">-->
+    <!--<div class="row">-->
+      <!--<div class="col-sm-2">-->
+        <!--<ul id="sidebar" class="nav nav-stacked affix">-->
+          <!--<li><a href="#">Stock</a></li>-->
+          <!--<li><a href="#">Orders</a></li>-->
+          <!--<li><a href="#">Users</a></li>-->
+        <!--</ul>-->
+      <!--</div>-->
+
+          <div class="alert alert-danger" role="alert" ng-show="error">{{error}}</div>
+
+      <!--<div class="col-sm-7">-->
+        <div class="row">
+          <!--<div class="col col-sm-2">-->
+          <div class="well"><div ng-view="ng-view">
+        </div>
+
   </div>
 </div>
 <script src="vendor/angular/angular.js"></script>
