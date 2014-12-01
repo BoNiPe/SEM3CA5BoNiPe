@@ -1,0 +1,11 @@
+<div class="alert alert-danger" role="alert" ng-show="error">{{error}}</div>
+<p>This is the partial for view 3.</p>
+<p>Data is fetched from a REST service, connected to MongoDB </p>
+<ul>
+  <li ng-repeat="user in users"> {{user}} </li>
+  <div class="form-group">
+    <input type=button onClick="parent.location='#/products'" value='Products' class="btn btn-primary">
+    <input type=button onClick="parent.location='#/orders'" value='Orders' class="btn btn-primary">
+  </div>
+</ul>
+</p>

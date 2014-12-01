@@ -10,7 +10,7 @@ angular.module('myAppRename', [
   'myAppRename.filters',
   'myAppRename.view1',
   'myAppRename.view2',
-  'myAppRename.view3'
+  'myAppRename.viewAdmin'
 ]).
 config(['$routeProvider', function($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/view1'});

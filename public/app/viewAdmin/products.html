@@ -1,0 +1,17 @@
+<table class="table">
+    <thead>
+    <tr>
+        <td><b>Name:</b></td>
+        <td><b>Description:</b></td>
+        <td><b>Unit Price:</b></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="product in products">
+        <td>{{product.productName}}</td>
+        <td>{{product.productDescription}}</td>
+        <td>{{product.unitPrice}}</td>
+    </tr>
+    </tbody>
+</table>
+<input type=button onClick="parent.location='#/adminHome'" value='AdminMain' class="btn btn-primary">

@@ -1,0 +1,19 @@
+<table class="table">
+    <thead>
+    <tr>
+        <td><b>Status:</b></td>
+        <td><b>Product ID:</b></td>
+        <td><b>Quantity:</b></td>
+        <td><b>Order Date:</b></td>
+    </tr>
+    </thead>
+    <tbody>
+    <tr ng-repeat="order in orders">
+        <td>{{order.status}}</td>
+        <td>{{order.productID}}</td>
+        <td>{{order.quantity}}</td>
+        <td>{{order.orderDate}}</td>
+    </tr>
+    </tbody>
+</table>
+<input type=button onClick="parent.location='#/adminHome'" value='AdminMain' class="btn btn-primary">

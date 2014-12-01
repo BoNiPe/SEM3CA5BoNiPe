@@ -58,8 +58,8 @@ mongoose.model( 'PaymentModel', paymentSchema,"payments" );
 /** Starting version User schema**/
 var usersSchema = new mongoose.Schema({
   userName : String,
-  email: {type: String, unique: true},
-  pw: String,
+  password: String,
+  type : String,
   created: { type: Date, default: new Date() }
 });
 mongoose.model( 'User', usersSchema,"testusers" );
