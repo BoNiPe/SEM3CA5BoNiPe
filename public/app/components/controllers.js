@@ -108,7 +108,6 @@ angular.module('myAppRename.controllers', []).
             url: 'adminApi/order/' + $location.path().split("/")[2]
         }).
             success(function (data, status, headers, config) {
-                console.log('hello');
                 $scope.orderInformation = data;
             }).
             error(function (data, status, headers, config) {

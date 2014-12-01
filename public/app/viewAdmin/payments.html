@@ -9,18 +9,25 @@
     </thead>
     <tbody>
     <tr ng-repeat="payment in payments  | orderBy:predicate:reverse">
-        <td>{{payment.orderID}}</td>
+        <td>
+            <a href="#/orders/{{payment._id}}">
+                <button type="button" class="btn btn-default btn-sm">
+                    <span class="glyphicon glyphicon-info-sign" aria-hidden="true"
+                          href="#/orders/{{payment._id}}"></span>
+                    {{payment.orderID}}
+                </button>
+            </a>
+        </td>
         <td>{{payment.paymentAmount}}</td>
         <td>{{payment.paymentDate}}</td>
         <td>
-            <button type="button" class="btn btn-default btn-sm" href="#/adminHome"
-                    ng-click="deleteUser(user.userName)">
+            <button type="button" class="btn btn-default btn-sm">
                 <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit
             </button>
             <font size="5">|</font>
-        <button type="button" class="btn btn-default btn-sm" href="#/adminHome" ng-click="deleteUser(user.userName)">
-            <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
-        </button>
+            <button type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+            </button>
         </td>
     </tr>
     </tbody>
