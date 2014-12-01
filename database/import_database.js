@@ -35,6 +35,7 @@ function getProducts() {
     return products.map(function (e) {
         return {
             productName: e.productName,
+            productDescription : e.productDescription,
             unitPrice: e.unitPrice
         };
     });

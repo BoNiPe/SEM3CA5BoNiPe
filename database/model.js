@@ -12,6 +12,7 @@ exports.OrderModel = mongoose.model('order', orderSchema);
 /** Product SCHEMA **/
 var productSchema = new mongoose.Schema({
     productName : String,
+    productDescription : String,
     unitPrice : { type: Number, min: 0, max: 10000 }
 });
 exports.ProductModel = mongoose.model('product', productSchema);

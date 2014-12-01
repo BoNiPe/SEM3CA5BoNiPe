@@ -28,7 +28,7 @@ process.on('SIGINT', function() {
   mongoose.connection.close(function () {
     console.log('Mongoose disconnected through app termination');
     process.exit(0);
-  });
+  }); 
 });
 /** Order SCHEMA **/
 var orderSchema = new mongoose.Schema({
@@ -43,6 +43,7 @@ mongoose.model( 'OrderModel', orderSchema,"orders" );
 //Add description
 var productSchema = new mongoose.Schema({
   productName : String,
+  productDescription : String,
   unitPrice : { type: Number, min: 0, max: 10000 }
 });
 mongoose.model( 'ProductModel', productSchema,"products" );
