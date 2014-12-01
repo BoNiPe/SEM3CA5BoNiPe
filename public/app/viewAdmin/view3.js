@@ -14,6 +14,14 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
             .when('/orders', {
                 templateUrl: 'app/viewAdmin/orders.html',
                 controller: 'OrdersController'
+            })
+            .when('/orders/:id', {
+                templateUrl: 'app/viewAdmin/particularOrder.html',
+                controller: 'OrderDetailsController'
+            })
+            .when('/payments', {
+                templateUrl: 'app/viewAdmin/payments.html',
+                controller: 'PaymentsController'
             });
     }])
 

@@ -100,6 +100,38 @@ angular.module('myAppRename.controllers', []).
                 }
                 $scope.error = data;
             });
+    })
+
+    .controller('OrderDetailsController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+        $http({
+            method: 'GET',
+            url: 'adminApi/order/' + $location.path().split("/")[2]
+        }).
+            success(function (data, status, headers, config) {
+                console.log('hello');
+                $scope.orderInformation = data;
+            }).
+            error(function (data, status, headers, config) {
+                $scope.error = data;
+            });
+    }])
+
+    .controller('PaymentsController', function ($scope, $http) {
+        $http({
+            method: 'GET',
+            url: 'adminApi/payment'
+        }).
+            success(function (data, status, headers, config) {
+                $scope.payments = data;
+                $scope.error = null;
+            }).
+            error(function (data, status, headers, config) {
+                if (status == 401) {
+                    $scope.error = "You are not authenticated to request these data";
+                    return;
+                }
+                $scope.error = data;
+            });
     });
 
 

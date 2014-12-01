@@ -1,6 +1,7 @@
 <table class="table">
     <thead>
     <tr>
+        <td><b>Order:</b></td>
         <td><b>Status:</b></td>
         <td><b>Product ID:</b></td>
         <td><b>Quantity:</b></td>
@@ -9,6 +10,7 @@
     </thead>
     <tbody>
     <tr ng-repeat="order in orders">
+        <td><a href="#/orders/{{order._id}}">click</a></td>
         <td>{{order.status}}</td>
         <td>{{order.productID}}</td>
         <td>{{order.quantity}}</td>
