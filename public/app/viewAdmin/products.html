@@ -1,26 +1,15 @@
-<table class="table">
-    <thead>
-    <tr>
-        <td><b>Name:</b></td>
-        <td><b>Description:</b></td>
-        <td><b>Unit Price:</b></td>
-    </tr>
-    </thead>
-    <tbody>
-    <tr ng-repeat="product in products">
-        <td>{{product.productName}}</td>
-        <td>{{product.productDescription}}</td>
-        <td>{{product.unitPrice}}</td>
-        <td>
-            <a href="#/products/order/{{product._id}}">
-                <button type="button" class="btn btn-default btn-sm" ng-click="saveProduct(product)">
+</accordion>
+<accordion close-others="true">
+    <accordion-group ng-repeat="product in products">
+        <accordion-heading>{{product.productName}}</accordion-heading>
+        <b>Description : </b><p>{{product.productDescription}}</p>
+        <b>Price per unit : </b><p>{{product.unitPrice}}</p>
+        <a href="#/products/order/{{product._id}}">
+            <button type="button" class="btn btn-default btn-sm" ng-click="saveProduct(product)">
                     <span class="glyphicon glyphicon-plus" aria-hidden="true"
                           href="#/product/order"></span>
-                    Order This Product Now!
-                </button>
-            </a>
-        </td>
-    </tr>
-    </tbody>
-</table>
-<input type=button onClick="parent.location='#/adminHome'" value='AdminMain' class="btn btn-primary">
+                Order This Product Now!
+            </button>
+        </a>
+    </accordion-group>
+</accordion>

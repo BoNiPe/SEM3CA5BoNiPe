@@ -5,6 +5,9 @@
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css"/>
   <link rel="stylesheet" href="../vendor/bootstrap/dist/css/bootstrap.css">
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body >
 
@@ -27,6 +30,7 @@
           <li><a href="#/viewCustomer">Users only (students)</a></li>
           <!--<li><a href="#/view3" ng-show="isAdmin">Admins only (teachers)</a></li>-->
           <li><a href="#/adminHome" >Admins only (teachers)</a></li>
+          <li><a href="#/basket" >Basket</a></li>
         </ul>
 
         <form class="navbar-form navbar-right" role="form" ng-show="!isAuthenticated" ng-submit="submit()">
@@ -59,7 +63,7 @@
 <script src="vendor/angular-route/angular-route.js"></script>
 <script src="app/app.js"></script>
 <script src="app/viewHome/view1.js"></script>
-<script src="app/viewCustomer/view2.js"></script>
+<script src="app/viewCustomer/viewCustomer.js"></script>
 <script src="app/viewAdmin/view3.js"></script>
 <script src="app/components/controllers.js"></script>
 <script src="app/components/directives.js"></script>

@@ -5,10 +5,14 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
   .config(['$routeProvider', function ($routeProvider) {
     $routeProvider.when('/viewCustomer', {
       templateUrl: 'app/viewCustomer/view2.html',
-      controller: 'View2Ctrl'
-    });
+      controller: 'CustomerController'
+    })
+      $routeProvider.when('/basket', {
+        templateUrl: 'app/viewCustomer/basket.html',
+        controller: 'BasketController'
+      });
   }])
-  .controller('View2Ctrl', ['$scope', '$http', function ($scope, $http) {
+  .controller('CustomerController', ['$scope', '$http', function ($scope, $http) {
     $http({
       method: 'GET',
       url: 'userApi/test'
@@ -24,4 +28,7 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
         }
         $scope.error = data;
       });
-  }]);
+  }])
+    .controller('BasketController', ['$scope', '$http', 'ProductInfoSaver', function ($scope, $http, ProductInfoSaver) {
+        $scope.productsToOrder = ProductInfoSaver.getInfo();
+    }]);

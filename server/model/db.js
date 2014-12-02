@@ -32,17 +32,18 @@ process.on('SIGINT', function() {
 });
 /** Order SCHEMA **/
 var orderSchema = new mongoose.Schema({
-  status : String,
+  status : {type: String, default: "Pending"},
   productID :  {type: String, unique: true},
   quantity : { type: Number, min: 0, max: 100 },
-  orderDate: { type: Date, default: new Date() }
+  orderDate: { type: Date, default: new Date() },
+  userAlias: {type: String, unique: true}
 });
 mongoose.model( 'OrderModel', orderSchema,"orders" );
 
 /** Product SCHEMA **/
 //Add description
 var productSchema = new mongoose.Schema({
-  productName : String,
+  productName : {type: String, unique: true},
   productDescription : String,
   unitPrice : { type: Number, min: 0, max: 10000 }
 });
