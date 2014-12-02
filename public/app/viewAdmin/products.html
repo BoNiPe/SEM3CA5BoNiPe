@@ -11,6 +11,15 @@
         <td>{{product.productName}}</td>
         <td>{{product.productDescription}}</td>
         <td>{{product.unitPrice}}</td>
+        <td>
+            <a href="#/products/order/{{product._id}}">
+                <button type="button" class="btn btn-default btn-sm" ng-click="saveProduct(product)">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"
+                          href="#/product/order"></span>
+                    Order This Product Now!
+                </button>
+            </a>
+        </td>
     </tr>
     </tbody>
 </table>

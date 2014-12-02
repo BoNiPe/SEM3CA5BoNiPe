@@ -28,7 +28,18 @@ angular.module('myAppRename.factories', []).
         return $q.reject(rejection);
       }
     };
-  });
+  })
 
-
-;
+    .factory('ProductInfoSaver', function () {
+      var info;
+      var getInfo = function getInfo() {
+        return info;
+      }
+      var setUser = function(newProduct) {
+        info = newProduct;
+      }
+      return {
+        setInfo: setUser,
+        getInfo: getInfo
+      }
+    });

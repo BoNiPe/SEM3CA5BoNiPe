@@ -20,7 +20,4 @@ function getParticularAdmin(id, callback){
 
 }
 
-
-
-
 module.exports.getParticularAdmin = getParticularAdmin;

@@ -66,23 +66,23 @@ angular.module('myAppRename.controllers', []).
         // write MyCtrl2 here
     })
 
-    .controller('ProductsController', function ($scope, $http) {
+    .controller('ProductsController', ['$scope', '$http', 'ProductInfoSaver', function ($scope, $http, ProductInfoSaver) {
         $http({
             method: 'GET',
             url: 'adminApi/product'
         }).
             success(function (data, status, headers, config) {
                 $scope.products = data;
-                $scope.error = null;
             }).
             error(function (data, status, headers, config) {
-                if (status == 401) {
-                    $scope.error = "You are not authenticated to request these data";
-                    return;
-                }
                 $scope.error = data;
             });
-    })
+
+        $scope.saveProduct = function (chosenProduct){
+
+            ProductInfoSaver.setInfo(chosenProduct);
+        }
+    }])
 
     .controller('OrdersController', function ($scope, $http) {
         $http({
@@ -115,6 +115,28 @@ angular.module('myAppRename.controllers', []).
             });
     }])
 
+    .controller('OrderProductController', ['$scope', '$http', 'ProductInfoSaver', function ($scope, $http, ProductInfoSaver) {
+        console.log(ProductInfoSaver.getInfo());
+        $scope.chosenProduct = ProductInfoSaver.getInfo();
+        $scope.newOrder = {};
+
+        $scope.postWiki = function () {
+            console.log(JSON.stringify($scope.newOrder));
+            var postWiki = $scope.newOrder;
+            $http({
+                method: 'POST',
+                url: 'api/product',
+                data: postWiki
+            }).
+                success(function (data, status, headers, config) {
+                    $scope.users = data;
+                }).
+                error(function (data, status, headers, config) {
+                    $scope.error = data;
+                });
+        }
+    }])
+
     .controller('PaymentsController', function ($scope, $http) {
         $http({
             method: 'GET',
@@ -132,6 +154,3 @@ angular.module('myAppRename.controllers', []).
                 $scope.error = data;
             });
     });
-
-
-
