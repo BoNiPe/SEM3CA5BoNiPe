@@ -2,6 +2,7 @@
 <project version="4">
   <component name="JavaScriptLibraryMappings">
     <file url="file://$PROJECT_DIR$" libraries="{ExpressAngularSeed node_modules}" />
+    <file url="file://$PROJECT_DIR$/public/index.html" libraries="{ui-bootstrap-tpls-0.12.0}" />
     <file url="file://$PROJECT_DIR$/server/model/OrderDataLayer.js" libraries="{angularjs-DefinitelyTyped, express-DefinitelyTyped, mongoose-DefinitelyTyped, node-DefinitelyTyped}" />
     <file url="file://$PROJECT_DIR$/server/routes/REST_Admin_API.js" libraries="{angularjs-DefinitelyTyped, express-DefinitelyTyped, node-DefinitelyTyped}" />
     <file url="file://$PROJECT_DIR$/test/backend-tests/REST_Admin_API_Tests.js" libraries="{angularjs-DefinitelyTyped, express-DefinitelyTyped, mongoose-DefinitelyTyped, node-DefinitelyTyped}" />

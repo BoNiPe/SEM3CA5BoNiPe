@@ -67,6 +67,7 @@ angular.module('myAppRename.controllers', []).
     })
 
     .controller('ProductsController', ['$scope', '$http', 'ProductInfoSaver', function ($scope, $http, ProductInfoSaver) {
+
         $http({
             method: 'GET',
             url: 'adminApi/product'
@@ -78,9 +79,11 @@ angular.module('myAppRename.controllers', []).
                 $scope.error = data;
             });
 
-        $scope.saveProduct = function (chosenProduct){
-
-            ProductInfoSaver.setInfo(chosenProduct);
+        $scope.saveProduct = function (productName, productAmount){
+            $scope.productToBasket = {productName: productName,
+            productAmount: productAmount};
+            console.log('hello: '+$scope.productToBasket.productName + ' and amount ' + $scope.productToBasket.productAmount);
+            //ProductInfoSaver.setInfo(chosenProduct);
         }
     }])
 

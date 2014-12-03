@@ -5,7 +5,8 @@
         <p>Your products are:</p>
     </div>
     <table class="table">
-        <td>{{productsToOrder.productName}}</td>
-        <td>{{productsToOrder.productDescription}}</td>
+        <tr ng-repeat="product in productsToOrder">
+        <td>{{product.productName}}</td>
+        <td>{{product.productDescription}}</td>
     </table>
 </div>

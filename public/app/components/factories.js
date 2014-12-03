@@ -31,12 +31,12 @@ angular.module('myAppRename.factories', []).
   })
 
     .factory('ProductInfoSaver', function () {
-      var info;
+      var info = new Array();
       var getInfo = function getInfo() {
         return info;
       }
       var setUser = function(newProduct) {
-        info = newProduct;
+        info.push(newProduct);
       }
       return {
         setInfo: setUser,
