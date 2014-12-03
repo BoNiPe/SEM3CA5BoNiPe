@@ -11,10 +11,6 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
                 templateUrl: 'app/viewAdmin/products.html',
                 controller: 'ProductsController'
             })
-            .when('/products/order/:productID', {
-                templateUrl: 'app/viewAdmin/OrderProduct.html',
-                controller: 'OrderProductController'
-            })
             .when('/orders', {
                 templateUrl: 'app/viewAdmin/orders.html',
                 controller: 'OrdersController'

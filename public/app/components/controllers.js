@@ -62,10 +62,6 @@ angular.module('myAppRename.controllers', []).
         }
     })
 
-    .controller('MyCtrl2', function ($scope) {
-        // write MyCtrl2 here
-    })
-
     .controller('ProductsController', ['$scope', '$http', 'ProductInfoSaver', function ($scope, $http, ProductInfoSaver) {
 
         $http({
@@ -79,11 +75,15 @@ angular.module('myAppRename.controllers', []).
                 $scope.error = data;
             });
 
-        $scope.saveProduct = function (productName, productAmount){
-            $scope.productToBasket = {productName: productName,
-            productAmount: productAmount};
-            console.log('hello: '+$scope.productToBasket.productName + ' and amount ' + $scope.productToBasket.productAmount);
-            //ProductInfoSaver.setInfo(chosenProduct);
+        $scope.saveProduct = function (product, productAmount) {
+            var productToBasket = {
+                productID: product._id,
+                productName: product.productName,
+                productAmount: productAmount,
+                productPrice: productAmount * product.unitPrice
+            };
+            ProductInfoSaver.setInfo(productToBasket);
+            window.location = "#/basket";
         }
     }])
 
@@ -116,28 +116,6 @@ angular.module('myAppRename.controllers', []).
             error(function (data, status, headers, config) {
                 $scope.error = data;
             });
-    }])
-
-    .controller('OrderProductController', ['$scope', '$http', 'ProductInfoSaver', function ($scope, $http, ProductInfoSaver) {
-        console.log(ProductInfoSaver.getInfo());
-        $scope.chosenProduct = ProductInfoSaver.getInfo();
-        $scope.newOrder = {};
-
-        $scope.postWiki = function () {
-            console.log(JSON.stringify($scope.newOrder));
-            var postWiki = $scope.newOrder;
-            $http({
-                method: 'POST',
-                url: 'api/product',
-                data: postWiki
-            }).
-                success(function (data, status, headers, config) {
-                    $scope.users = data;
-                }).
-                error(function (data, status, headers, config) {
-                    $scope.error = data;
-                });
-        }
     }])
 
     .controller('PaymentsController', function ($scope, $http) {
