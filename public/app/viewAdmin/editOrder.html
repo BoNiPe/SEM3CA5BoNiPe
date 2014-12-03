@@ -1,0 +1,17 @@
+<div class="col-md-5" style="border: thin lightblue solid; border-radius: 5px;padding: 1em;">
+    <form class="form-horizontal">
+        <fieldset >
+            <legend style="color:darkblue;">Edit status of order</b></b></legend>
+            <div class="form-group">
+                <label for="status" class="control-label col-xs-3"><span class="label label-info">Status</span></label>
+                <div class="col-xs-9">
+                    <input type="text" class="form-control" ng-model="order.status" id="status" placeholder="INSERT STATUS">
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+    <div class="form-group">
+        <button href=""  type="submit" ng-click="editStatus(order.status)" class="btn btn-primary">Save</button>
+    </div>
+</div>

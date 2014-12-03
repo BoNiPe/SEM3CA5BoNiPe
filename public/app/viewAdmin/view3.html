@@ -4,6 +4,7 @@
 <ul>
   <li ng-repeat="user in users"> {{user}} </li>
   <div class="form-group">
+    <input type=button onClick="parent.location='#/control/products'" value='CONTROL Products' class="btn btn-primary">
     <input type=button onClick="parent.location='#/products'" value='Products' class="btn btn-primary">
     <input type=button onClick="parent.location='#/orders'" value='Orders' class="btn btn-primary">
     <input type=button onClick="parent.location='#/payments'" value='Payments' class="btn btn-primary">

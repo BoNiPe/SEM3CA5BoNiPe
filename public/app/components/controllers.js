@@ -62,7 +62,7 @@ angular.module('myAppRename.controllers', []).
         }
     })
 
-    .controller('ProductsController', ['$scope', '$http', 'ProductInfoSaver', function ($scope, $http, ProductInfoSaver) {
+    .controller('ProductsController', ['$scope', '$http', 'ProductInfoSaver','editParticularProduct', function ($scope, $http, ProductInfoSaver, editParticularProduct) {
 
         $http({
             method: 'GET',
@@ -75,7 +75,7 @@ angular.module('myAppRename.controllers', []).
                 $scope.error = data;
             });
 
-        $scope.saveProduct = function (product, productAmount) {
+        $scope.addProductToBasket = function (product, productAmount) {
             var productToBasket = {
                 productID: product._id,
                 productName: product.productName,
@@ -84,6 +84,16 @@ angular.module('myAppRename.controllers', []).
             };
             ProductInfoSaver.setInfo(productToBasket);
             window.location = "#/basket";
+        }
+
+        $scope.editProduct = function (product) {
+            editParticularProduct.setProduct(product);
+            window.location = "#/control/products/" + product.productID;
+        }
+
+        $scope.deleteProduct = function (product) {
+            $http.delete('adminApi/product/' + product._id, product);
+            window.location = "#/viewHome"
         }
     }])
 

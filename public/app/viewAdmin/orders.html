@@ -1,20 +1,30 @@
 <table class="table">
     <thead>
     <tr>
-        <td><b>Order:</b></td>
-        <td><b>Status:</b></td>
-        <td><b>Product ID:</b></td>
-        <td><b>Quantity:</b></td>
-        <td><b>Order Date:</b></td>
+        <td><b><a href="" ng-click="predicate = 'userAlias'; reverse=!reverse">Alias:</a></b></td>
+        <td><b><a href="" ng-click="predicate = 'status'; reverse=!reverse">Status:</a></b></td>
+        <td><b><a href="" ng-click="predicate = 'productID'; reverse=!reverse">Product ID:</a></b></td>
+        <td><b><a href="" ng-click="predicate = 'quantity'; reverse=!reverse">Quantity:</a></b></td>
+        <td><b><a href="" ng-click="predicate = 'orderDate'; reverse=!reverse">Order Date:</a></b></td>
+        <td><b>Functionality:</b></td>
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="order in orders">
-        <td><a href="#/orders/{{order._id}}">click</a></td>
-        <td>{{order.status}}</td>
+    <tr ng-repeat="order in orders | orderBy:predicate:reverse">
+        <td>{{order.userAlias}}</td>
+        <td><a href="#/orders/{{order._id}}">{{order.status}}</a></td>
         <td>{{order.productID}}</td>
         <td>{{order.quantity}}</td>
-        <td>{{order.orderDate}}</td>
+        <td>{{order.orderDate | date:'medium'}}</td>
+        <td>
+            <button type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit
+            </button>
+            <font size="5">|</font>
+            <button type="button" class="btn btn-default btn-sm">
+                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+            </button>
+        </td>
     </tr>
     </tbody>
 </table>

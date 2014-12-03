@@ -38,8 +38,45 @@ angular.module('myAppRename.factories', []).
       var setUser = function(newProduct) {
         info.push(newProduct);
       }
+      var changeList = function(newList) {
+        info = newList;
+      }
+      var deleteFromList = function(deleteOrder){
+        var index = info.indexOf(deleteOrder);
+        info.splice(index,1);
+      }
       return {
         setInfo: setUser,
-        getInfo: getInfo
+        getInfo: getInfo,
+        changeList : changeList,
+        deleteFromList : deleteFromList
+      }
+    })
+
+    .factory('editParticularProduct', function () {
+      var curProduct;
+      var getProduct = function() {
+        return curProduct;
+      }
+      var setProduct = function(product) {
+        curProduct = product
+      }
+      return {
+        setProduct: setProduct,
+        getProduct: getProduct
+      }
+    })
+
+    .factory('editParticularOrder', function () {
+      var curOrder;
+      var getOrder = function() {
+        return curOrder;
+      }
+      var setOrder = function(order) {
+        curOrder = order
+      }
+      return {
+        setInfo: setOrder,
+        getInfo: getOrder
       }
     });

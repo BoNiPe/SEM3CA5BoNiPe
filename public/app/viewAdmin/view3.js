@@ -7,9 +7,13 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
             templateUrl: 'app/viewAdmin/view3.html',
             controller: 'AdminHomeController'
         })
-            .when('/products', {
+            .when('/control/products', {
                 templateUrl: 'app/viewAdmin/products.html',
                 controller: 'ProductsController'
+            })
+            .when('/control/products/:id', {
+                templateUrl: 'app/viewAdmin/editProduct.html',
+                controller: 'EditProductController'
             })
             .when('/orders', {
                 templateUrl: 'app/viewAdmin/orders.html',
@@ -41,7 +45,16 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
                 }
                 $scope.error = data;
             });
-    });
+    })
+
+    .controller('EditProductController', ['$scope', '$http', 'editParticularProduct', function ($scope, $http, editParticularProduct) {
+        $scope.toBeEditedProduct = editParticularProduct.getProduct();
+        $scope.saveChangesofProduct = function (product) {
+            console.log('Hello my product is : ' + product.productName);
+                $http.put('adminApi/product/' + product._id, product);
+            window.location = "#/control/products";
+        }
+    }]);
 
 
 

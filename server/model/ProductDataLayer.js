@@ -42,8 +42,6 @@ function removeProduct(productID, callback) {
 function updateProduct(productID,productObject, callback) {
     productModel.findOneAndUpdate({_id: productID},productObject ,function (err, productData) {
         if (err) {
-            res.status(err.status || 500);
-            res.end(JSON.stringify({error: err.toString()}));
             callback(err,null)
         }
         callback(null, productData);

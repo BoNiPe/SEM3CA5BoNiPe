@@ -7,10 +7,18 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             templateUrl: 'app/viewCustomer/view2.html',
             controller: 'CustomerController'
         })
-        $routeProvider.when('/basket', {
-            templateUrl: 'app/viewCustomer/basket.html',
-            controller: 'BasketController'
-        });
+            .when('/basket', {
+                templateUrl: 'app/viewCustomer/basket.html',
+                controller: 'BasketController'
+            })
+            .when('/editOrder', {
+                templateUrl: 'app/viewCustomer/editOrder.html',
+                controller: 'EditOrderController'
+            })
+            .when('/products', {
+                templateUrl: 'app/viewCustomer/products.html',
+                controller: 'ProductsController'
+            });
     }])
     .controller('CustomerController', ['$scope', '$http', function ($scope, $http) {
         $http({
@@ -29,14 +37,25 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                 $scope.error = data;
             });
     }])
-    .controller('BasketController', ['$scope', '$http', 'ProductInfoSaver', function ($scope, $http, ProductInfoSaver) {
-        $scope.productsToOrder = ProductInfoSaver.getInfo();
+    .controller('BasketController', ['$scope', '$http', 'ProductInfoSaver', 'editParticularOrder', function ($scope, $http, ProductInfoSaver, editParticularOrder) {
+        $scope.currentOrders = ProductInfoSaver.getInfo();
+        $scope.editOrder = function (order) {
+            console.log('order: ' + order);
+            editParticularOrder.setInfo(order);
+            window.location = "#/editOrder";
+        };
+
+        $scope.deleteOrder = function (order) {
+            console.log('order: ' + order);
+            ProductInfoSaver.deleteFromList(order);
+        };
+
         $scope.postOrders = function () {
             var toBePushed = new Array();
-            for (var i = 0; i < $scope.productsToOrder.length; i++) {
+            for (var i = 0; i < $scope.currentOrders.length; i++) {
                 var objectToBePushed = {
-                    productID: $scope.productsToOrder[i].productID,
-                    quantity: $scope.productsToOrder[i].productAmount,
+                    productID: $scope.currentOrders[i].productID,
+                    quantity: $scope.currentOrders[i].productAmount,
                     userAlias: "bobkoo"
                 };
                 $http({
@@ -45,7 +64,7 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                     data: objectToBePushed
                 }).
                     success(function (data, status, headers, config) {
-                        $scope.users = data;
+                        $scope.success = data;
                     }).
                     error(function (data, status, headers, config) {
                         $scope.error = data;
@@ -53,4 +72,20 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                 objectToBePushed = {}
             }
         }
+    }])
+
+    .controller('EditOrderController', ['$scope', '$http', 'ProductInfoSaver', 'editParticularOrder', function ($scope, $http, ProductInfoSaver, editParticularOrder) {
+        var allOrders = ProductInfoSaver.getInfo();
+        $scope.orderToEdit = editParticularOrder.getInfo();
+
+        $scope.editBasket = function (quantity) {
+            for (var i = 0; i < allOrders.length; i++) {
+                if (allOrders[i].productID === $scope.orderToEdit.productID) {
+                    allOrders[i].productAmount = quantity;
+                }
+            }
+            ProductInfoSaver.changeList(allOrders);
+            window.location = "#/basket";
+        }
+
     }]);

@@ -1,50 +1,16 @@
 <div class="col-md-5" style="border: thin lightblue solid; border-radius: 5px;padding: 1em;">
     <form class="form-horizontal">
         <fieldset >
-            <legend style="color:darkblue;">Make a new order for Product: <b>{{chosenProduct.productName}}</b></legend>
+            <legend style="color:darkblue;">Edit Order for Product: <b>{{orderToEdit.productName}}</b></b></legend>
             <div class="form-group">
-                <label for="title" class="control-label col-xs-3" ><span class="label label-info">Title</span></label>
+                <label for="quantity" class="control-label col-xs-3"><span class="label label-info">Quantity</span></label>
                 <div class="col-xs-9">
-                    <input type="text" class="form-control" ng-model="newWiki.title" id="title" placeholder="INSERT TITLE">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="url" class="control-label col-xs-3"><span class="label label-info">Url</span></label>
-                <div class="col-xs-9">
-                    <input type="text" class="form-control" ng-model="newWiki.url" id="url" placeholder="INSERT URL">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="abstract" class="control-label col-xs-3"><span class="label label-info">Abstract</span></label>
-                <div class="col-xs-9">
-                    <!--<input type="text" class="form-control" ng-model="newWiki.abstract" id="abstract" placeholder="INSERT ABSTRACT">-->
-                    <textarea ng-model="newWiki.abstract" class="form-control" id="abstract" placeholder="INSERT ABSTRACT" rows="3"></textarea>
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="headings" class="control-label col-xs-3"><span class="label label-info">Heading</span></label>
-                <div class="col-xs-9">
-                    <input type="text" class="form-control" ng-model="newWiki.headings.heading" id="headings" placeholder="INSERT HEADINGS">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="links" class="control-label col-xs-3"><span class="label label-info">Links</span></label>
-                <div class="col-xs-9">
-                    <input type="text" class="form-control" ng-model="newWiki.links" id="links" placeholder="INSERT LINKS">
-                </div>
-            </div>
-            <div class="form-group">
-                <label for="categories" class="control-label col-xs-3"><span class="label label-info">Categories</span></label>
-                <div class="col-xs-9">
-                    <input type="text" class="form-control" ng-model="newWiki.categories" id="categories" placeholder="INSERT CATEGORIES">
+                    <input type="text" class="form-control" ng-model="orderToEdit.productAmount" id="quantity" placeholder="INSERT AMOUNT">
                 </div>
             </div>
         </fieldset>
     </form>
     <div class="form-group">
-        <button href=""  type="submit" ng-click="postWiki()" class="btn btn-primary">Save</button>
-    </div>
-    <div class="form-group">
-        <input type=button onClick="parent.location='#'" value='<<BACK' class="btn btn-primary">
+        <button href=""  type="submit" ng-click="editBasket(orderToEdit.productAmount)" class="btn btn-primary">Save</button>
     </div>
 </div>

@@ -2,24 +2,37 @@
     <!-- Default panel contents -->
     <div class="panel-heading"><b>Your basket:</b></div>
     <div class="panel-body">
-        <p>Here you can see a list of your products, you are able to remove them, edit the amount, check your final price<br/>
-            and other fancy stuff. When you press "Order ALL" your orders will be send to us and we will take care of everything :)</p>
+        <p>Here you can see a list of your products, you are able to remove them, edit the amount, check your final
+            price<br/>
+            and other fancy stuff. When you press "Order ALL" your orders will be send to us and we will take care of
+            everything :)</p>
     </div>
     <table class="table">
         <thead>
         <td><b>Product Name:</b></td>
         <td><b>Product Amount:</b></td>
         <td><b>Product Price:</b></td>
+        <td><b>Functionality:</b></td>
         </thead>
         <tbody>
-        <tr ng-repeat="product in productsToOrder">
-            <td>{{product.productName}}</td>
-            <td>{{product.productAmount}}</td>
-            <td>{{product.productPrice}}</td>
+        <tr ng-repeat="order in currentOrders">
+            <td>{{order.productName}}</td>
+            <td>{{order.productAmount}}</td>
+            <td>{{order.productPrice}}</td>
+            <td>
+                <button type="button" class="btn btn-default btn-sm" ng-click="editOrder(order)">
+                    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit
+                </button>
+                <font size="5">|</font>
+                <button type="button" class="btn btn-default btn-sm" ng-click="deleteOrder(order)">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+                </button>
+            </td>
         </tbody>
     </table>
     <div class="form-group">
         <button type="submit" ng-click="postOrders()" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>ORDER PRODUCTS</button>
+            <span class="glyphicon glyphicon-shopping-cart" aria-hidden="true"></span>ORDER PRODUCTS
+        </button>
     </div>
 </div>
