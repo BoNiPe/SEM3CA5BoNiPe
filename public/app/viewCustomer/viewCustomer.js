@@ -17,7 +17,11 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             })
             .when('/products', {
                 templateUrl: 'app/viewCustomer/products.html',
-                controller: 'ProductsController'
+                controller: 'UserProductController'
+            })
+            .when('/products/:id', {
+                templateUrl: 'app/viewCustomer/currentProduct.html',
+                controller: 'currentProductControllerUser'
             });
     }])
     .controller('CustomerController', ['$scope', '$http', function ($scope, $http) {
@@ -32,6 +36,7 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             error(function (data, status, headers, config) {
                 if (status == 401) {
                     $scope.error = "You are not authenticated to request these data";
+                    window.location = "#/viewHome";
                     return;
                 }
                 $scope.error = data;
@@ -57,11 +62,11 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                 var objectToBePushed = {
                     productID: $scope.currentOrders[i].productID,
                     quantity: $scope.currentOrders[i].productAmount,
-                    userAlias: "bobkoo"
+                    userAlias: "betaversion"
                 };
                 $http({
                     method: 'POST',
-                    url: 'adminApi/order',
+                    url: 'userApi/order',
                     data: objectToBePushed
                 }).
                     success(function (data, status, headers, config) {
@@ -72,6 +77,8 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                     });
                 objectToBePushed = {}
             }
+            ProductInfoSaver.clearList();
+            window.location = "#/viewCustomer";
         }
     }])
 
@@ -89,4 +96,42 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             window.location = "#/basket";
         }
 
+    }])
+
+    .controller('UserProductController', ['$scope', '$http', 'ProductInfoSaver','editParticularObject', function ($scope, $http, ProductInfoSaver, editParticularObject) {
+
+        $http({
+            method: 'GET',
+            url: 'userApi/product'
+        }).
+            success(function (data, status, headers, config) {
+                $scope.products = data;
+            }).
+            error(function (data, status, headers, config) {
+                $scope.error = data;
+            });
+
+        $scope.addProductToBasket = function (product, productAmount) {
+            var productToBasket = {
+                productID: product._id,
+                productName: product.productName,
+                productAmount: productAmount,
+                productPrice: productAmount * product.unitPrice
+            };
+            ProductInfoSaver.setInfo(productToBasket);
+            window.location = "#/basket";
+        }
+    }])
+
+    .controller('currentProductControllerUser', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+        $http({
+            method: 'GET',
+            url: 'userApi/product/' + $location.path().split("/")[2]
+        }).
+            success(function (data, status, headers, config) {
+                $scope.currentProduct = data;
+            }).
+            error(function (data, status, headers, config) {
+                $scope.error = data;
+            });
     }]);

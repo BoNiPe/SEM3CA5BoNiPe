@@ -45,7 +45,8 @@ mongoose.model( 'OrderModel', orderSchema,"orders" );
 var productSchema = new mongoose.Schema({
   productName : {type: String, unique: true},
   productDescription : String,
-  unitPrice : { type: Number, min: 0, max: 10000 }
+  unitPrice : { type: Number, min: 0, max: 10000 },
+  creationDate: { type: Date, default: new Date() }
 });
 mongoose.model( 'ProductModel', productSchema,"products" );
 

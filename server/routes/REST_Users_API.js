@@ -6,6 +6,62 @@ router.get('/test', function(req, res) {
     res.end('{"msg" : "Test Message, You are logged on as a User since you could fetch this data"}');
 });
 
+var OrderDataLayerModel = require('../model/OrderDataLayer');
+var ProductDataLayerModel = require('../model/ProductDataLayer');
+//var PaymentDataLayerModel = require('../model/PaymentDataLayer');
+
+router.get('/product', function (req, res) {
+    if (typeof global.mongo_error !== "undefined") {
+        res.status(500);
+        res.end("Error: " + global.mongo_error + " or with simple words : Your db's SWAG level is below 9000. Sorry");
+        return;
+    }
+    ProductDataLayerModel.getAllProducts(function (err, orderData) {
+        if (err) {
+            res.status(err.status || 400);
+            res.send(JSON.stringify({error: err.toString()}));
+            return;
+        }
+        res.header("Content-type", "application/json");
+        res.end(JSON.stringify(orderData));
+    })
+});
+
+router.get('/product/:id', function (req, res) {
+    var id = req.params.id;
+    if (typeof global.mongo_error !== "undefined") {
+        res.status(500);
+        res.end("Error: " + global.mongo_error + " or with simple words : Your db's SWAG level is below 9000. Sorry");
+        return;
+    }
+    ProductDataLayerModel.getParticularProduct(id, function (err, currentProduct) {
+        if (err) {
+            res.status(err.status || 400);
+            res.send(JSON.stringify({error: err.toString()}));
+            return;
+        }
+        res.header("Content-type", "application/json");
+        res.end(JSON.stringify(currentProduct));
+    })
+});
+
+router.post('/order', function(req,res) {
+    if (typeof global.mongo_error !== "undefined") {
+        res.status(500);
+        res.end("Error: " + global.mongo_error + " or with simple words : Your db's SWAG level is below 9000. Sorry");
+        return;
+    }
+    var createdUser = req.body;
+    OrderDataLayerModel.postOrder(createdUser, function (err, result) {
+        if (err) {
+            res.status(err.status || 400);
+            res.send(JSON.stringify({error: err.toString()}));
+            return;
+        }
+        res.header("Content-type", "application/json");
+        res.end(JSON.stringify(result));
+    })
+});
 
 //basket is only frontend, if you press confirm it will make a post request to createOrder(s)
 //getUser's orders (basket)

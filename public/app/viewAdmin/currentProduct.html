@@ -1,0 +1,23 @@
+<table class="table">
+    <tr>
+        <td>Product Name:</td>
+        <td>{{curProduct[0].productName}}</td>
+    </tr>
+    <tr>
+        <td>Product Description: </td>
+        <td>{{curProduct[0].productDescription}}</td>
+    </tr>
+    <tr>
+        <td>Unit Price: </td>
+        <td>{{curProduct[0].unitPrice}}</td>
+    </tr>
+    <tr>
+        <td>Creation Date:</td>
+        <td>{{curProduct[0].creationDate | date:'medium'}}</td>
+    </tr>
+</table>
+<a href="#/control/orders">
+    <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Go To Products
+    </button>
+</a>

@@ -45,11 +45,15 @@ angular.module('myAppRename.factories', []).
         var index = info.indexOf(deleteOrder);
         info.splice(index,1);
       }
+      var clearList = function(){
+        info = new Array();
+      }
       return {
         setInfo: setUser,
         getInfo: getInfo,
         changeList : changeList,
-        deleteFromList : deleteFromList
+        deleteFromList : deleteFromList,
+        clearList : clearList
       }
     })
 

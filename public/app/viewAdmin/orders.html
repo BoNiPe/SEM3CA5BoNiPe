@@ -15,7 +15,7 @@ Find your treasure in our chamber : <input type="search" ng-model="orderfilter" 
     <tbody>
     <tr ng-repeat="order in orders | filter: orderfilter | orderBy:predicate:reverse">
         <td>{{order.userAlias}}</td>
-        <td><a href="#/orders/{{order._id}}">{{order.status}}</a></td>
+        <td><a href="#/control/orders/particular/{{order._id}}">{{order.status}}</a></td>
         <td>{{order.productID}}</td>
         <td>{{order.quantity}}</td>
         <td>{{order.orderDate | date:'medium'}}</td>

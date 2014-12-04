@@ -1,0 +1,23 @@
+<table class="table">
+    <tr>
+        <td>Product ID</td>
+        <td>{{curOrder[0].productID}}</td>
+    </tr>
+    <tr>
+        <td>Quantity</td>
+        <td>{{curOrder[0].quantity}}</td>
+    </tr>
+    <tr>
+        <td>Ordered by: </td>
+        <td>{{curOrder[0].userAlias}}</td>
+    </tr>
+    <tr>
+        <td>Order Date:</td>
+        <td>{{curOrder[0].orderDate | date:'medium'}}</td>
+    </tr>
+</table>
+<a href="#/control/orders">
+    <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Go To Products
+    </button>
+</a>
