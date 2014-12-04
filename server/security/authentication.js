@@ -1,23 +1,14 @@
-var http = require('http');
-function getParticularAdmin(id, callback){
+var request = require('request');
+
+function getParticularAdmin(username,password, callback){
     console.log('I did it, Yoda!');
-//The url we want is: 'www.random.org/integers/?num=1&min=1&max=10&col=1&base=10&format=plain&rnd=new'
-    var options = {
-        host: 'localhost:8080',
-        path: '/admin/'+id
-    };
-    var callbackx = function(response) {
-        var str = '';
-        //the whole response has been recieved, so we just print it out here
-        response.on('end', function (data) {
-            str += data;
-            console.log(str);
-            callback(null, str);
-        });
-    }
-    http.request(options, callbackx).end();
+    console.log('USERNAME '+username);
+    console.log('PSW '+password);
 
-
+    request('http://localhost:8080/admin/'+username+'/'+password, function(error, response, body){
+        if(error) callback(error);
+        else callback(null, body);
+    });
 }
 
 module.exports.getParticularAdmin = getParticularAdmin;
