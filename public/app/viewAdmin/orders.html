@@ -1,3 +1,6 @@
+<p><code>Number of orders in our database: {{orders.length}}</code></p>
+
+Find your treasure in our chamber : <input type="search" ng-model="orderfilter" placeholder="Filter orders">
 <table class="table">
     <thead>
     <tr>
@@ -10,18 +13,18 @@
     </tr>
     </thead>
     <tbody>
-    <tr ng-repeat="order in orders | orderBy:predicate:reverse">
+    <tr ng-repeat="order in orders | filter: orderfilter | orderBy:predicate:reverse">
         <td>{{order.userAlias}}</td>
         <td><a href="#/orders/{{order._id}}">{{order.status}}</a></td>
         <td>{{order.productID}}</td>
         <td>{{order.quantity}}</td>
         <td>{{order.orderDate | date:'medium'}}</td>
         <td>
-            <button type="button" class="btn btn-default btn-sm">
+            <button type="button" class="btn btn-default btn-sm" ng-click="adminEditOrder(order)">
                 <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit
             </button>
             <font size="5">|</font>
-            <button type="button" class="btn btn-default btn-sm">
+            <button type="button" class="btn btn-default btn-sm"  ng-click="adminDeleteOrder(order)">
                 <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
             </button>
         </td>

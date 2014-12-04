@@ -1,28 +1,28 @@
 <div class="col-md-5" style="border: thin lightblue solid; border-radius: 5px;padding: 1em;">
     <form class="form-horizontal">
         <fieldset >
-            <legend style="color:darkblue;">Edit Order for Product: <b>{{orderToEdit.productName}}</b></b></legend>
+            <legend style="color:darkblue;">Edit product: <b>{{product.productName}}</b></b></legend>
             <div class="form-group">
                 <label for="name" class="control-label col-xs-3"><span class="label label-info">Name</span></label>
                 <div class="col-xs-9">
-                    <input type="text" class="form-control" ng-model="toBeEditedProduct.productName" id="name" placeholder="INSERT NAME">
+                    <input type="text" class="form-control" ng-model="product.productName" id="name" placeholder="INSERT NAME">
                 </div>
             </div>
             <div class="form-group">
                 <label for="description" class="control-label col-xs-3"><span class="label label-info">Description</span></label>
                 <div class="col-xs-9">
-                    <input type="text" class="form-control" ng-model="toBeEditedProduct.productDescription" id="description" placeholder="INSERT DESCRIPTION">
+                    <input type="text" class="form-control" ng-model="product.productDescription" id="description" placeholder="INSERT DESCRIPTION">
                 </div>
             </div>
             <div class="form-group">
                 <label for="unitPrice" class="control-label col-xs-3"><span class="label label-info">Unit Price</span></label>
                 <div class="col-xs-9">
-                    <input type="text" class="form-control" ng-model="toBeEditedProduct.unitPrice" id="unitPrice" placeholder="INSERT UNIT PRICE">
+                    <input type="text" class="form-control" ng-model="product.unitPrice" id="unitPrice" placeholder="INSERT UNIT PRICE">
                 </div>
             </div>
         </fieldset>
     </form>
     <div class="form-group">
-        <button href=""  type="submit" ng-click="saveChangesofProduct(toBeEditedProduct)" class="btn btn-primary">Save</button>
+        <button href=""  type="submit" ng-click="saveChangesInProduct(product)" class="btn btn-primary">Save</button>
     </div>
 </div>

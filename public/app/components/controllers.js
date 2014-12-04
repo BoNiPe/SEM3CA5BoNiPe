@@ -62,7 +62,7 @@ angular.module('myAppRename.controllers', []).
         }
     })
 
-    .controller('ProductsController', ['$scope', '$http', 'ProductInfoSaver','editParticularProduct', function ($scope, $http, ProductInfoSaver, editParticularProduct) {
+    .controller('ProductsController', ['$scope', '$http', 'ProductInfoSaver','editParticularObject', function ($scope, $http, ProductInfoSaver, editParticularObject) {
 
         $http({
             method: 'GET',
@@ -87,17 +87,18 @@ angular.module('myAppRename.controllers', []).
         }
 
         $scope.editProduct = function (product) {
-            editParticularProduct.setProduct(product);
-            window.location = "#/control/products/" + product.productID;
+            editParticularObject.setObject(product);
+            window.location = "#/control/products/edit";
         }
 
         $scope.deleteProduct = function (product) {
             $http.delete('adminApi/product/' + product._id, product);
-            window.location = "#/viewHome"
+            var index = $scope.products.indexOf(product);
+            $scope.products.splice(index,1);
         }
     }])
 
-    .controller('OrdersController', function ($scope, $http) {
+    .controller('OrdersController', ['$scope', '$http', 'editParticularObject', function ($scope, $http, editParticularObject) {
         $http({
             method: 'GET',
             url: 'adminApi/order'
@@ -113,7 +114,18 @@ angular.module('myAppRename.controllers', []).
                 }
                 $scope.error = data;
             });
-    })
+
+        $scope.adminEditOrder = function (order) {
+            editParticularObject.setObject(order);
+            window.location = "#/control/orders/edit";
+        }
+
+        $scope.adminDeleteOrder = function (order) {
+            $http.delete('adminApi/order/' + order._id, order);
+            var index = $scope.orders.indexOf(order);
+            $scope.orders.splice(index,1);
+        }
+    }])
 
     .controller('OrderDetailsController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
         $http({
@@ -126,22 +138,4 @@ angular.module('myAppRename.controllers', []).
             error(function (data, status, headers, config) {
                 $scope.error = data;
             });
-    }])
-
-    .controller('PaymentsController', function ($scope, $http) {
-        $http({
-            method: 'GET',
-            url: 'adminApi/payment'
-        }).
-            success(function (data, status, headers, config) {
-                $scope.payments = data;
-                $scope.error = null;
-            }).
-            error(function (data, status, headers, config) {
-                if (status == 401) {
-                    $scope.error = "You are not authenticated to request these data";
-                    return;
-                }
-                $scope.error = data;
-            });
-    });
+    }]);

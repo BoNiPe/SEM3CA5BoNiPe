@@ -1,7 +1,7 @@
 <div class="col-md-5" style="border: thin lightblue solid; border-radius: 5px;padding: 1em;">
     <form class="form-horizontal">
         <fieldset >
-            <legend style="color:darkblue;">Edit status of order</b></b></legend>
+            <legend style="color:darkblue;">Edit status of order : </b>{{order._id}}</b> for product : {{order.productID}} of user : {{order.userAlias}}</legend>
             <div class="form-group">
                 <label for="status" class="control-label col-xs-3"><span class="label label-info">Status</span></label>
                 <div class="col-xs-9">
@@ -12,6 +12,6 @@
         </fieldset>
     </form>
     <div class="form-group">
-        <button href=""  type="submit" ng-click="editStatus(order.status)" class="btn btn-primary">Save</button>
+        <button href=""  type="submit" ng-click="saveChangesInOrder(order)" class="btn btn-primary">Save</button>
     </div>
 </div>

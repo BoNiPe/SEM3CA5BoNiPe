@@ -37,11 +37,12 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                 $scope.error = data;
             });
     }])
-    .controller('BasketController', ['$scope', '$http', 'ProductInfoSaver', 'editParticularOrder', function ($scope, $http, ProductInfoSaver, editParticularOrder) {
+
+    .controller('BasketController', ['$scope', '$http', 'ProductInfoSaver', 'editParticularObject', function ($scope, $http, ProductInfoSaver, editParticularObject) {
         $scope.currentOrders = ProductInfoSaver.getInfo();
         $scope.editOrder = function (order) {
             console.log('order: ' + order);
-            editParticularOrder.setInfo(order);
+            editParticularObject.setObject(order);
             window.location = "#/editOrder";
         };
 
@@ -74,9 +75,9 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
         }
     }])
 
-    .controller('EditOrderController', ['$scope', '$http', 'ProductInfoSaver', 'editParticularOrder', function ($scope, $http, ProductInfoSaver, editParticularOrder) {
+    .controller('EditOrderController', ['$scope', '$http', 'ProductInfoSaver', 'editParticularObject', function ($scope, $http, ProductInfoSaver, editParticularObject) {
         var allOrders = ProductInfoSaver.getInfo();
-        $scope.orderToEdit = editParticularOrder.getInfo();
+        $scope.orderToEdit = editParticularObject.getObject();
 
         $scope.editBasket = function (quantity) {
             for (var i = 0; i < allOrders.length; i++) {

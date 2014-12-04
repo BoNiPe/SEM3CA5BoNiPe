@@ -53,30 +53,16 @@ angular.module('myAppRename.factories', []).
       }
     })
 
-    .factory('editParticularProduct', function () {
-      var curProduct;
-      var getProduct = function() {
-        return curProduct;
+    .factory('editParticularObject', function () {
+      var curObject;
+      var getObject = function() {
+        return curObject;
       }
-      var setProduct = function(product) {
-        curProduct = product
-      }
-      return {
-        setProduct: setProduct,
-        getProduct: getProduct
-      }
-    })
-
-    .factory('editParticularOrder', function () {
-      var curOrder;
-      var getOrder = function() {
-        return curOrder;
-      }
-      var setOrder = function(order) {
-        curOrder = order
+      var setObject = function(newObject) {
+        curObject = newObject
       }
       return {
-        setInfo: setOrder,
-        getInfo: getOrder
+        setObject: setObject,
+        getObject: getObject
       }
     });

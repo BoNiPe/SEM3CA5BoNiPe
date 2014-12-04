@@ -11,21 +11,17 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
                 templateUrl: 'app/viewAdmin/products.html',
                 controller: 'ProductsController'
             })
-            .when('/control/products/:id', {
+            .when('/control/products/edit', {
                 templateUrl: 'app/viewAdmin/editProduct.html',
                 controller: 'EditProductController'
             })
-            .when('/orders', {
+            .when('/control/orders', {
                 templateUrl: 'app/viewAdmin/orders.html',
                 controller: 'OrdersController'
             })
-            .when('/orders/:id', {
-                templateUrl: 'app/viewAdmin/particularOrder.html',
-                controller: 'OrderDetailsController'
-            })
-            .when('/payments', {
-                templateUrl: 'app/viewAdmin/payments.html',
-                controller: 'PaymentsController'
+            .when('/control/orders/edit', {
+                templateUrl: 'app/viewAdmin/editOrder.html',
+                controller: 'EditCreatedOrderController'
             });
     }])
 
@@ -47,12 +43,19 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
             });
     })
 
-    .controller('EditProductController', ['$scope', '$http', 'editParticularProduct', function ($scope, $http, editParticularProduct) {
-        $scope.toBeEditedProduct = editParticularProduct.getProduct();
-        $scope.saveChangesofProduct = function (product) {
-            console.log('Hello my product is : ' + product.productName);
+    .controller('EditProductController', ['$scope', '$http', 'editParticularObject', function ($scope, $http, editParticularObject) {
+        $scope.product = editParticularObject.getObject();
+        $scope.saveChangesInProduct = function (product) {
                 $http.put('adminApi/product/' + product._id, product);
             window.location = "#/control/products";
+        }
+    }])
+
+    .controller('EditCreatedOrderController', ['$scope', '$http', 'editParticularObject', function ($scope, $http, editParticularObject) {
+        $scope.order = editParticularObject.getObject();
+        $scope.saveChangesInOrder = function (order) {
+            $http.put('adminApi/order/' + order._id, order);
+            window.location = "#/control/orders";
         }
     }]);
 
