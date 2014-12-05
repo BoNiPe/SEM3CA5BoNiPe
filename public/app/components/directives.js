@@ -20,7 +20,6 @@ angular.module('myAppRename.directives', [])
     .directive("boyko", function () {
         return {
             restrict: "EA",
-            replace: true,
-            templateUrl: 'Hello bitches'
+            template: 'Hello DIRECTIVES Aasdadlaeqoueybc19r876294dskfhsc8 2cyrbqoycweksfvhwe ry23rhw sdoifhwenE'
         }
     });
