@@ -4,6 +4,7 @@ angular.module('myAppRename.controllers', []).
         function url_base64_decode(str) {
             console.log('Hello from url_base_64_decode with: ' + str);
             var output = str.replace('-', '+').replace('_', '/');
+            console.log('Output is : ' + output)
             switch (output.length % 4) {
                 case 0:
                     break;
@@ -16,11 +17,12 @@ angular.module('myAppRename.controllers', []).
                 default:
                     throw 'Illegal base64url string!';
             }
+            console.log('Output at the end ' + output);
             return window.atob(output); //polifyll https://github.com/davidchambers/Base64.js
         }
 
 
-        $scope.title = "Semester Project";
+        $scope.title = "BoNiPe Store";
         $scope.username = "";
         $scope.isAuthenticated = false;
         $scope.isAdmin = false;
@@ -32,7 +34,7 @@ angular.module('myAppRename.controllers', []).
             $http
                 .post('/authenticate', $scope.user)
                 .success(function (data, status, headers, config) {
-                    console.log('The data when /authenticate successes is ' + data);
+                    console.log('The data when /authenticate successes is ' + data.username + ' and ' + data.type);
                     $window.sessionStorage.token = data.token;
                     $scope.isAuthenticated = true;
                     var encodedProfile = data.token.split('.')[1];
@@ -40,7 +42,6 @@ angular.module('myAppRename.controllers', []).
                     $scope.username = profile.username;
                     console.log('Username (taken from Profile, parsed from base64.. via json parse) :' + $scope.username);
                     $scope.isAdmin = profile.role == "admin";
-                    console.log('isAdmin variable becomes: ' + $scope.isAdmin);
                     $scope.isUser = !$scope.isAdmin;
                     $scope.error = null;
                 })
@@ -48,7 +49,6 @@ angular.module('myAppRename.controllers', []).
                     // Erase the token if the user fails to log in
                     delete $window.sessionStorage.token;
                     $scope.isAuthenticated = false;
-
                     $scope.error = 'You failed to login. Invalid User or Password';
                 });
         };
@@ -58,6 +58,6 @@ angular.module('myAppRename.controllers', []).
             $scope.isAdmin = false;
             $scope.isUser = false;
             delete $window.sessionStorage.token;
-            $location.path("/view1");
+            $location.path("#/viewHome");
         }
     });
