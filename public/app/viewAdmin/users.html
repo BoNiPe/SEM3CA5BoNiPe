@@ -1,0 +1,49 @@
+<b>Users list:</b>
+<div row>
+    <p><code>Number of users in our database: {{users.length}}</code></p>
+
+    Find your treasure in our chamber : <input type="search" ng-model="usersfilter" placeholder="Filter products">
+
+    <div class="form-group">
+        <a href="#/adminHome">
+            <button type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back
+            </button>
+        </a>
+        <font size="5">|</font>
+        <a href="#/control/users/new">
+            <button type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plust" aria-hidden="true"></span> ADD USER
+            </button>
+        </a>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <td><b><a href="" ng-click="predicate = 'userAlias'; reverse=!reverse">Alias:</a></b></td>
+            <td><b><a href="" ng-click="predicate = 'type'; reverse=!reverse">Type:</a></b></td>
+            <td><b>First Name:</b></td>
+            <td><b>Last Name:</b></td>
+            <td><b>Address:</b></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="curUser in users | filter: usersfilter | orderBy:predicate:reverse">
+            <td>{{curUser.userAlias}}</td>
+            <td>{{curUser.type}}</td>
+            <td>{{curUser.fname}}</td>
+            <td>{{curUser.lname}}</td>
+            <td>{{curUser.adress}}</td>
+            <td>
+                <button type="button" class="btn btn-default btn-sm" ng-click="editUser(curUser)">
+                    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit
+                </button>
+                <font size="5">|</font>
+                <button type="button" class="btn btn-default btn-sm" ng-click="deleteUser(curUser)">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

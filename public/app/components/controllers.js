@@ -1,10 +1,9 @@
-angular.module('myAppRename.controllers', []).
-    controller('AppCtrl', function ($scope, $http, $window, $location) {
+angular.module('myAppRename.controllers', [])
+    .controller('AppCtrl', ['$scope', '$http' ,'$window', '$location', 'userInformation', function ($scope, $http, $window, $location, userInformation) {
 
+        //This method is not doing anything ( I triple checked it with console.logs... Whatever goes in comes out.. Exactly the same..LOL?
         function url_base64_decode(str) {
-            console.log('Hello from url_base_64_decode with: ' + str);
             var output = str.replace('-', '+').replace('_', '/');
-            console.log('Output is : ' + output)
             switch (output.length % 4) {
                 case 0:
                     break;
@@ -17,10 +16,8 @@ angular.module('myAppRename.controllers', []).
                 default:
                     throw 'Illegal base64url string!';
             }
-            console.log('Output at the end ' + output);
             return window.atob(output); //polifyll https://github.com/davidchambers/Base64.js
         }
-
 
         $scope.title = "BoNiPe Store";
         $scope.username = "";
@@ -34,16 +31,21 @@ angular.module('myAppRename.controllers', []).
             $http
                 .post('/authenticate', $scope.user)
                 .success(function (data, status, headers, config) {
-                    console.log('The data when /authenticate successes is ' + data.username + ' and ' + data.type);
                     $window.sessionStorage.token = data.token;
                     $scope.isAuthenticated = true;
                     var encodedProfile = data.token.split('.')[1];
                     var profile = JSON.parse(url_base64_decode(encodedProfile));
-                    $scope.username = profile.username;
-                    console.log('Username (taken from Profile, parsed from base64.. via json parse) :' + $scope.username);
+                    $scope.username = profile.userAlias;
                     $scope.isAdmin = profile.role == "admin";
+                    console.log('/authenticate SUCCESS : ' + profile.username + ' as ' + profile.role);
                     $scope.isUser = !$scope.isAdmin;
                     $scope.error = null;
+                    userInformation.setObject(profile);
+                    if(profile.role =="admin"){
+                        window.location = "#/adminHome";
+                    }else{
+                        window.location = "#/viewCustomer";
+                    }
                 })
                 .error(function (data, status, headers, config) {
                     // Erase the token if the user fails to log in
@@ -60,4 +62,4 @@ angular.module('myAppRename.controllers', []).
             delete $window.sessionStorage.token;
             $location.path("#/viewHome");
         }
-    });
+    }]);

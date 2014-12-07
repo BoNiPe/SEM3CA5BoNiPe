@@ -4,9 +4,21 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
         $routeProvider.when('/adminHome', {
-            templateUrl: 'app/viewAdmin/view3.html',
+            templateUrl: 'app/viewAdmin/adminHome.html',
             controller: 'AdminHomeController'
         })
+            .when('/control/users', {
+                templateUrl: 'app/viewAdmin/users.html',
+                controller: 'UsersController'
+            })
+            .when('/control/users/new', {
+                templateUrl: 'app/viewAdmin/newUser.html',
+                controller: 'NewUserController'
+            })
+            .when('/control/users/edit', {
+                templateUrl: 'app/viewAdmin/editUser.html',
+                controller: 'EditUserController'
+            })
             .when('/control/products', {
                 templateUrl: 'app/viewAdmin/products.html',
                 controller: 'ProductsController'
@@ -23,7 +35,6 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
                 templateUrl: 'app/viewAdmin/editOrder.html',
                 controller: 'EditCreatedOrderController'
             })
-
             .when('/control/orders', {
                 templateUrl: 'app/viewAdmin/orders.html',
                 controller: 'OrdersController'
@@ -35,30 +46,47 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
             .when('/control/product/particular/:id', {
                 templateUrl: 'app/viewAdmin/currentProduct.html',
                 controller: 'ProductDetailsController'
+            })
+            .when('/control/account', {
+                templateUrl: 'app/viewAdmin/adminProfile.html',
+                controller: 'AccountController'
             });
     }])
 
-    .controller('AdminHomeController', function ($scope, $http) {
+    .controller('AdminHomeController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
 
+        var curUser = userInformation.getObject();
+        $scope.fname = curUser.fname;
+        $scope.lname = curUser.lname;
+    }])
+
+    .controller('UsersController', ['$scope', '$http', 'editParticularObject', function ($scope, $http, editParticularObject) {
         $http({
             method: 'GET',
-            url: 'adminApi/user'
+            url: 'admin/'
         }).
             success(function (data, status, headers, config) {
                 $scope.users = data;
-                $scope.error = null;
             }).
             error(function (data, status, headers, config) {
-                if (status == 401) {
-                    $scope.error = "You are not authenticated to request these data";
-                    window.location = "#/viewHome";
-                    return;
-                }
                 $scope.error = data;
             });
-    })
 
-    .controller('ProductsController', ['$scope', '$http', 'ProductInfoSaver','editParticularObject', function ($scope, $http, ProductInfoSaver, editParticularObject) {
+        $scope.editUser = function (objectToEdit) {
+            console.log('To Edit : ' + objectToEdit);
+            editParticularObject.setObject(objectToEdit);
+            window.location = "#/control/users/edit";
+        }
+
+        $scope.deleteUser = function (objectToDelete) {
+            console.log('To Delete : ' + objectToDelete)
+            $http.delete('admin/' + objectToDelete.username);
+            var index = $scope.users.indexOf(objectToDelete);
+            $scope.users.splice(index, 1);
+        }
+    }])
+
+    .controller('ProductsController', ['$scope', '$http', 'ProductInfoSaver', 'editParticularObject', function ($scope, $http, ProductInfoSaver, editParticularObject) {
         $http({
             method: 'GET',
             url: 'adminApi/product'
@@ -78,14 +106,14 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
         $scope.deleteProduct = function (product) {
             $http.delete('adminApi/product/' + product._id, product);
             var index = $scope.products.indexOf(product);
-            $scope.products.splice(index,1);
+            $scope.products.splice(index, 1);
         }
     }])
 
     .controller('EditProductController', ['$scope', '$http', 'editParticularObject', function ($scope, $http, editParticularObject) {
         $scope.product = editParticularObject.getObject();
         $scope.saveChangesInProduct = function (product) {
-                $http.put('adminApi/product/' + product._id, product);
+            $http.put('adminApi/product/' + product._id, product);
             window.location = "#/control/products";
         }
     }])
@@ -95,6 +123,14 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
         $scope.saveChangesInOrder = function (order) {
             $http.put('adminApi/order/' + order._id, order);
             window.location = "#/control/orders";
+        }
+    }])
+
+    .controller('EditUserController', ['$scope', '$http', 'editParticularObject', function ($scope, $http, editParticularObject) {
+        $scope.user = editParticularObject.getObject();
+        $scope.saveChangesInUser = function (curUser) {
+            $http.put('admin/', curUser);
+            window.location = "#/control/users";
         }
     }])
 
@@ -113,6 +149,25 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
                 });
             $scope.postnewProduct = {}
             window.location = "#/control/products";
+        }
+
+    })
+
+    .controller('NewUserController', function ($scope, $http) {
+        $scope.postUser = function () {
+            $http({
+                method: 'POST',
+                url: 'admin/',
+                data: $scope.newUser
+            }).
+                success(function (data, status, headers, config) {
+                    $scope.success = data;
+                }).
+                error(function (data, status, headers, config) {
+                    $scope.error = data;
+                });
+            $scope.postUser = {}
+            window.location = "#/viewCustomer";
         }
 
     })
@@ -143,7 +198,7 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
         $scope.adminDeleteOrder = function (order) {
             $http.delete('adminApi/order/' + order._id, order);
             var index = $scope.orders.indexOf(order);
-            $scope.orders.splice(index,1);
+            $scope.orders.splice(index, 1);
         }
     }])
 
@@ -172,4 +227,8 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
             error(function (data, status, headers, config) {
                 $scope.error = data;
             });
+    }])
+
+    .controller('AccountController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
+        $scope.account = userInformation.getObject();
     }]);

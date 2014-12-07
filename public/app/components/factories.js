@@ -69,4 +69,18 @@ angular.module('myAppRename.factories', []).
         setObject: setObject,
         getObject: getObject
       }
+    })
+
+    .factory('userInformation', function () {
+      var curObject;
+      var getObject = function() {
+        return curObject;
+      }
+      var setObject = function(newObject) {
+        curObject = newObject
+      }
+      return {
+        setObject: setObject,
+        getObject: getObject
+      }
     });

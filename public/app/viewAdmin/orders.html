@@ -1,6 +1,11 @@
 <p><code>Number of orders in our database: {{orders.length}}</code></p>
 
-Find your treasure in our chamber : <input type="search" ng-model="orderfilter" placeholder="Filter orders">
+Find your treasure in our chamber : <input type="search" ng-model="orderfilter" placeholder="Filter orders"><br/>
+<a href="#/adminHome">
+    <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back
+    </button>
+</a>
 <table class="table">
     <thead>
     <tr>
@@ -31,4 +36,3 @@ Find your treasure in our chamber : <input type="search" ng-model="orderfilter" 
     </tr>
     </tbody>
 </table>
-<input type=button onClick="parent.location='#/adminHome'" value='AdminMain' class="btn btn-primary">

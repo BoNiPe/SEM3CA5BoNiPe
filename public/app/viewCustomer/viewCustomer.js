@@ -22,6 +22,14 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             .when('/products/:id', {
                 templateUrl: 'app/viewCustomer/currentProduct.html',
                 controller: 'currentProductControllerUser'
+            })
+            .when('/profile', {
+                templateUrl: 'app/viewCustomer/clientProfile.html',
+                controller: 'AccountController'
+            })
+            .when('/profile/edit', {
+                templateUrl: 'app/viewCustomer/editProfile.html',
+                controller: 'EditUserController'
             });
     }])
     .controller('CustomerController', ['$scope', '$http', function ($scope, $http) {
@@ -134,4 +142,27 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             error(function (data, status, headers, config) {
                 $scope.error = data;
             });
+    }])
+
+    .controller('AccountController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
+        var curUser = userInformation.getObject();
+        $scope.account = curUser;
+
+        $scope.deleteClientUser = function () {
+            console.log('Deleting yourself');
+            $http.delete('admin/' + curUser.username);
+            $scope.isAuthenticated = false;
+            $scope.isAdmin = false;
+            $scope.isUser = false;
+            delete $window.sessionStorage.token;
+            $location.path("#/viewHome");
+        }
+    }])
+
+    .controller('EditUserController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
+        $scope.user = userInformation.getObject();
+        $scope.saveChangesInUser = function (curUser) {
+            $http.put('admin/', curUser);
+            window.location = "#/profile";
+        }
     }]);

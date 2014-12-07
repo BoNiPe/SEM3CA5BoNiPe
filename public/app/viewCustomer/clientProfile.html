@@ -1,0 +1,37 @@
+<a href="#/adminHome">
+    <button type="submit" class="btn btn-primary">
+        <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back
+    </button>
+</a>
+<a href="#/profile/edit">
+    <font size="5">|</font>
+    <button type="button" class="btn btn-default btn-sm">
+        <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit
+    </button>
+</a>
+<font size="5">|</font>
+<button type="button" class="btn btn-default btn-sm" ng-click="deleteClientUser()">
+    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+</button><br/>
+<table class="table">
+    <tr>
+        <td>Type:</td>
+        <td>{{account.type}}</td>
+    </tr>
+    <tr>
+        <td>User Alias:</td>
+        <td>{{account.userAlias}}</td>
+    </tr>
+    <tr>
+        <td>First Name:</td>
+        <td>{{account.fname}}</td>
+    </tr>
+    <tr>
+        <td>Last Name:</td>
+        <td>{{account.lname}}</td>
+    </tr>
+    <tr>
+        <td>Address:</td>
+        <td>{{account.adress}}</td>
+    </tr>
+</table>
