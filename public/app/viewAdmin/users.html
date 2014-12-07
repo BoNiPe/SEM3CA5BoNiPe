@@ -29,7 +29,7 @@
         </thead>
         <tbody>
         <tr ng-repeat="curUser in users | filter: usersfilter | orderBy:predicate:reverse">
-            <td>{{curUser.userAlias}}</td>
+            <td><a href="" ng-click="detailsOfUser(curUser)">{{curUser.userAlias}}</a></td>
             <td>{{curUser.type}}</td>
             <td>{{curUser.fname}}</td>
             <td>{{curUser.lname}}</td>

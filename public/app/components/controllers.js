@@ -44,7 +44,7 @@ angular.module('myAppRename.controllers', [])
                     if(profile.role =="admin"){
                         window.location = "#/adminHome";
                     }else{
-                        window.location = "#/viewCustomer";
+                        window.location = "#/customerHome";
                     }
                 })
                 .error(function (data, status, headers, config) {

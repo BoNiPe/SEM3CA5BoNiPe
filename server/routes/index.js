@@ -1,7 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var jwt = require('jsonwebtoken');
-var authentication = require('../security/authentication');
+var authentication = require('../NodeJPA/communication');
 
 /* GET home page. */
 router.get('/', function (req, res) {

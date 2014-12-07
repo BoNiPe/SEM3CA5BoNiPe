@@ -20,6 +20,7 @@ angular.module('myAppRename.directives', [])
     .directive("boyko", function () {
         return {
             restrict: "EA",
-            template: '***Testing Directives***'
+            template: '***Testing Directives and Some SWAG FROM Boyko!***<br/>' +
+        '<iframe width="560" height="315" src="//www.youtube.com/embed/zF5Ht7dwT3s" frameborder="0" allowfullscreen></iframe>'
         }
     });

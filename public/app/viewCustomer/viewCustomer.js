@@ -3,18 +3,30 @@
 angular.module('myAppRename.viewCustomer', ['ngRoute'])
 
     .config(['$routeProvider', function ($routeProvider) {
-        $routeProvider.when('/viewCustomer', {
-            templateUrl: 'app/viewCustomer/view2.html',
+        $routeProvider.when('/customerHome', {
+            templateUrl: 'app/viewCustomer/customerHome.html',
             controller: 'CustomerController'
         })
+            //Personal User
+            .when('/profile', {
+                templateUrl: 'app/viewCustomer/customerProfile.html',
+                controller: 'AccountController'
+            })
+            .when('/profile/edit', {
+                templateUrl: 'app/viewCustomer/editProfile.html',
+                controller: 'EditUserController'
+            })
+            //Basket(array) SHOW(1),SHOW(ALL),ADD,EDIT,REMOVE
+            //Orders - PUSH
             .when('/basket', {
                 templateUrl: 'app/viewCustomer/basket.html',
                 controller: 'BasketController'
             })
-            .when('/editOrder', {
+            .when('/basket/edit', {
                 templateUrl: 'app/viewCustomer/editOrder.html',
                 controller: 'EditOrderController'
             })
+            //Products - GET(1),GET(ALL)
             .when('/products', {
                 templateUrl: 'app/viewCustomer/products.html',
                 controller: 'UserProductController'
@@ -22,14 +34,6 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             .when('/products/:id', {
                 templateUrl: 'app/viewCustomer/currentProduct.html',
                 controller: 'currentProductControllerUser'
-            })
-            .when('/profile', {
-                templateUrl: 'app/viewCustomer/clientProfile.html',
-                controller: 'AccountController'
-            })
-            .when('/profile/edit', {
-                templateUrl: 'app/viewCustomer/editProfile.html',
-                controller: 'EditUserController'
             });
     }])
     .controller('CustomerController', ['$scope', '$http', function ($scope, $http) {
@@ -51,85 +55,80 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             });
     }])
 
-    .controller('BasketController', ['$scope', '$http', 'ProductInfoSaver', 'editParticularObject', function ($scope, $http, ProductInfoSaver, editParticularObject) {
-        $scope.currentOrders = ProductInfoSaver.getInfo();
-        $scope.editOrder = function (order) {
-            console.log('order: ' + order);
-            editParticularObject.setObject(order);
-            window.location = "#/editOrder";
-        };
-
-        $scope.deleteOrder = function (order) {
-            console.log('order: ' + order);
-            ProductInfoSaver.deleteFromList(order);
-        };
-
-        $scope.postOrders = function () {
-            var toBePushed = new Array();
-            for (var i = 0; i < $scope.currentOrders.length; i++) {
-                var objectToBePushed = {
-                    productID: $scope.currentOrders[i].productID,
-                    quantity: $scope.currentOrders[i].productAmount,
-                    userAlias: "betaversion"
-                };
-                $http({
-                    method: 'POST',
-                    url: 'userApi/order',
-                    data: objectToBePushed
-                }).
-                    success(function (data, status, headers, config) {
-                        $scope.success = data;
-                    }).
-                    error(function (data, status, headers, config) {
-                        $scope.error = data;
-                    });
-                objectToBePushed = {}
-            }
-            ProductInfoSaver.clearList();
-            window.location = "#/viewCustomer";
-        }
-    }])
-
-    .controller('EditOrderController', ['$scope', '$http', 'ProductInfoSaver', 'editParticularObject', function ($scope, $http, ProductInfoSaver, editParticularObject) {
-        var allOrders = ProductInfoSaver.getInfo();
-        $scope.orderToEdit = editParticularObject.getObject();
-
-        $scope.editBasket = function (quantity) {
-            for (var i = 0; i < allOrders.length; i++) {
-                if (allOrders[i].productID === $scope.orderToEdit.productID) {
-                    allOrders[i].productAmount = quantity;
-                }
-            }
-            ProductInfoSaver.changeList(allOrders);
-            window.location = "#/basket";
-        }
-
-    }])
-
-    .controller('UserProductController', ['$scope', '$http', 'ProductInfoSaver','editParticularObject', function ($scope, $http, ProductInfoSaver, editParticularObject) {
-
-        $http({
-            method: 'GET',
-            url: 'userApi/product'
-        }).
-            success(function (data, status, headers, config) {
-                $scope.products = data;
-            }).
-            error(function (data, status, headers, config) {
-                $scope.error = data;
-            });
-
-        $scope.addProductToBasket = function (product, productAmount) {
-            var productToBasket = {
-                productID: product._id,
-                productName: product.productName,
-                productAmount: productAmount,
-                productPrice: productAmount * product.unitPrice
+    .controller('BasketController', ['$scope', '$http', 'ProductInfoSaver', 'editParticularObject', 'userInformation',
+        function ($scope, $http, ProductInfoSaver, editParticularObject, userInformation) {
+            $scope.currentOrders = ProductInfoSaver.getInfo();
+            $scope.editOrder = function (order) {
+                editParticularObject.setObject(order);
+                window.location = "#/basket/edit";
             };
-            ProductInfoSaver.setInfo(productToBasket);
-            window.location = "#/basket";
-        }
-    }])
+
+            $scope.deleteOrder = function (order) {
+                ProductInfoSaver.deleteFromList(order);
+            };
+
+            $scope.postOrders = function () {
+                var toBePushed = new Array();
+                for (var i = 0; i < $scope.currentOrders.length; i++) {
+                    var objectToBePushed = {
+                        productID: $scope.currentOrders[i].productID,
+                        quantity: $scope.currentOrders[i].productAmount,
+                        userAlias: userInformation.getObject().userAlias
+                    };
+                    $http.post('userApi/order', objectToBePushed);
+                    objectToBePushed = {}
+                }
+                ProductInfoSaver.clearList();
+                window.location = "#/viewCustomer";
+            }
+        }])
+
+    .controller('EditOrderController', ['$scope', '$http', 'ProductInfoSaver', 'editParticularObject',
+        function ($scope, $http, ProductInfoSaver, editParticularObject) {
+            var allOrders = ProductInfoSaver.getInfo();
+            $scope.orderToEdit = editParticularObject.getObject();
+
+            $scope.editBasket = function (quantity) {
+                for (var i = 0; i < allOrders.length; i++) {
+                    if (allOrders[i].productID === $scope.orderToEdit.productID) {
+                        allOrders[i].productAmount = quantity;
+                    }
+                }
+                ProductInfoSaver.changeList(allOrders);
+                window.location = "#/basket";
+            }
+
+        }])
+
+    .controller('UserProductController', ['$scope', '$http', 'ProductInfoSaver', 'editParticularObject',
+        function ($scope, $http, ProductInfoSaver, editParticularObject) {
+
+            $http({
+                method: 'GET',
+                url: 'userApi/product'
+            }).
+                success(function (data, status, headers, config) {
+                    $scope.products = data;
+                }).
+                error(function (data, status, headers, config) {
+                    if (status == 401) {
+                        $scope.error = "You are not authenticated to request these data";
+                        return;
+                    }
+                    $scope.error = data;
+                });
+
+            $scope.addProductToBasket = function (product, productAmount) {
+                var productToBasket = {
+                    productID: product._id,
+                    productName: product.productName,
+                    productAmount: productAmount,
+                    productPrice: productAmount * product.unitPrice
+                };
+                ProductInfoSaver.setInfo(productToBasket);
+                window.location = "#/basket";
+            }
+        }])
 
     .controller('currentProductControllerUser', ['$scope', '$http', '$location', function ($scope, $http, $location) {
         $http({

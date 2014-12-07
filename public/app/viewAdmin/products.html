@@ -21,18 +21,16 @@
         <thead>
         <tr>
             <td><b><a href="" ng-click="predicate = 'productName'; reverse=!reverse">Name</a></b></td>
-            <td><b>Description : </b></td>
-            <td><b><a href="" ng-click="predicate = 'unitPrice'; reverse=!reverse">Unit Price</a></b></td>
             <td><b><a href="" ng-click="predicate = 'creationDate'; reverse=!reverse">Creation Date</a></b></td>
+            <td><b><a href="" ng-click="predicate = 'userAlias'; reverse=!reverse">Created by</a></b></td>
             <td><b>Admin Menu : </b></td>
         </tr>
         </thead>
         <tbody>
         <tr ng-repeat="product in products | filter: productfilter | orderBy:predicate:reverse">
             <td><a href="#/control/product/particular/{{product._id}}">{{product.productName}}</a></td>
-            <td>{{product.productDescription}}</td>
-            <td>{{product.unitPrice}}</td>
             <td>{{product.creationDate | date:'medium'}}</td>
+            <td>{{product.userAlias}}</td>
             <td>
                 <button type="button" class="btn btn-default btn-sm" ng-click="editProduct(product)">
                     <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit

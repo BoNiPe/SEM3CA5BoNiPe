@@ -46,7 +46,8 @@ var productSchema = new mongoose.Schema({
   productName : {type: String, unique: true},
   productDescription : String,
   unitPrice : { type: Number, min: 0, max: 10000 },
-  creationDate: { type: Date, default: new Date() }
+  creationDate: { type: Date, default: new Date() },
+  userAlias : String
 });
 mongoose.model( 'ProductModel', productSchema,"products" );
 

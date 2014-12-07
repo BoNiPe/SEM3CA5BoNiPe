@@ -26,13 +26,13 @@
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <<li><a href="#/viewCustomer" ng-show="isUser">Users only (students)</a></li>
+          <<li><a href="#/customerHome" ng-show="isUser">Customer HOME</a></li>
           <li><a href="#/products" ng-show="isUser">Our Products</a></li>
           <li><a href="#/basket" ng-show="isUser">Basket</a></li>
           <li><a href="#/viewCustomer" ng-show="isUser">Your Orders</a></li>
           <li><a href="#/profile" ng-show="isUser">Your Account</a></li>
           <!--<li><a href="#/viewCustomer">Users only (students)</a></li>-->
-          <li><a href="#/adminHome" ng-show="isAdmin">Admins only (teachers)</a></li>
+          <li><a href="#/adminHome" ng-show="isAdmin">Admin Home</a></li>
           <li><a href="#/control/products" ng-show="isAdmin">Control Products</a></li>
           <li><a href="#/control/orders" ng-show="isAdmin">Control Orders</a></li>
           <li><a href="#/control/users" ng-show="isAdmin">Control Users</a></li>
@@ -69,9 +69,9 @@
 <script src="vendor/angular/angular.js"></script>
 <script src="vendor/angular-route/angular-route.js"></script>
 <script src="app/app.js"></script>
-<script src="app/viewHome/view1.js"></script>
+<script src="app/viewHome/viewHome.js"></script>
 <script src="app/viewCustomer/viewCustomer.js"></script>
-<script src="app/viewAdmin/view3.js"></script>
+<script src="app/viewAdmin/viewAdmin.js"></script>
 <script src="app/components/controllers.js"></script>
 <script src="app/components/directives.js"></script>
 <script src="app/components/factories.js"></script>
