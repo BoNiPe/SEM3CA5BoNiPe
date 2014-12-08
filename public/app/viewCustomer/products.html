@@ -1,0 +1,30 @@
+<b>Products list:</b>
+<p><code>Number of products in our database: {{products.length}}</code></p>
+
+Find your treasure in our chamber : <input type="search" ng-model="productfilter" placeholder="Filter products">
+<accordion close-others="true">
+    <accordion-group ng-repeat="product in products | filter: productfilter">
+        <accordion-heading>{{product.productName}}</accordion-heading>
+        <b>Description : </b>{{product.productDescription}}<br/>
+        <b>Price per unit : </b>{{product.unitPrice}}<br/><br/>
+        <b>Creation date: </b>{{product.creationDate | date:'medium'}}<br/>
+        <a href="#/products/{{product._id}}">...more Info</a><br/>
+        <div class="col-md-3" style="border: thin lightblue solid; border-radius: 5px;padding: 1em;">
+            <form class="form-horizontal">
+                <fieldset >
+                    <legend style="color:darkblue;">Order {{product.productName}} Now!</legend>
+                    <div class="form-group">
+                        <label for="amount" class="control-label col-xs-3"><span class="label label-info">Amount</span></label>
+                        <div class="col-xs-9">
+                            <input type="number" class="form-control" ng-model="productToBasket.amount" id="amount" placeholder="Amount">
+                        </div>
+                    </div>
+                </fieldset>
+            </form>
+            <div class="form-group">
+                <button type="submit" ng-click="addProductToBasket(product, productToBasket.amount)" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>Add to basket</button>
+            </div>
+        </div>
+    </accordion-group>
+</accordion>

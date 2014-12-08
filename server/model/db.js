@@ -1,19 +1,4 @@
 var mongoose = require( 'mongoose' );
-
-/*
-
-Note:
-To this test project as it is:
-
-Start your MongoDB database.
-Start mongo.exe and do:
-  use testdb
-  db.testusers.insert({userName : "Lars", email :"lam@cphbusiness.dk",pw: "test",created : new Date()})
-  db.testusers.insert({userName : "Henrik", email :"hsty@cphbusiness.dk",pw: "test",created : new Date()})
-  db.testusers.insert({userName : "Tobias", email :"tog@cphbusiness.dk",pw: "test",created : new Date()})
-  db.testusers.insert({userName : "Anders", email :"aka@cphbusiness.dk",pw: "test",created : new Date()})
-
-*/
 var dbURI;
 
 //This is set by the backend tests
@@ -21,7 +6,7 @@ if( typeof global.TEST_DATABASE != "undefined" ) {
   dbURI = global.TEST_DATABASE;
 }
 else{
-  dbURI = 'mongodb://localhost/testdb';
+  dbURI = 'mongodb://localhost/wiki';
 }
 
 mongoose.connect(dbURI);
@@ -43,18 +28,41 @@ process.on('SIGINT', function() {
   mongoose.connection.close(function () {
     console.log('Mongoose disconnected through app termination');
     process.exit(0);
-  });
+  }); 
 });
+/** Order SCHEMA **/
+var orderSchema = new mongoose.Schema({
+  status : {type: String, default: "Pending"},
+  productID :  {type: String, unique: true},
+  quantity : { type: Number, min: 0, max: 100 },
+  orderDate: { type: Date, default: new Date() },
+  userAlias: {type: String, unique: true}
+});
+mongoose.model( 'OrderModel', orderSchema,"orders" );
 
+/** Product SCHEMA **/
+//Add description
+var productSchema = new mongoose.Schema({
+  productName : {type: String, unique: true},
+  productDescription : String,
+  unitPrice : { type: Number, min: 0, max: 10000 },
+  creationDate: { type: Date, default: new Date() },
+  userAlias : String
+});
+mongoose.model( 'ProductModel', productSchema,"products" );
 
-/** User SCHEMA **/
-/** Replace this Schema with your own(s) **/
+/** Payment SCHEMA **/
+var paymentSchema = new mongoose.Schema({
+  orderID :  {type: String, unique: true},
+  paymentAmount : { type: Number },
+  paymentDate : { type: Date, default: new Date() }
+});
+mongoose.model( 'PaymentModel', paymentSchema,"payments" );
+/** Starting version User schema**/
 var usersSchema = new mongoose.Schema({
   userName : String,
-  email: {type: String, unique: true},
-  pw: String,
+  password: String,
+  type : String,
   created: { type: Date, default: new Date() }
 });
-
 mongoose.model( 'User', usersSchema,"testusers" );
-

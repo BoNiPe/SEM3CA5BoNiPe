@@ -1,0 +1,16 @@
+<div class="col-md-5" style="border: thin lightblue solid; border-radius: 5px;padding: 1em;">
+    <form class="form-horizontal">
+        <fieldset >
+            <legend style="color:darkblue;">Edit Order for Product: <b>{{orderToEdit.productName}}</b></b></legend>
+            <div class="form-group">
+                <label for="quantity" class="control-label col-xs-3"><span class="label label-info">Quantity</span></label>
+                <div class="col-xs-9">
+                    <input type="text" class="form-control" ng-model="orderToEdit.productAmount" id="quantity" placeholder="INSERT AMOUNT">
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <div class="form-group">
+        <button href=""  type="submit" ng-click="editBasket(orderToEdit.productAmount)" class="btn btn-primary">Save</button>
+    </div>
+</div>

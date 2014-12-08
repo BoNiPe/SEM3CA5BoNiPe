@@ -1,0 +1,46 @@
+<b>Products list:</b>
+<div row>
+    <p><code>Number of products in our database: {{products.length}}</code></p>
+
+    Find your treasure in our chamber : <input type="search" ng-model="productfilter" placeholder="Filter products">
+
+    <div class="form-group">
+        <a href="#/adminHome">
+            <button type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back
+            </button>
+        </a>
+        <font size="5">|</font>
+        <a href="#/control/products/new">
+            <button type="submit" class="btn btn-primary">
+                <span class="glyphicon glyphicon-plust" aria-hidden="true"></span> ADD PRODUCT
+            </button>
+        </a>
+    </div>
+    <table class="table">
+        <thead>
+        <tr>
+            <td><b><a href="" ng-click="predicate = 'productName'; reverse=!reverse">Name</a></b></td>
+            <td><b><a href="" ng-click="predicate = 'creationDate'; reverse=!reverse">Creation Date</a></b></td>
+            <td><b><a href="" ng-click="predicate = 'userAlias'; reverse=!reverse">Created by</a></b></td>
+            <td><b>Admin Menu : </b></td>
+        </tr>
+        </thead>
+        <tbody>
+        <tr ng-repeat="product in products | filter: productfilter | orderBy:predicate:reverse">
+            <td><a href="#/control/product/particular/{{product._id}}">{{product.productName}}</a></td>
+            <td>{{product.creationDate | date:'medium'}}</td>
+            <td>{{product.userAlias}}</td>
+            <td>
+                <button type="button" class="btn btn-default btn-sm" ng-click="editProduct(product)">
+                    <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit
+                </button>
+                <font size="5">|</font>
+                <button type="button" class="btn btn-default btn-sm" ng-click="deleteProduct(product)">
+                    <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+                </button>
+            </td>
+        </tr>
+        </tbody>
+    </table>
+</div>

@@ -8,5 +8,11 @@
     <orderEntry type="library" name="ExpressAngularSeed node_modules" level="project" />
     <orderEntry type="library" name="mocha-DefinitelyTyped" level="application" />
     <orderEntry type="library" name="should-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="node-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="express-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="angularjs-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="mongoose-DefinitelyTyped" level="application" />
+    <orderEntry type="library" name="ui-bootstrap-tpls-0.12.0" level="application" />
+    <orderEntry type="library" name="Node.js v0.10.25 Core Modules" level="application" />
   </component>
 </module>

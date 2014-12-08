@@ -1,0 +1,28 @@
+<div class="col-md-5" style="border: thin lightblue solid; border-radius: 5px;padding: 1em;">
+    <form class="form-horizontal">
+        <fieldset >
+            <legend style="color:darkblue;">Create new product :</b></b></legend>
+            <div class="form-group">
+                <label for="name" class="control-label col-xs-3"><span class="label label-info">Name</span></label>
+                <div class="col-xs-9">
+                    <input type="text" class="form-control" ng-model="newProduct.productName" id="name" placeholder="INSERT NAME">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="description" class="control-label col-xs-3"><span class="label label-info">Description</span></label>
+                <div class="col-xs-9">
+                    <input type="text" class="form-control" ng-model="newProduct.productDescription" id="description" placeholder="INSERT DESCRIPTION">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="unitPrice" class="control-label col-xs-3"><span class="label label-info">Unit Price</span></label>
+                <div class="col-xs-9">
+                    <input type="text" class="form-control" ng-model="newProduct.unitPrice" id="unitPrice" placeholder="INSERT UNIT PRICE">
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <div class="form-group">
+        <button href=""  type="submit" ng-click="postNewProduct()" class="btn btn-primary">Save</button>
+    </div>
+</div>

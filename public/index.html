@@ -5,6 +5,9 @@
   <title>{{title}}</title>
   <link rel="stylesheet" href="/stylesheets/style.css"/>
   <link rel="stylesheet" href="../vendor/bootstrap/dist/css/bootstrap.css">
+  <script src="//ajax.googleapis.com/ajax/libs/angularjs/1.2.16/angular.js"></script>
+  <script src="//angular-ui.github.io/bootstrap/ui-bootstrap-tpls-0.12.0.js"></script>
+  <link href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css" rel="stylesheet">
 </head>
 <body >
 
@@ -23,11 +26,18 @@
       </div>
       <div id="navbar" class="collapse navbar-collapse">
         <ul class="nav navbar-nav">
-          <li><a class="active" href="#/view1">view1</a></li>
-          <!--<li><a href="#/view2" ng-show="isUser">Users only (students)</a></li>-->
-          <li><a href="#/view2">Users only (students)</a></li>
-          <!--<li><a href="#/view3" ng-show="isAdmin">Admins only (teachers)</a></li>-->
-          <li><a href="#/view3" >Admins only (teachers)</a></li>
+          <<li><a href="#/customerHome" ng-show="isUser">Customer HOME</a></li>
+          <li><a href="#/products" ng-show="isUser">Our Products</a></li>
+          <li><a href="#/basket" ng-show="isUser">Basket</a></li>
+          <li><a href="#/viewCustomer" ng-show="isUser">Your Orders</a></li>
+          <li><a href="#/profile" ng-show="isUser">Your Account</a></li>
+          <!--<li><a href="#/viewCustomer">Users only (students)</a></li>-->
+          <li><a href="#/adminHome" ng-show="isAdmin">Admin Home</a></li>
+          <li><a href="#/control/products" ng-show="isAdmin">Control Products</a></li>
+          <li><a href="#/control/orders" ng-show="isAdmin">Control Orders</a></li>
+          <li><a href="#/control/users" ng-show="isAdmin">Control Users</a></li>
+          <li><a href="#/control/account" ng-show="isAdmin">My Account</a></li>
+          <!--<li><a href="#/adminHome" >Admins only (teachers)</a></li>-->
         </ul>
 
         <form class="navbar-form navbar-right" role="form" ng-show="!isAuthenticated" ng-submit="submit()">
@@ -59,9 +69,9 @@
 <script src="vendor/angular/angular.js"></script>
 <script src="vendor/angular-route/angular-route.js"></script>
 <script src="app/app.js"></script>
-<script src="app/view1/view1.js"></script>
-<script src="app/view2/view2.js"></script>
-<script src="app/view3/view3.js"></script>
+<script src="app/viewHome/viewHome.js"></script>
+<script src="app/viewCustomer/viewCustomer.js"></script>
+<script src="app/viewAdmin/viewAdmin.js"></script>
 <script src="app/components/controllers.js"></script>
 <script src="app/components/directives.js"></script>
 <script src="app/components/factories.js"></script>
