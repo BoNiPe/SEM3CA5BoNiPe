@@ -10,7 +10,7 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
             //Personal user
             .when('/control/account', {
                 templateUrl: 'app/viewAdmin/adminProfile.html',
-                controller: 'AccountController'
+                controller: 'AdminAccountController'
             })
             //Users - GET(1),GET(ALL),PUSH,PUT,DELETE
             .when('/control/users', {
@@ -67,7 +67,7 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
         $scope.lname = curUser.lname;
     }])
 
-    .controller('AccountController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
+    .controller('AdminAccountController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
         $scope.account = userInformation.getObject();
     }])
 
@@ -147,8 +147,8 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
             }
         }])
 
-    .controller('EditUserController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
-        $scope.user = userInformation.getObject();
+    .controller('EditUserController', ['$scope', '$http', 'editParticularObject', function ($scope, $http, editParticularObject) {
+        $scope.user = editParticularObject.getObject();
         $scope.saveChangesInUser = function (curUser) {
             $http.put('admin/', curUser);
             window.location = "#/control/users";
@@ -166,7 +166,7 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
     .controller('NewUserController', function ($scope, $http) {
         $scope.postUser = function () {
             $http.post('admin', $scope.newUser);
-            window.location = "#/viewCustomer";
+            window.location = "#/control/users";
         }
     })
 

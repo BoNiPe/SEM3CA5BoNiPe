@@ -14,7 +14,7 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             })
             .when('/profile/edit', {
                 templateUrl: 'app/viewCustomer/editProfile.html',
-                controller: 'EditUserController'
+                controller: 'EditAccountController'
             })
             //Basket(array) SHOW(1),SHOW(ALL),ADD,EDIT,REMOVE
             //Orders - PUSH
@@ -143,22 +143,21 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             });
     }])
 
-    .controller('AccountController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
-        var curUser = userInformation.getObject();
-        $scope.account = curUser;
+    .controller('AccountController', ['$scope', '$http', '$window', '$location', 'userInformation',
+        function ($scope, $http, $window, $location, userInformation) {
+            var curUser = userInformation.getObject();
+            $scope.account = curUser;
+            $scope.deleteClientUser = function () {
+                $http.delete('admin/' + curUser.username);
+                $scope.isAuthenticated = false;
+                $scope.isAdmin = false;
+                $scope.isUser = false;
+                delete $window.sessionStorage.token;
+                $location.path("#/viewHome");
+            }
+        }])
 
-        $scope.deleteClientUser = function () {
-            console.log('Deleting yourself');
-            $http.delete('admin/' + curUser.username);
-            $scope.isAuthenticated = false;
-            $scope.isAdmin = false;
-            $scope.isUser = false;
-            delete $window.sessionStorage.token;
-            $location.path("#/viewHome");
-        }
-    }])
-
-    .controller('EditUserController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
+    .controller('EditAccountController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
         $scope.user = userInformation.getObject();
         $scope.saveChangesInUser = function (curUser) {
             $http.put('admin/', curUser);
