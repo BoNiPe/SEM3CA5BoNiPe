@@ -1,4 +1,5 @@
 var request = require('request');
+var http = require('http');
 
 function getParticularAdmin(username, password, callback) {
     console.log('I did it, Yoda! I am checking your info : ' + username + ' and ' + password);
@@ -30,27 +31,52 @@ function deleteParticularLogger(username, callback) {
 
 function editLogger(userObject, callback) {
     console.log('I did it, Yoda! I am editing ' + userObject.username + ' with length of ' + JSON.stringify(userObject).length);
-    console.log('In construction');
-    callback(null, "Awesome");
+    var options = {
+        host: 'localhost',
+        port: '8080',
+        path: '/admin',
+        method: 'PUT',
+        headers: {
+            'Content-Type': 'application/json',
+            'Content-Length': JSON.stringify(userObject).length
+        }
+    };
+// Set up the request
+    var postRequest = http.request(options, function (res) {
+        res.setEncoding('utf8');
+        res.on('data', function (chunk) {
+            console.log('Response: ' + chunk);
+            callback(null, chunk);
+        });
+    });
+// post the data
+    postRequest.write(JSON.stringify(userObject));
+    postRequest.end();
 }
 
 function createLogger(userObject, callback) {
     console.log('I did it, Yoda! I am posting ' + userObject.username + ' with length of ' + JSON.stringify(userObject).length);
-    console.log('In construction');
-    callback(null, "Awesome");
-    //request({
-    //    uri: "http://localhost:8080/admin",
-    //    headers: {
-    //        'Content-Type': 'application/json',
-    //        'Content-Length': JSON.stringify(userObject).length
-    //    },
-    //    method: "POST",
-    //    form: userObject
-    //}, function (error, response, body) {
-    //    if (error) callback(error);
-    //    //console.log(body);
-    //    callback(null, body);
-    //});
+    var options = {
+        host: 'localhost',
+        port: '8080',
+        path: '/admin',
+        method: 'POST',
+        headers: {
+            'Content-Type': 'application/json',
+            'Content-Length': JSON.stringify(userObject).length
+        }
+    };
+// Set up the request
+    var postRequest = http.request(options, function (res) {
+        res.setEncoding('utf8');
+        res.on('data', function (chunk) {
+            console.log('Response: ' + chunk);
+            callback(null, chunk);
+        });
+    });
+// post the data
+    postRequest.write(JSON.stringify(userObject));
+    postRequest.end();
 }
 
 //The other way of exporting modules ^^
