@@ -26,7 +26,7 @@ function getOrders() {
             status : e.status,
             productID : e.productID,
             quantity : e.quantity,
-            orderDate: e.orderDate.substring(0, 10)
+            userAlias : e.userAlias
         };
     });
 };
@@ -36,24 +36,25 @@ function getProducts() {
         return {
             productName: e.productName,
             productDescription : e.productDescription,
-            unitPrice: e.unitPrice
+            unitPrice: e.unitPrice,
+            userAlias : e.userAlias
         };
     });
 }
 
-function getPayments() {
-    return payments.map(function (e) {
-        return {
-            orderID: e.orderID,
-            paymentAmount: e.paymentAmount,
-            paymentDate: e.paymentDate
-        };
-    });
-};
+//function getPayments() {
+//    return payments.map(function (e) {
+//        return {
+//            orderID: e.orderID,
+//            paymentAmount: e.paymentAmount,
+//            paymentDate: e.paymentDate
+//        };
+//    });
+//};
 
 var orders = readData('orders.json');
 var products = readData('products.json');
-var payments = readData('payments.json');
+//var payments = readData('payments.json');
 
 var db = mongoose.connect(dbUrl);
 db.connection.once('open', function () {
@@ -66,7 +67,7 @@ db.connection.on('error', function (err) {
 
 model.OrderModel.remove({}).exec();
 model.ProductModel.remove({}).exec();
-model.PaymentModel.remove({}).exec();
+//model.PaymentModel.remove({}).exec();
 
 var done = [0, 0, 0, 0, 0, 0];
 
@@ -98,7 +99,7 @@ function addData(data, dataModel, doneIndex) {
 
 addData(getOrders(), model.OrderModel, 0);
 addData(getProducts(), model.ProductModel, 1);
-addData(getPayments(), model.PaymentModel, 2);
+//addData(getPayments(), model.PaymentModel, 2);
 
 
 

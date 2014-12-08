@@ -1,2 +1,2 @@
-status,productID,quantity,orderDate
-[["Denied",1,20,"2014-12-08 00:00:00.000"],["Pending",1,25,"2014-12-09 12:00:00.000"],["Confirmed",1,30,"2014-12-10 12:00:00.000"],["Sent",1,50,"2014-12-11 12:00:00.000"], ["Delivered",1,30,"2014-12-10 12:00:00.000"]]
+status,productID,quantity,userAlias
+[["Denied",3,20,"Nikolas"],["Pending",1,25,"Peter"],["Confirmed",1,30,"George"],["Sent",1,50,"Thomas"], ["Delivered",1,30,"Sven"],["Delivered",2,30,"George"],["Confirmed",2,30,"Thomas"]]
