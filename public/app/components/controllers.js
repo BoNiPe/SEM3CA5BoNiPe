@@ -55,6 +55,21 @@ angular.module('myAppRename.controllers', [])
                 });
         };
 
+        function init(){
+            if($window.sessionStorage.token){
+                $scope.isAuthenticated = true;
+                var encodedProfile = sessionStorage.token.split('.')[1];
+                var profile = JSON.parse(url_base64_decode(encodedProfile));
+                $scope.username = profile.userAlias;
+                $scope.isAdmin = profile.role == "admin";
+                console.log('/authenticate SUCCESS : ' + profile.username + ' as ' + profile.role);
+                $scope.isUser = !$scope.isAdmin;
+                $scope.error = null;
+                userInformation.setObject(profile);
+            }
+        }
+        init();
+
         $scope.logout = function () {
             $scope.isAuthenticated = false;
             $scope.isAdmin = false;
