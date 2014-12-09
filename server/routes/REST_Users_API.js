@@ -63,6 +63,60 @@ router.post('/order', function(req,res) {
     })
 });
 
+router.get('/order/:userAlias', function (req, res) {
+    var userAlias = req.params.userAlias;
+    if (typeof global.mongo_error !== "undefined") {
+        res.status(500);
+        res.end("Error: " + global.mongo_error + " or with simple words : Your db's SWAG level is below 9000. Sorry");
+        return;
+    }
+    OrderDataLayerModel.getOrdersForLoggedUserAlias(userAlias, function (err, ordersForUserAlias) {
+        if (err) {
+            res.status(err.status || 400);
+            res.send(JSON.stringify({error: err.toString()}));
+            return;
+        }
+        res.header("Content-type", "application/json");
+        res.end(JSON.stringify(ordersForUserAlias));
+    })
+});
+
+router.delete("/order/:id", function(req,res) {
+    var id = req.params.id;
+    if (typeof global.mongo_error !== "undefined") {
+        res.status(500);
+        res.end("Error: " + global.mongo_error + " or with simple words : Your db's SWAG level is below 9000. Sorry");
+        return;
+    }
+    OrderDataLayerModel.removeOrder(id, function (err, currentOrder) {
+        if (err) {
+            res.status(err.status || 400);
+            res.send(JSON.stringify({error: err.toString()}));
+            return;
+        }
+        res.header("Content-type", "application/json");
+        res.end(JSON.stringify(currentOrder));
+    })
+});
+
+router.put("/order/:id", function(req,res) {
+    var id = req.params.id;
+    if (typeof global.mongo_error !== "undefined") {
+        res.status(500);
+        res.end("Error: " + global.mongo_error + " or with simple words : Your db's SWAG level is below 9000. Sorry");
+        return;
+    }
+    OrderDataLayerModel.updateOrder(id, req.body, function (err, currentProduct) {
+        if (err) {
+            res.status(err.status || 400);
+            res.send(JSON.stringify({error: err.toString()}));
+            return;
+        }
+        res.header("Content-type", "application/json");
+        res.end(JSON.stringify(currentProduct));
+    })
+});
+
 //basket is only frontend, if you press confirm it will make a post request to createOrder(s)
 //getUser's orders (basket)
 //getUser's payments (basket part2)
