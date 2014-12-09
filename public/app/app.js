@@ -11,11 +11,11 @@ angular.module('myAppRename', [
   'myAppRename.viewHome',
   'myAppRename.viewCustomer',
   'myAppRename.viewAdmin'
-])
-    .config(['$routeProvider', function($routeProvider) {
+]).
+config(['$routeProvider', function($routeProvider) {
     $routeProvider.otherwise({redirectTo: '/viewHome'});
 }])
-    .config(function ($httpProvider) {
+.config(function ($httpProvider) {
     $httpProvider.interceptors.push('authInterceptor');
   });
 

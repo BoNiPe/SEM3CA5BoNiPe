@@ -1,5 +1,5 @@
 angular.module('myAppRename.controllers', [])
-    .controller('AppCtrl', ['$scope', '$http' ,'$window', '$location', 'userInformation', function ($scope, $http, $window, $location, userInformation) {
+    .controller('AppCtrl', ['$scope', '$http', '$window', '$location', 'userInformation', function ($scope, $http, $window, $location, userInformation) {
 
         //This method is not doing anything ( I triple checked it with console.logs... Whatever goes in comes out.. Exactly the same..LOL?
         function url_base64_decode(str) {
@@ -27,9 +27,12 @@ angular.module('myAppRename.controllers', [])
         $scope.message = '';
         $scope.error = null;
 
+        $scope.register = function () {
+            window.location = "#/registration";
+        };
+
         $scope.submit = function () {
-            $http
-                .post('/authenticate', $scope.user)
+            $http.post('/authenticate', $scope.user)
                 .success(function (data, status, headers, config) {
                     $window.sessionStorage.token = data.token;
                     $scope.isAuthenticated = true;
@@ -41,9 +44,9 @@ angular.module('myAppRename.controllers', [])
                     $scope.isUser = !$scope.isAdmin;
                     $scope.error = null;
                     userInformation.setObject(profile);
-                    if(profile.role =="admin"){
+                    if (profile.role == "admin") {
                         window.location = "#/adminHome";
-                    }else{
+                    } else {
                         window.location = "#/customerHome";
                     }
                 })
@@ -55,8 +58,8 @@ angular.module('myAppRename.controllers', [])
                 });
         };
 
-        function init(){
-            if($window.sessionStorage.token){
+        function init() {
+            if ($window.sessionStorage.token) {
                 $scope.isAuthenticated = true;
                 var encodedProfile = sessionStorage.token.split('.')[1];
                 var profile = JSON.parse(url_base64_decode(encodedProfile));
@@ -68,6 +71,7 @@ angular.module('myAppRename.controllers', [])
                 userInformation.setObject(profile);
             }
         }
+
         init();
 
         $scope.logout = function () {

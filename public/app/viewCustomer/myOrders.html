@@ -1,34 +1,10 @@
-<div class="panel panel-default">
-    <!-- Default panel contents -->
-    <div class="panel-heading"><b>Your orders:</b></div>
-    <div class="panel-body">
-        <p>Here you can see a list of ALL of your orders :)</p>
-<table class="table">
-    <thead>
-    <td><b>Product ID:</b></td>
-    <td><b>Quantity:</b></td>
-    <td><b>Order date:</b></td>
-    <td><b>Status</b></td>
-    </thead>
-    <tbody>
-    <tr ng-repeat="order in ordersForSpecificUser">
-        <td><a href="#/products/{{order.productID}}">{{order.productID}}</a></td>
-        <td>{{order.quantity}}</td>
-        <td>{{order.orderDate | date:'medium'}}</td>
-        <td>{{order.status}}</td>
-        <td>
-            <button type="button" class="btn btn-default btn-sm" ng-click="saveChangesInOrderForCustomerQuantity(order)">
-                <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit quantity
-            </button>
-            <font size="5">|</font>
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
 
-            <button type="button" class="btn btn-default btn-sm"  ng-click="userDeleteOrder(order)">
-                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
-            </button>
-
-        </td>
-    </tbody>
-</table>
-    </div>
-    </div>
-</div>
+</body>
+</html>

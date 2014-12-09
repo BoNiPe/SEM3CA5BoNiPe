@@ -192,6 +192,59 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             });
     }])
 
+<<<<<<< HEAD
+    .controller('AccountController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
+        var curUser = userInformation.getObject();
+        $scope.account = curUser;
+
+        $scope.deleteClientUser = function () {
+            console.log('Deleting yourself');
+            $http.delete('admin/' + curUser.username);
+            $scope.isAuthenticated = false;
+            $scope.isAdmin = false;
+            $scope.isUser = false;
+            delete $window.sessionStorage.token;
+            $location.path("#/viewHome");
+        }
+    }])
+=======
+    .controller('UserAliasOrdersControllerUser', ['$scope', '$http','userInformation', function ($scope, $http, userInformation) {
+        $http({
+            method: 'GET',
+            url: 'userApi/order/' + userInformation.getObject().userAlias
+        }).
+            success(function (data, status, headers, config) {
+                $scope.ordersForSpecificUser = data;
+            }).
+            error(function (data, status, headers, config) {
+                $scope.error = data;
+            });
+
+        $scope.userDeleteOrder = function (order) {
+            $http.delete('userApi/order/' + order._id, order);
+            var index = $scope.ordersForSpecificUser.indexOf(order);
+            $scope.ordersForSpecificUser.splice(index, 1);
+        }
+
+        $scope.saveChangesInOrderForCustomerQuantity = function (order) {
+            userInformation.setObject(order);
+            window.location = "#/editOrder";
+        }
+
+    }])
+
+
+
+    .controller('UserAliasOrdersControllerChangeQuantity', ['$scope', '$http', 'userInformation',
+        function ($scope, $http, userInformation) {
+            $scope.order = userInformation.getObject();
+            $scope.saveChangesInOrderForCustomerQuantity = function (order) {
+                $http.put('userApi/order/' + order._id, order);
+                window.location = "#/myOrders";
+            }
+        }])
+
+
     .controller('AccountController', ['$scope', '$http', '$window', '$location', 'userInformation',
         function ($scope, $http, $window, $location, userInformation) {
             var curUser = userInformation.getObject();
@@ -205,6 +258,7 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                 $location.path("#/viewHome");
             }
         }])
+>>>>>>> Boyko
 
     .controller('EditAccountController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
         $scope.user = userInformation.getObject();

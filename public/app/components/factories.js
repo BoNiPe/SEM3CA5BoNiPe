@@ -30,7 +30,7 @@ angular.module('myAppRename.factories', []).
     };
   })
 
-    .factory('ProductInfoSaver', function () {
+    .factory('BasketArrayFactory', function () {
       var info = new Array();
       var getInfo = function getInfo() {
         return info;
