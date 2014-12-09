@@ -7,7 +7,7 @@ var dbUrl = 'mongodb://localhost/wiki';
 function readData(path) {
     var file = fs.readFileSync(path, 'utf8');
     var lines = file.split(/[\r]?[\n]/);
-    var headers = lines[0].split(',');1
+    var headers = lines[0].split(',');
     var data = JSON.parse(lines[1]);
     var result = data.map(function (e) {
         var res = {};
