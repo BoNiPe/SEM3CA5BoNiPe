@@ -30,7 +30,7 @@ function deleteParticularLogger(username, callback) {
 }
 
 function editLogger(userObject, callback) {
-    console.log('I did it, Yoda! I am editing ' + userObject.username + ' with length of ' + JSON.stringify(userObject).length);
+    console.log('I did it, Yoda! I am editing ' + JSON.stringify(userObject) + ' with length of ' + JSON.stringify(userObject).length);
     var options = {
         host: 'localhost',
         port: '8080',
@@ -56,6 +56,10 @@ function editLogger(userObject, callback) {
 
 function createLogger(userObject, callback) {
     console.log('I did it, Yoda! I am posting ' + userObject.username + ' with length of ' + JSON.stringify(userObject).length);
+    if(userObject.type == null){
+        console.log("I don't have type");
+        userObject.type = "customer";
+    }
     var options = {
         host: 'localhost',
         port: '8080',

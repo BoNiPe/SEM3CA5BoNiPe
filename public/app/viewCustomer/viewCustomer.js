@@ -14,7 +14,7 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             })
             .when('/profile/edit', {
                 templateUrl: 'app/viewCustomer/editProfile.html',
-                controller: 'EditUserController'
+                controller: 'EditAccountController'
             })
             //Basket(array) SHOW(1),SHOW(ALL),ADD,EDIT,REMOVE
             //Orders - PUSH
@@ -23,8 +23,8 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                 controller: 'BasketController'
             })
             .when('/basket/edit', {
-                templateUrl: 'app/viewCustomer/editOrder.html',
-                controller: 'EditOrderController'
+                templateUrl: 'app/viewCustomer/editBasket.html',
+                controller: 'EditBasketController'
             })
             //Products - GET(1),GET(ALL)
             .when('/products', {
@@ -63,53 +63,84 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             });
     }])
 
-    .controller('BasketController', ['$scope', '$http', 'ProductInfoSaver', 'editParticularObject', 'userInformation',
-        function ($scope, $http, ProductInfoSaver, editParticularObject, userInformation) {
-            $scope.currentOrders = ProductInfoSaver.getInfo();
+    .controller('BasketController', ['$scope', '$http', 'BasketArrayFactory', 'editParticularObject', 'userInformation',
+        function ($scope, $http, BasketArrayFactory, editParticularObject, userInformation) {
+            $scope.alert = null;
+            $scope.currentOrders = BasketArrayFactory.getInfo();
             $scope.editOrder = function (order) {
                 editParticularObject.setObject(order);
-                window.location = "#/basket/edit";
+                $scope.alert = "Redirecting to edit item in basket of product : " + order.productName;
+                window.setTimeout(
+                    function () {
+                        $scope.alert = null;
+                        window.location = "#/basket/edit";
+                    }, 3000);
             };
 
             $scope.deleteOrder = function (order) {
-                ProductInfoSaver.deleteFromList(order);
+                $scope.alert = "Deleted item in basket of product : " + order.productName;
+                BasketArrayFactory.deleteFromList(order);
             };
 
             $scope.postOrders = function () {
-                var toBePushed = new Array();
-                for (var i = 0; i < $scope.currentOrders.length; i++) {
-                    var objectToBePushed = {
-                        productID: $scope.currentOrders[i].productID,
-                        quantity: $scope.currentOrders[i].productAmount,
-                        userAlias: userInformation.getObject().userAlias
-                    };
-                    $http.post('userApi/order', objectToBePushed);
-                    objectToBePushed = {}
-                }
-                ProductInfoSaver.clearList();
-                window.location = "#/viewCustomer";
-            }
-        }])
+                if ($scope.currentOrders.length > 0) {
+                    var toBePushed = new Array();
+                    for (var i = 0; i < $scope.currentOrders.length; i++) {
+                        var objectToBePushed = {
+                            productID: $scope.currentOrders[i].productID,
+                            quantity: $scope.currentOrders[i].productAmount,
+                            userAlias: userInformation.getObject().userAlias
+                        };
+                        $scope.success = 'You successfully made ' + toBePushed.length + ' order(s).';
+                        window.setTimeout(
+                            function () {
+                                $http.post('userApi/order', objectToBePushed);
+                                objectToBePushed = {}
+                                BasketArrayFactory.clearList();
+                                window.location = "#/customerHome";
+                            }, 3000);
 
-    .controller('EditOrderController', ['$scope', '$http', 'ProductInfoSaver', 'editParticularObject',
-        function ($scope, $http, ProductInfoSaver, editParticularObject) {
-            var allOrders = ProductInfoSaver.getInfo();
-            $scope.orderToEdit = editParticularObject.getObject();
-
-            $scope.editBasket = function (quantity) {
-                for (var i = 0; i < allOrders.length; i++) {
-                    if (allOrders[i].productID === $scope.orderToEdit.productID) {
-                        allOrders[i].productAmount = quantity;
                     }
+                } else {
+                    $scope.alert = 'Nothing to save';
                 }
-                ProductInfoSaver.changeList(allOrders);
-                window.location = "#/basket";
+            }
+        }])
+
+    .controller('EditBasketController', ['$scope', '$http', 'BasketArrayFactory', 'editParticularObject',
+        function ($scope, $http, BasketArrayFactory, editParticularObject) {
+            var allOrders = BasketArrayFactory.getInfo();
+            $scope.orderToEdit = editParticularObject.getObject();
+            var amountBeforeEdit = editParticularObject.getObject().productAmount;
+            $scope.editBasket = function (quantity) {
+                if (!isNaN(quantity) && quantity >= 1 && quantity <= 6) {
+                    var unitPrice = (editParticularObject.getObject().productPrice / amountBeforeEdit);
+                    for (var i = 0; i < allOrders.length; i++) {
+
+                        if (allOrders[i].productID === $scope.orderToEdit.productID) {
+                            allOrders[i].productAmount = quantity;
+                            allOrders[i].productPrice = quantity * unitPrice;
+                            //console.log(unitPrice + "=" + editParticularObject.getObject().productPrice + "/"
+                            //+ editParticularObject.getObject().productAmount);
+                            //console.log(allOrders[i].productPrice + "=" + quantity + "*" + unitPrice);
+                        }
+                    }
+                    $scope.success = 'You successfully made an update.';
+                    window.setTimeout(
+                        function () {
+                            BasketArrayFactory.changeList(allOrders);
+                            window.location = "#/basket";
+                        }, 3000);
+
+                } else {
+                    $scope.error = 'You failed to write an actual number between 1 and 5. I think you are also failing in life.';
+                }
             }
 
         }])
 
-    .controller('UserProductController', ['$scope', '$http', 'ProductInfoSaver', 'editParticularObject',
-        function ($scope, $http, ProductInfoSaver, editParticularObject) {
+    .controller('UserProductController', ['$scope', '$http', 'BasketArrayFactory',
+        function ($scope, $http, BasketArrayFactory) {
 
             $http({
                 method: 'GET',
@@ -120,21 +151,39 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                 }).
                 error(function (data, status, headers, config) {
                     if (status == 401) {
-                        $scope.error = "You are not authenticated to request these data";
+                        $scope.externalError = "Your swag level is below 9000, which should logically lead you to the conclusion that you are not good enough ... still!";
                         return;
                     }
                     $scope.error = data;
                 });
 
-            $scope.addProductToBasket = function (product, productAmount) {
-                var productToBasket = {
-                    productID: product._id,
-                    productName: product.productName,
-                    productAmount: productAmount,
-                    productPrice: productAmount * product.unitPrice
-                };
-                ProductInfoSaver.setInfo(productToBasket);
-                window.location = "#/basket";
+            $scope.amount = 1;
+            $scope.addProductToBasket = function (product, chosenAmount) {
+                $scope.success = null;
+                $scope.error = null;
+                if (!isNaN(chosenAmount) && chosenAmount >= 1 && chosenAmount <= 6) {
+                    var basketArray = BasketArrayFactory.getInfo();
+                    var isExisting = false;
+                    for (var i = 0; i < basketArray.length; i++) {
+                        if (basketArray[i].productName == product.productName) {
+                            isExisting = true;
+                            $scope.error = "You already ordered this item.";
+                        }
+                    }
+                    if (!isExisting) {
+                        var productToBasket = {
+                            productID: product._id,
+                            productName: product.productName,
+                            productAmount: chosenAmount,
+                            productPrice: chosenAmount * product.unitPrice
+                        };
+                        BasketArrayFactory.setInfo(productToBasket);
+                        $scope.success = 'You successfully ordered ' + productToBasket.productAmount + "x " + productToBasket.productName;
+                        //window.location = "#/basket";
+                    }
+                } else {
+                    $scope.error = 'You failed to write an actual number between 1 and 5. I think you are also failing in life.';
+                }
             }
         }])
 
@@ -188,25 +237,32 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
         }])
 
 
-    .controller('AccountController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
-        var curUser = userInformation.getObject();
-        $scope.account = curUser;
+    .controller('AccountController', ['$scope', '$http', '$window', '$location', 'userInformation',
+        function ($scope, $http, $window, $location, userInformation) {
+            var curUser = userInformation.getObject();
+            $scope.account = curUser;
+            $scope.deleteClientUser = function () {
+                $http.delete('admin/' + curUser.username);
+                $scope.isAuthenticated = false;
+                $scope.isAdmin = false;
+                $scope.isUser = false;
+                delete $window.sessionStorage.token;
+                $location.path("#/viewHome");
+            }
+        }])
 
-        $scope.deleteClientUser = function () {
-            console.log('Deleting yourself');
-            $http.delete('admin/' + curUser.username);
-            $scope.isAuthenticated = false;
-            $scope.isAdmin = false;
-            $scope.isUser = false;
-            delete $window.sessionStorage.token;
-            $location.path("#/viewHome");
-        }
-    }])
-
-    .controller('EditUserController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
+    .controller('EditAccountController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
         $scope.user = userInformation.getObject();
         $scope.saveChangesInUser = function (curUser) {
-            $http.put('admin/', curUser);
-            window.location = "#/profile";
+            if (curUser.fname && curUser.lname && curUser.adress) {
+                $scope.success = 'You successfully made an update';
+                window.setTimeout(
+                    function () {
+                        $http.put('admin/', curUser);
+                        window.location = "#/profile";
+                    }, 3000);
+            } else {
+                $scope.error = 'You have null values';
+            }
         }
     }]);
