@@ -104,7 +104,7 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
         }
     }])
 
-    .controller('ProductsController', ['$scope', '$http', 'ProductInfoSaver', 'editParticularObject',
+    .controller('ProductsController', ['$scope', '$http', 'BasketArrayFactory', 'editParticularObject',
         function ($scope, $http, ProductInfoSaver, editParticularObject) {
             $http({
                 method: 'GET',
