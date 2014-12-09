@@ -18,7 +18,7 @@ angular.module('myAppRename.viewHome', ['ngRoute'])
     .controller('RegistrationController', function ($scope, $http) {
         $scope.postUser = function () {
             if ($scope.newUser) {
-                $scope.success = 'You successfully made an account, now you can log in!';
+                $scope.success = 'You successfully made an account, now you can log in! :)';
                 window.setTimeout(
                     function () {
                         $http.post('admin', $scope.newUser);
