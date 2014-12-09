@@ -1,2 +1,2 @@
 status,productID,quantity,userAlias
-[["Denied",3,20,"Nikolas"],["Pending",1,25,"Peter"],["Confirmed",1,30,"George"],["Sent",1,50,"Thomas"], ["Delivered",1,30,"Sven"],["Delivered",2,30,"George"],["Confirmed",2,30,"Thomas"]]
+[["Denied",3,20,"Nikolas"],["Pending",1,25,"Peter"],["Confirmed",1,30,"George"],["Sent",1,50,"Thomas"], ["Delivered",1,30,"Sven"],["Delivered",2,30,"George"],["Confirmed",2,30,"Thomas"],["Delivered",2,25,"Sven"]]

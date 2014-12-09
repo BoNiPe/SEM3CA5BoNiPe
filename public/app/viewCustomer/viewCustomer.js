@@ -34,6 +34,14 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             .when('/products/:id', {
                 templateUrl: 'app/viewCustomer/currentProduct.html',
                 controller: 'currentProductControllerUser'
+            })
+             .when('/myOrders', {
+            templateUrl: 'app/viewCustomer/myOrders.html',
+            controller: 'UserAliasOrdersControllerUser'
+            })
+            .when('/editOrder', {
+            templateUrl: 'app/viewCustomer/editOrder.html',
+             controller: 'UserAliasOrdersControllerChangeQuantity'
             });
     }])
     .controller('CustomerController', ['$scope', '$http', function ($scope, $http) {
@@ -142,6 +150,43 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                 $scope.error = data;
             });
     }])
+
+    .controller('UserAliasOrdersControllerUser', ['$scope', '$http','userInformation', function ($scope, $http, userInformation) {
+        $http({
+            method: 'GET',
+            url: 'userApi/order/' + userInformation.getObject().userAlias
+        }).
+            success(function (data, status, headers, config) {
+                $scope.ordersForSpecificUser = data;
+            }).
+            error(function (data, status, headers, config) {
+                $scope.error = data;
+            });
+
+        $scope.userDeleteOrder = function (order) {
+            $http.delete('userApi/order/' + order._id, order);
+            var index = $scope.ordersForSpecificUser.indexOf(order);
+            $scope.ordersForSpecificUser.splice(index, 1);
+        }
+
+        $scope.saveChangesInOrderForCustomerQuantity = function (order) {
+            userInformation.setObject(order);
+            window.location = "#/editOrder";
+        }
+
+    }])
+
+
+
+    .controller('UserAliasOrdersControllerChangeQuantity', ['$scope', '$http', 'userInformation',
+        function ($scope, $http, userInformation) {
+            $scope.order = userInformation.getObject();
+            $scope.saveChangesInOrderForCustomerQuantity = function (order) {
+                $http.put('userApi/order/' + order._id, order);
+                window.location = "#/myOrders";
+            }
+        }])
+
 
     .controller('AccountController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
         var curUser = userInformation.getObject();
