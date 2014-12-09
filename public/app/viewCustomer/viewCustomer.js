@@ -192,11 +192,11 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             });
     }])
 
-    .controller('AccountController', ['$scope', '$http', '$window', '$location', 'userInformation',
+    .controller('AccountController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
         function ($scope, $http, $window, $location, userInformation) {
-            var curUser = userInformation.getObject();
-            $scope.account = curUser;
-            $scope.deleteClientUser = function () {
+        var curUser = userInformation.getObject();
+        $scope.account = curUser;
+        $scope.deleteClientUser = function () {
                 $http.delete('admin/' + curUser.username);
                 $scope.isAuthenticated = false;
                 $scope.isAdmin = false;
