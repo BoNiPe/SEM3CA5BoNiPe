@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-<<<<<<< HEAD
     <list default="true" id="69908405-2667-4649-a542-507a1425e5ea" name="Default" comment="">
+<<<<<<< HEAD
+      <change type="DELETED" beforePath="C:\Users\Tomascik\Desktop\FinalProject\GIT\9.12\SEM3CA5BoNiPe\README.md" afterPath="" />
+=======
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/viewAdmin/adminProfile.html" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/viewCustomer/clientProfile.html" />
       <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/viewCustomer/editProfile.html" />
@@ -23,10 +25,7 @@
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewHome/view1.html" afterPath="$PROJECT_DIR$/public/app/viewHome/view1.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewAdmin/view3.js" afterPath="$PROJECT_DIR$/public/app/viewAdmin/view3.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewCustomer/viewCustomer.js" afterPath="$PROJECT_DIR$/public/app/viewCustomer/viewCustomer.js" />
-=======
-    <list default="true" id="69908405-2667-4649-a542-507a1425e5ea" name="Default" comment="edit/ delete quantity  (FRONT-END) + stuff around it">
-      <change type="MOVED" beforePath="C:\Users\Tomascik\Desktop\FinalProject\GIT\9.12\SEM3CA5BoNiPe\README.md" afterPath="$PROJECT_DIR$/readme.md" />
->>>>>>> origin/Peter4
+>>>>>>> origin/master
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ExpressAngularSeed.iws" />
@@ -64,39 +63,18 @@
       <file leaf-file-name="view3.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/viewAdmin/view3.js">
           <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
             <state vertical-scroll-proportion="0.0" vertical-offset="3188" max-vertical-offset="3585">
               <caret line="231" column="73" selection-start-line="231" selection-start-column="58" selection-end-line="231" selection-end-column="73" />
               <folding />
-=======
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1938">
-              <caret line="168" column="57" selection-start-line="168" selection-start-column="41" selection-end-line="168" selection-end-column="57" />
-              <folding>
-                <element signature="e#1882#2463#0" expanded="false" />
-                <element signature="e#2503#3734#0" expanded="false" />
-                <element signature="e#3776#4467#0" expanded="false" />
-                <element signature="e#4511#5680#0" expanded="false" />
-                <element signature="e#5800#6170#0" expanded="false" />
-                <element signature="e#8245#8454#0" expanded="false" />
-              </folding>
->>>>>>> origin/Peter4
             </state>
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
       <file leaf-file-name="editProfile.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/viewCustomer/editProfile.html">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="-1.875" vertical-offset="0" max-vertical-offset="750">
               <caret line="3" column="72" selection-start-line="3" selection-start-column="72" selection-end-line="3" selection-end-column="72" />
-=======
-      <file leaf-file-name="editOrder.html" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/public/app/viewCustomer/editOrder.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.78612715" vertical-offset="0" max-vertical-offset="374">
-              <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
->>>>>>> origin/Peter4
               <folding>
                 <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
               </folding>
@@ -104,19 +82,11 @@
           </provider>
         </entry>
       </file>
-<<<<<<< HEAD
       <file leaf-file-name="viewCustomer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/app/viewCustomer/viewCustomer.js">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.34005037" vertical-offset="315" max-vertical-offset="2595">
               <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
-=======
-      <file leaf-file-name="www" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/bin/www">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-              <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
->>>>>>> origin/Peter4
               <folding />
             </state>
           </provider>
@@ -128,7 +98,7 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RECENT_BRANCH_BY_REPOSITORY">
       <map>
-        <entry key="$PROJECT_DIR$" value="Peter3" />
+        <entry key="$PROJECT_DIR$" value="master" />
       </map>
     </option>
   </component>
@@ -467,7 +437,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-<<<<<<< HEAD
               <option name="myItemId" value="public" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -512,8 +481,6 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-=======
->>>>>>> origin/Peter4
               <option name="myItemId" value="bin" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
@@ -789,8 +756,6 @@
       <updated>1417788996251</updated>
     </task>
 <<<<<<< HEAD
-    <option name="localTasksCounter" value="20" />
-=======
     <task id="LOCAL-00020" summary="Merge branch 'Boyko' of https://github.com/BoNiPe/SEM3CA5BoNiPe&#10;&#10;- add myOrders back+front END&#10;(special thanks to Boyko:)&#10;">
       <created>1418062266346</created>
       <option name="number" value="00020" />
@@ -803,8 +768,16 @@
       <option name="project" value="LOCAL" />
       <updated>1418134675765</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
->>>>>>> origin/Peter4
+    <task id="LOCAL-00022" summary="edit/ delete quantity  (FRONT-END) + stuff around it">
+      <created>1418139464167</created>
+      <option name="number" value="00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1418139464167</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
+=======
+    <option name="localTasksCounter" value="20" />
+>>>>>>> origin/master
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -831,17 +804,19 @@
     <frame x="-1" y="25" width="1368" height="744" extended-state="0" />
     <editor active="false" />
     <layout>
-<<<<<<< HEAD
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27027026" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-=======
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27243066" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
->>>>>>> origin/Peter4
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988507" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
 <<<<<<< HEAD
+      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24684015" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990196" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32952693" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
+=======
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.18364312" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.39872408" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -849,24 +824,13 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
-=======
-      <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24684015" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990196" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
-      <window_info id="Version Control" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.32952693" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
->>>>>>> origin/Peter4
+>>>>>>> origin/master
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Heroku" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988507" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42424244" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-<<<<<<< HEAD
       <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32961783" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-=======
->>>>>>> origin/Peter4
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
@@ -929,13 +893,7 @@
     <MESSAGE value="PETER'S LOGIC FOR CONNECTING JPA SERVER AND NODE SERVER WHICH IS WORKINGGGG &lt;333333&#10;beta1" />
     <MESSAGE value="Admin authentication logic added.&#10;Working on directives (for fun)&#10;TODO REST of user, user gui logic, admin gui logic, user see currentOrders&#10;beta2" />
     <MESSAGE value="Authenticate (+ error handling) and getAll users added to NodeJS backend.&#10;sidebar.css added (for further stuff which gotta be implemented by Nik)&#10;beta3" />
-<<<<<<< HEAD
     <option name="LAST_COMMIT_MESSAGE" value="Authenticate (+ error handling) and getAll users added to NodeJS backend.&#10;sidebar.css added (for further stuff which gotta be implemented by Nik)&#10;beta3" />
-=======
-    <MESSAGE value="Merge branch 'Boyko' of https://github.com/BoNiPe/SEM3CA5BoNiPe&#10;&#10;- add myOrders back+front END&#10;(special thanks to Boyko:)&#10;" />
-    <MESSAGE value="edit/ delete quantity  (FRONT-END) + stuff around it" />
-    <option name="LAST_COMMIT_MESSAGE" value="edit/ delete quantity  (FRONT-END) + stuff around it" />
->>>>>>> origin/Peter4
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1045,6 +1003,9 @@
         </state>
       </provider>
     </entry>
+<<<<<<< HEAD
+    <entry file="file://$PROJECT_DIR$/package.json">
+=======
     <entry file="file://$PROJECT_DIR$/public/app/viewAdmin/editOrder.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.5570292" vertical-offset="0" max-vertical-offset="377">
@@ -1053,6 +1014,7 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/viewAdmin/currentProduct.html">
+>>>>>>> origin/master
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.3633218" vertical-offset="0" max-vertical-offset="578">
           <caret line="14" column="20" selection-start-line="14" selection-start-column="20" selection-end-line="14" selection-end-column="20" />
@@ -1197,13 +1159,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/server/security/authentication.js">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state vertical-scroll-proportion="0.9911894" vertical-offset="0" max-vertical-offset="990">
           <caret line="30" column="36" selection-start-line="30" selection-start-column="36" selection-end-line="30" selection-end-column="36" />
-=======
-        <state vertical-scroll-proportion="-2.4244483" vertical-offset="1836" max-vertical-offset="8449">
-          <caret line="24" column="14" selection-start-line="24" selection-start-column="4" selection-end-line="24" selection-end-column="14" />
->>>>>>> origin/Peter4
           <folding />
         </state>
       </provider>
@@ -1314,7 +1271,6 @@
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/public/app/viewAdmin/editUser.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.34974092" vertical-offset="450" max-vertical-offset="855">
@@ -1324,9 +1280,6 @@
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/viewCustomer/clientProfile.html">
-=======
-    <entry file="file://$PROJECT_DIR$/server/model/OrderDataLayer.js">
->>>>>>> origin/Peter4
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-4.375" vertical-offset="0" max-vertical-offset="630">
           <caret line="7" column="56" selection-start-line="7" selection-start-column="56" selection-end-line="7" selection-end-column="56" />
@@ -1344,50 +1297,19 @@
         </state>
       </provider>
     </entry>
-<<<<<<< HEAD
     <entry file="file://$PROJECT_DIR$/public/app/viewAdmin/view3.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="3188" max-vertical-offset="3585">
           <caret line="231" column="73" selection-start-line="231" selection-start-column="58" selection-end-line="231" selection-end-column="73" />
           <folding />
-=======
-    <entry file="file://$PROJECT_DIR$/public/app/viewCustomer/viewCustomer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1938">
-          <caret line="168" column="57" selection-start-line="168" selection-start-column="41" selection-end-line="168" selection-end-column="57" />
-          <folding>
-            <element signature="e#1882#2463#0" expanded="false" />
-            <element signature="e#2503#3734#0" expanded="false" />
-            <element signature="e#3776#4467#0" expanded="false" />
-            <element signature="e#4511#5680#0" expanded="false" />
-            <element signature="e#5800#6170#0" expanded="false" />
-            <element signature="e#8245#8454#0" expanded="false" />
-          </folding>
->>>>>>> origin/Peter4
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/viewCustomer/viewCustomer.js">
       <provider selected="true" editor-type-id="text-editor">
-<<<<<<< HEAD
         <state vertical-scroll-proportion="0.34005037" vertical-offset="315" max-vertical-offset="2595">
           <caret line="30" column="8" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="8" />
-=======
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="391">
-          <caret line="9" column="3" selection-start-line="9" selection-start-column="3" selection-end-line="9" selection-end-column="3" />
->>>>>>> origin/Peter4
           <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/viewCustomer/editOrder.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.78612715" vertical-offset="0" max-vertical-offset="374">
-          <caret line="16" column="6" selection-start-line="16" selection-start-column="6" selection-end-line="16" selection-end-column="6" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#legend#0;n#fieldset#0;n#form#0;n#div#0;n#!!top" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
