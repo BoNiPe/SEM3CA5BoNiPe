@@ -1,0 +1,65 @@
+<div class="col-md-5" style="border: thin lightblue solid; border-radius: 5px;padding: 1em;">
+    <form class="form-horizontal">
+        <fieldset>
+            <legend style="color:darkblue;">Create new user :</b></b></legend>
+            <div class="alert alert-warning" ng-show="alert"><span class="glyphicon glyphicon-thumbs-up"></span>{{alert}}</div>
+            <div class="alert alert-success" ng-show="success"><span class="glyphicon glyphicon-thumbs-up"></span>{{success}}</div>
+            <div class="form-group">
+                <label for="username" class="control-label col-xs-3"><span
+                        class="label label-info">Username</span></label>
+
+                <div class="col-xs-9">
+                    <input type="text" class="form-control" ng-model="newUser.username" id="username"
+                           placeholder="INSERT Username">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="password" class="control-label col-xs-3"><span
+                        class="label label-info">Password</span></label>
+
+                <div class="col-xs-9">
+                    <input type="text" class="form-control" ng-model="newUser.password" id="password"
+                           placeholder="INSERT Password">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="alias" class="control-label col-xs-3"><span class="label label-info">Alias</span></label>
+
+                <div class="col-xs-9">
+                    <input type="text" class="form-control" ng-model="newUser.userAlias" id="alias"
+                           placeholder="INSERT Alias">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="fname" class="control-label col-xs-3"><span
+                        class="label label-info">First Name: </span></label>
+
+                <div class="col-xs-9">
+                    <input type="text" class="form-control" ng-model="newUser.fname" id="fname"
+                           placeholder="INSERT First Name:">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="lname" class="control-label col-xs-3"><span
+                        class="label label-info">Last Name:</span></label>
+
+                <div class="col-xs-9">
+                    <input type="text" class="form-control" ng-model="newUser.lname" id="lname"
+                           placeholder="INSERT Last Name:">
+                </div>
+            </div>
+            <div class="form-group">
+                <label for="address" class="control-label col-xs-3"><span
+                        class="label label-info">Address</span></label>
+
+                <div class="col-xs-9">
+                    <input type="text" class="form-control" ng-model="newUser.adress" id="address"
+                           placeholder="INSERT Address">
+                </div>
+            </div>
+        </fieldset>
+    </form>
+    <div class="form-group">
+        <button href="" type="submit" ng-click="postUser()" class="btn btn-primary">Save</button>
+    </div>
+</div>

@@ -3,9 +3,11 @@
         <fieldset >
             <legend style="color:darkblue;">Edit Order for Product: <b>{{orderToEdit.productName}}</b></b></legend>
             <div class="form-group">
+                <div class="alert alert-danger" role="alert" ng-show="error">{{error}}</div>
+                <div class="alert alert-success" role="alert" ng-show="success">{{success}}</div>
                 <label for="quantity" class="control-label col-xs-3"><span class="label label-info">Quantity</span></label>
                 <div class="col-xs-9">
-                    <input type="text" class="form-control" ng-model="orderToEdit.productAmount" id="quantity" placeholder="INSERT AMOUNT">
+                    <input type="number" class="form-control" ng-model="orderToEdit.productAmount" id="quantity" placeholder="INSERT AMOUNT" min="1" max="5">
                 </div>
             </div>
         </fieldset>
