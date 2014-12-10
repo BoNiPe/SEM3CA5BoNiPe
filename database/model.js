@@ -2,11 +2,10 @@ var mongoose = require('mongoose');
 
 var orderSchema = new mongoose.Schema({
     status : String,
-    productID :  {type: Number, unique: true},
+    productID :  Number,
     quantity : { type: Number, min: 0, max: 100 },
     orderDate: { type: Date, default: new Date() },
-    userAlias: {type: String, unique: true}
-
+    userAlias: String
 });
 exports.OrderModel = mongoose.model('order', orderSchema);
 
@@ -22,8 +21,10 @@ exports.ProductModel = mongoose.model('product', productSchema);
 
 /** Payment SCHEMA **/
 var paymentSchema = new mongoose.Schema({
-    orderID :  {type: String, unique: true},
+    userAlias :  {type: String, unique: true},
+    orderID : {type: String, unique: true},
     paymentAmount : { type: Number },
+    isPayed : String,
     paymentDate : { type: Date, default: new Date() }
 });
 exports.PaymentModel = mongoose.model('payment', paymentSchema);

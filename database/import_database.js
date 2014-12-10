@@ -42,19 +42,20 @@ function getProducts() {
     });
 }
 
-//function getPayments() {
-//    return payments.map(function (e) {
-//        return {
-//            orderID: e.orderID,
-//            paymentAmount: e.paymentAmount,
-//            paymentDate: e.paymentDate
-//        };
-//    });
-//};
+function getPayments() {
+    return payments.map(function (e) {
+        return {
+            userAlias: e.userAlias,
+            orderID: e.orderID,
+            paymentAmount: e.paymentAmount,
+            isPayed: e.isPayed
+        };
+    });
+};
 
 var orders = readData('orders.json');
 var products = readData('products.json');
-//var payments = readData('payments.json');
+var payments = readData('payments.json');
 
 var db = mongoose.connect(dbUrl);
 db.connection.once('open', function () {
@@ -67,7 +68,7 @@ db.connection.on('error', function (err) {
 
 model.OrderModel.remove({}).exec();
 model.ProductModel.remove({}).exec();
-//model.PaymentModel.remove({}).exec();
+model.PaymentModel.remove({}).exec();
 
 var done = [0, 0, 0, 0, 0, 0];
 
@@ -99,7 +100,7 @@ function addData(data, dataModel, doneIndex) {
 
 addData(getOrders(), model.OrderModel, 0);
 addData(getProducts(), model.ProductModel, 1);
-//addData(getPayments(), model.PaymentModel, 2);
+addData(getPayments(), model.PaymentModel, 2);
 
 
 
