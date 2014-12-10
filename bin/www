@@ -7,7 +7,7 @@ var app = require('../server/app');
 var testPort = process.argv[2];
 //if(testPort !==null ){
 //  console.log("Express Server started for e2e-testing, listening on port: "+testPort);
-//}
+//1}
 app.set('port', process.env.PORT || testPort || 3000);
 
 var server = app.listen(app.get('port'), function() {

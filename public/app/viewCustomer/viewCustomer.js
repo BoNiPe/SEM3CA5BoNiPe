@@ -34,14 +34,6 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             .when('/products/:id', {
                 templateUrl: 'app/viewCustomer/currentProduct.html',
                 controller: 'currentProductControllerUser'
-            })
-             .when('/myOrders', {
-            templateUrl: 'app/viewCustomer/myOrders.html',
-            controller: 'UserAliasOrdersControllerUser'
-            })
-            .when('/editOrder', {
-            templateUrl: 'app/viewCustomer/editOrder.html',
-             controller: 'UserAliasOrdersControllerChangeQuantity'
             });
     }])
     .controller('CustomerController', ['$scope', '$http', function ($scope, $http) {
@@ -200,6 +192,22 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             });
     }])
 
+<<<<<<< HEAD
+    .controller('AccountController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
+        var curUser = userInformation.getObject();
+        $scope.account = curUser;
+
+        $scope.deleteClientUser = function () {
+            console.log('Deleting yourself');
+            $http.delete('admin/' + curUser.username);
+            $scope.isAuthenticated = false;
+            $scope.isAdmin = false;
+            $scope.isUser = false;
+            delete $window.sessionStorage.token;
+            $location.path("#/viewHome");
+        }
+    }])
+=======
     .controller('UserAliasOrdersControllerUser', ['$scope', '$http','userInformation', function ($scope, $http, userInformation) {
         $http({
             method: 'GET',
@@ -250,6 +258,7 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                 $location.path("#/viewHome");
             }
         }])
+>>>>>>> Boyko
 
     .controller('EditAccountController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
         $scope.user = userInformation.getObject();
