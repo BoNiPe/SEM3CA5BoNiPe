@@ -1,10 +1,10 @@
 var request = require('request');
 var http = require('http');
-var JPA_host = 'http://137.135.180.134/admin/';
+//var JPA_host = 'http://137.135.180.134:8080/admin/';
 
 function getParticularAdmin(username, password, callback) {
     console.log('I did it, Yoda! I am checking your info : ' + username + ' and ' + password);
-    request(JPA_host + username + '/' + password, function (error, response, body) {
+    request('http://137.135.180.134:8080/admin/' +username +'/'+password, function (error, response, body) {
         if (error) callback(error);
         else callback(null, body);
     });
@@ -12,7 +12,7 @@ function getParticularAdmin(username, password, callback) {
 
 function getAllUsers(callback) {
     console.log('I did it, Yoda! I am getting all of them!');
-    request(JPA_host, function (error, response, body) {
+    request('http://137.135.180.134:8080/admin/', function (error, response, body) {
         if (error) callback(error);
         else callback(null, body);
     });
@@ -21,7 +21,7 @@ function getAllUsers(callback) {
 function deleteParticularLogger(username, callback) {
     console.log('I did it, Yoda! I am deleting ' + username);
     request({
-        uri: JPA_host + username,
+        uri: 'http://137.135.180.134:8080/admin/'+username,
         method: "DELETE"
     }, function (error, response, body) {
         if (error) callback(error);

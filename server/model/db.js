@@ -1,5 +1,5 @@
 var mongoose = require( 'mongoose' );
-var dbURI;
+var dbURI = 'mongodb://ca5:ca5@ds061200.mongolab.com:61200/ca5';
 
 //This is set by the backend tests
 if( typeof global.TEST_DATABASE != "undefined" ) {
