@@ -95,6 +95,7 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                         window.setTimeout(
                             function () {
                                 $http.post('userApi/order', objectToBePushed);
+                                console.log("view: "+ objectToBePushed);
                                 objectToBePushed = {}
                                 BasketArrayFactory.clearList();
                                 window.location = "#/customerHome";

@@ -8,7 +8,7 @@ var testServer;
 var mongoose = require("mongoose");
 var OrderModel = mongoose.model("OrderModel");
 var ProductModel = mongoose.model("ProductModel");
-//var PaymentModel = mongoose.model("PaymentModel");
+var PaymentModel = mongoose.model("PaymentModel");
 var request = require('request');
 
 describe('Backend testing of Admin REST-API (Order)', function () {
@@ -340,65 +340,75 @@ describe('Backend testing of Admin REST-API (Product)', function () {
     })
 });
 
-//describe('Backend testing of Admin REST-API (Payment)', function () {
-//    before(function (done) {
-//        testServer = app.listen(testPort, function () {
-//            console.log("Server is listening on: " + testPort);
-//            done();
-//        })
-//            .on('error', function (err) {
-//                console.log(err);
-//            });
-//    })
-//
-//    beforeEach(function (done) {
-//        PaymentModel.remove({}, function (err, response) {
-//            if (err) {
-//                console.log("remove error was:" + err)
-//            }
-//        });
-//        var array = [
-//            {
-//                "orderID": "5477151d917c51ae2633cecc",
-//                "paymentAmount": 9700,
-//                "paymentDate": "2014-12-20 22:30:10"
-//            },
-//            {
-//                "orderID": "5477151d917c51ae2633cecd",
-//                "paymentAmount": 6500,
-//                "paymentDate": "2014-12-21 16:56:25"
-//            }
-//        ];
-//        PaymentModel.create(array, function (err, response) {
-//            if (err) {
-//                console.log("create error was:" + err)
-//            }
-//            done();
-//        });
-//    });
-//
-//    after(function () {
-//        mongoose.connection.db.dropDatabase();
-//        testServer.close();
-//    })
-//
-//    it("Testing /payment (Get Payments) - Should return all payments. ", function (done) {
-//        http.get("http://localhost:" + testPort + "/adminApi/payment", function (res) {
-//            res.setEncoding("utf8");
-//            res.statusCode.should.equal(200);
-//            res.on("data", function (chunk) {
-//                var n = JSON.parse(chunk);
-//                n.length.should.equal(2);
-//                n[0]._id.should.be.length(24);
-//                n[0].orderID.should.equal("5477151d917c51ae2633cecc");
-//                n[0].paymentAmount.should.equal(9700);
-//                n[1]._id.should.be.length(24);
-//                n[1].orderID.should.equal("5477151d917c51ae2633cecd");
-//                n[1].paymentAmount.should.equal(6500);
-//                done();
-//            });
-//        })
-//    });
+describe('Backend testing of Admin REST-API (Payment)', function () {
+    before(function (done) {
+        testServer = app.listen(testPort, function () {
+            console.log("Server is listening on: " + testPort);
+            done();
+        })
+            .on('error', function (err) {
+                console.log(err);
+            });
+    })
+
+    beforeEach(function (done) {
+        PaymentModel.remove({}, function (err, response) {
+            if (err) {
+                console.log("remove error was:" + err)
+            }
+        });
+        var array = [
+            {
+                "userAlias": "Dude",
+                "orderID": "5477151d917c51ae2633cecc",
+                "paymentAmount": 62,
+                "isPayed": "Yes",
+                "paymentDate": "2014-12-20 22:30:10"
+            },
+
+            {
+                "userAlias": "SecondDude",
+                "orderID": "548837024ce335dc192f3d28",
+                "paymentAmount": 12,
+                "isPayed": "No",
+                "paymentDate": "2014-12-22 22:30:10"
+            }
+        ];
+        PaymentModel.create(array, function (err, response) {
+            if (err) {
+                console.log("create error was:" + err)
+            }
+            done();
+        });
+    });
+
+    after(function () {
+        mongoose.connection.db.dropDatabase();
+        testServer.close();
+    })
+
+    it("Testing /payment (Get Payments) - Should return all payments. ", function (done) {
+        http.get("http://localhost:" + testPort + "/adminApi/payment", function (res) {
+            res.setEncoding("utf8");
+            res.statusCode.should.equal(200);
+            res.on("data", function (chunk) {
+                var n = JSON.parse(chunk);
+                n.length.should.equal(2);
+                n[0]._id.should.be.length(24);
+                n[0].userAlias.should.equal("Dude");
+                n[0].orderID.should.equal("5477151d917c51ae2633cecc");
+                n[0].paymentAmount.should.equal(62);
+                n[0].isPayed.should.equal("Yes");
+
+                n[1]._id.should.be.length(24);
+                n[1].userAlias.should.equal("SecondDude");
+                n[1].orderID.should.equal("548837024ce335dc192f3d28");
+                n[1].paymentAmount.should.equal(12);
+                n[1].isPayed.should.equal("No");
+                done();
+            });
+        })
+    });
 //
 //    it("Testing /payment/:id (Get Payment) - Should return payment by id. ", function (done) {
 //        http.get("http://localhost:" + testPort + "/adminApi/payment", function (res) {
@@ -489,4 +499,4 @@ describe('Backend testing of Admin REST-API (Product)', function () {
 //            });
 //        })
 //    })
-//});
+});

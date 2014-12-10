@@ -53,8 +53,10 @@ mongoose.model( 'ProductModel', productSchema,"products" );
 
 /** Payment SCHEMA **/
 var paymentSchema = new mongoose.Schema({
-  orderID :  {type: String, unique: true},
+  userAlias :  {type: String, unique: true},
+  orderID : {type: String, unique: true},
   paymentAmount : { type: Number },
+  isPayed : String,
   paymentDate : { type: Date, default: new Date() }
 });
 mongoose.model( 'PaymentModel', paymentSchema,"payments" );

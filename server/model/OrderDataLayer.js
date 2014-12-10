@@ -23,6 +23,7 @@ function getParticularOrder(orderID, callback) {
 
 function postOrder(orderObject, callback) {
     orderModel.create(orderObject, function (err, orderData) {
+        console.log("OrderDL: "+ orderData);
         if (err) {
             return callback(err, null)
         }

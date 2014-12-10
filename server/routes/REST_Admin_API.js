@@ -8,7 +8,7 @@ var PaymentDataLayerModel = require('../model/PaymentDataLayer');
 //see all users, see all user details, create new admin user etc. customer <<
 //***additional : change see user details (also admin should see all users details + change see delete
 //lasted added Products
-
+/* ---------- ORDER ---------*/
 router.get('/order', function (req, res) {
     if (typeof global.mongo_error !== "undefined") {
         res.status(500);
@@ -98,6 +98,7 @@ router.put("/order/:id", function(req,res) {
     })
 });
 
+/* ---------- PRODUCT ---------*/
 router.get('/product', function (req, res) {
     if (typeof global.mongo_error !== "undefined") {
         res.status(500);
@@ -187,6 +188,7 @@ router.put("/product/:id", function(req,res) {
     })
 });
 
+/* ---------- PAYMENT ---------*/
 router.get('/payment', function (req, res) {
     if (typeof global.mongo_error !== "undefined") {
         res.status(500);
@@ -237,6 +239,7 @@ router.post('/payment', function(req,res) {
         }
         res.header("Content-type", "application/json");
         res.end(JSON.stringify(result));
+        console.log("Admin_Api: "+result);
     })
 });
 
@@ -275,6 +278,7 @@ router.put("/payment/:id", function(req,res) {
         res.end(JSON.stringify(currentPayment));
     })
 });
+
 //***************************888888888888888888888888888
 var mongoose = require('mongoose');
 var user = mongoose.model('User');

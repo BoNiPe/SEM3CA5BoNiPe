@@ -22,6 +22,7 @@ function getParticularPayment(paymentID, callback) {
 
 function postPayment(paymentObject, callback) {
     paymentModel.create(paymentObject, function (err, paymentData) {
+        console.log("paymentDataLayer: "+paymentData);
         if (err) {
             return callback(err, null)
         }
