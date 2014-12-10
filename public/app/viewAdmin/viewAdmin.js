@@ -58,8 +58,23 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
             .when('/control/orders/particular/:id', {
                 templateUrl: 'app/viewAdmin/currentOrder.html',
                 controller: 'OrderDetailsController'
+            })
+            //Payments - GET(1),GET(ALL),PUT,DELETE
+            .when('/control/payments', {
+                templateUrl: 'app/viewAdmin/payments.html',
+                controller: 'PaymentController'
+            })
+            .when('/control/payments/edit', {
+                templateUrl: 'app/viewAdmin/editPayment.html',
+                controller: 'EditPaymentController'
+            })
+            .when('/control/payments/particular/:id', {
+                templateUrl: 'app/viewAdmin/currentPayment.html',
+                controller: 'PaymentDetailsController'
             });
     }])
+
+    /* -------- Admin Controllers --------*/
 
     .controller('AdminHomeController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
         var curUser = userInformation.getObject();
@@ -70,6 +85,8 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
     .controller('AdminAccountController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
         $scope.account = userInformation.getObject();
     }])
+
+    /* -------- User Controllers --------*/
 
     .controller('UsersController', ['$scope', '$http', 'editParticularObject', function ($scope, $http, editParticularObject) {
         $http({
@@ -103,6 +120,28 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
             $scope.users.splice(index, 1);
         }
     }])
+
+    .controller('EditUserController', ['$scope', '$http', 'editParticularObject', function ($scope, $http, editParticularObject) {
+        $scope.user = editParticularObject.getObject();
+        $scope.saveChangesInUser = function (curUser) {
+            $http.put('admin/', curUser);
+            window.location = "#/control/users";
+        }
+    }])
+
+    .controller('NewUserController', function ($scope, $http) {
+        $scope.postUser = function () {
+            $http.post('admin', $scope.newUser);
+            window.location = "#/control/users";
+        }
+    })
+
+    .controller('UserDetailsController', ['$scope', '$http', '$location', 'editParticularObject',
+        function ($scope, $http, $location, editParticularObject) {
+            $scope.user = editParticularObject.getObject();
+        }])
+
+    /* -------- Product Controllers --------*/
 
     .controller('ProductsController', ['$scope', '$http', 'BasketArrayFactory', 'editParticularObject',
         function ($scope, $http, ProductInfoSaver, editParticularObject) {
@@ -138,23 +177,6 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
             }
         }])
 
-    .controller('EditCreatedOrderController', ['$scope', '$http', 'editParticularObject',
-        function ($scope, $http, editParticularObject) {
-            $scope.order = editParticularObject.getObject();
-            $scope.saveChangesInOrder = function (order) {
-                $http.put('adminApi/order/' + order._id, order);
-                window.location = "#/control/orders";
-            }
-        }])
-
-    .controller('EditUserController', ['$scope', '$http', 'editParticularObject', function ($scope, $http, editParticularObject) {
-        $scope.user = editParticularObject.getObject();
-        $scope.saveChangesInUser = function (curUser) {
-            $http.put('admin/', curUser);
-            window.location = "#/control/users";
-        }
-    }])
-
     .controller('NewProductController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
         $scope.postNewProduct = function () {
             $scope.newProduct.userAlias = userInformation.getObject().userAlias;
@@ -163,12 +185,34 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
         }
     }])
 
-    .controller('NewUserController', function ($scope, $http) {
-        $scope.postUser = function () {
-            $http.post('admin', $scope.newUser);
-            window.location = "#/control/users";
-        }
-    })
+    .controller('ProductDetailsController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+        $http({
+            method: 'GET',
+            url: 'adminApi/product/' + $location.path().split("/")[4]
+        }).
+            success(function (data, status, headers, config) {
+                $scope.curProduct = data;
+            }).
+            error(function (data, status, headers, config) {
+                if (status == 401) {
+                    $scope.error = "You are not authenticated to request these data";
+                    return;
+                }
+                $scope.error = data;
+            });
+    }])
+
+
+    /* -------- Order Controllers --------*/
+
+    .controller('EditCreatedOrderController', ['$scope', '$http', 'editParticularObject',
+        function ($scope, $http, editParticularObject) {
+            $scope.order = editParticularObject.getObject();
+            $scope.saveChangesInOrder = function (order) {
+                $http.put('adminApi/order/' + order._id, order);
+                window.location = "#/control/orders";
+            }
+        }])
 
     .controller('OrdersController', ['$scope', '$http', 'editParticularObject', function ($scope, $http, editParticularObject) {
         $http({
@@ -199,23 +243,6 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
         }
     }])
 
-    .controller('ProductDetailsController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
-        $http({
-            method: 'GET',
-            url: 'adminApi/product/' + $location.path().split("/")[4]
-        }).
-            success(function (data, status, headers, config) {
-                $scope.curProduct = data;
-            }).
-            error(function (data, status, headers, config) {
-                if (status == 401) {
-                    $scope.error = "You are not authenticated to request these data";
-                    return;
-                }
-                $scope.error = data;
-            });
-    }])
-
     .controller('OrderDetailsController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
         $http({
             method: 'GET',
@@ -233,8 +260,8 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
             });
     }])
 
-    .controller('UserDetailsController', ['$scope', '$http', '$location', 'editParticularObject',
-        function ($scope, $http, $location, editParticularObject) {
-            $scope.user = editParticularObject.getObject();
-        }]);
+    /* -------- Payment Controllers --------*/
+    
+
+    ;
 
