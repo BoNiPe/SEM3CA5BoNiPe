@@ -1,9 +1,10 @@
 var request = require('request');
 var http = require('http');
+var JPA_host = 'http://137.135.180.134/admin/';
 
 function getParticularAdmin(username, password, callback) {
     console.log('I did it, Yoda! I am checking your info : ' + username + ' and ' + password);
-    request('http://localhost:8080/admin/' + username + '/' + password, function (error, response, body) {
+    request(JPA_host + username + '/' + password, function (error, response, body) {
         if (error) callback(error);
         else callback(null, body);
     });
@@ -11,7 +12,7 @@ function getParticularAdmin(username, password, callback) {
 
 function getAllUsers(callback) {
     console.log('I did it, Yoda! I am getting all of them!');
-    request('http://localhost:8080/admin/', function (error, response, body) {
+    request(JPA_host, function (error, response, body) {
         if (error) callback(error);
         else callback(null, body);
     });
@@ -20,7 +21,7 @@ function getAllUsers(callback) {
 function deleteParticularLogger(username, callback) {
     console.log('I did it, Yoda! I am deleting ' + username);
     request({
-        uri: 'http://localhost:8080/admin/' + username,
+        uri: JPA_host + username,
         method: "DELETE"
     }, function (error, response, body) {
         if (error) callback(error);
@@ -32,7 +33,7 @@ function deleteParticularLogger(username, callback) {
 function editLogger(userObject, callback) {
     console.log('I did it, Yoda! I am editing ' + JSON.stringify(userObject) + ' with length of ' + JSON.stringify(userObject).length);
     var options = {
-        host: 'localhost',
+        host: '137.135.180.134',
         port: '8080',
         path: '/admin',
         method: 'PUT',
@@ -61,7 +62,7 @@ function createLogger(userObject, callback) {
         userObject.type = "customer";
     }
     var options = {
-        host: 'localhost',
+        host: '137.135.180.134',
         port: '8080',
         path: '/admin',
         method: 'POST',

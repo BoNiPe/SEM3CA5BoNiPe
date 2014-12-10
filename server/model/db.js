@@ -6,7 +6,7 @@ if( typeof global.TEST_DATABASE != "undefined" ) {
   dbURI = global.TEST_DATABASE;
 }
 else{
-  dbURI = 'mongodb://localhost/wiki';
+  dbURI = 'mongodb://ca5:ca5@ds061200.mongolab.com:61200/ca5';
 }
 
 mongoose.connect(dbURI);

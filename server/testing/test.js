@@ -12,7 +12,7 @@ var userObject = JSON.parse('{"username": "test442", ' +
 console.log(userObject);
 //Set up
 var post_options = {
-    host: 'localhost',
+    host: '137.135.180.134',
     port: '8080',
     path: '/admin',
     method: 'POST',
