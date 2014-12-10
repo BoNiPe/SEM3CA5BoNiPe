@@ -48,10 +48,21 @@ function updateOrder(orderID, orderObject, callback) {
     });
 }
 
+
+function getOrdersForLoggedUserAlias(userAlias, callback) {
+    orderModel.find({userAlias: userAlias}, function (err, productData) {
+        if (err) {
+            return callback(err, null)
+        }
+        callback(null, productData)
+    })
+};
+
 module.exports = {
     getAllOrders: getAllOrders,
     getParticularOrder: getParticularOrder,
     postOrder: postOrder,
     removeOrder: removeOrder,
-    updateOrder: updateOrder
+    updateOrder: updateOrder,
+    getOrdersForLoggedUserAlias: getOrdersForLoggedUserAlias
 }
