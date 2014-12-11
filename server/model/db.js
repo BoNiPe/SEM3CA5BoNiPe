@@ -6,8 +6,8 @@ if( typeof global.TEST_DATABASE != "undefined" ) {
   dbURI = global.TEST_DATABASE;
 }
 else{
-  //dbURI = 'mongodb://localhost/wiki';
-  var dbUrl = "mongodb://ca5:ca5@ds061200.mongolab.com:61200/ca5";
+  dbURI = 'mongodb://localhost/wiki';
+  //var dbUrl = "mongodb://ca5:ca5@ds061200.mongolab.com:61200/ca5";
 }
 
 mongoose.connect(dbURI);
@@ -54,10 +54,10 @@ mongoose.model( 'ProductModel', productSchema,"products" );
 
 /** Payment SCHEMA **/
 var paymentSchema = new mongoose.Schema({
-  userAlias :  {type: String, unique: true},
+  userAlias :  String,
   orderID : {type: String, unique: true},
   paymentAmount : { type: Number },
-  isPayed : String,
+  isPayed : {type: Boolean, default: false},
   paymentDate : { type: Date, default: new Date() }
 });
 mongoose.model( 'PaymentModel', paymentSchema,"payments" );

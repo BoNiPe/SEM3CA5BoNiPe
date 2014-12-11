@@ -35,14 +35,21 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                 templateUrl: 'app/viewCustomer/currentProduct.html',
                 controller: 'currentProductControllerUser'
             })
-             .when('/myOrders', {
-            templateUrl: 'app/viewCustomer/myOrders.html',
-            controller: 'UserAliasOrdersControllerUser'
+            .when('/myOrders', {
+                templateUrl: 'app/viewCustomer/myOrders.html',
+                controller: 'UserAliasOrdersControllerUser'
             })
             .when('/editOrder', {
-            templateUrl: 'app/viewCustomer/editOrder.html',
-             controller: 'UserAliasOrdersControllerChangeQuantity'
-            });
+                templateUrl: 'app/viewCustomer/editOrder.html',
+                controller: 'UserAliasOrdersControllerChangeQuantity'
+            })
+            .when('/myPayments', {
+                templateUrl: 'app/viewCustomer/myPayments.html',
+                controller: 'UserAliasPaymentsController'
+            })
+
+
+        ;
     }])
     .controller('CustomerController', ['$scope', '$http', function ($scope, $http) {
         $http({
@@ -86,21 +93,48 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                 if ($scope.currentOrders.length > 0) {
                     var toBePushed = new Array();
                     for (var i = 0; i < $scope.currentOrders.length; i++) {
-                        var objectToBePushed = {
+                        var orderToBePushed = {
                             productID: $scope.currentOrders[i].productID,
                             quantity: $scope.currentOrders[i].productAmount,
                             userAlias: userInformation.getObject().userAlias
                         };
                         $scope.success = 'You successfully made ' + toBePushed.length + ' order(s).';
-                        window.setTimeout(
-                            function () {
-                                $http.post('userApi/order', objectToBePushed);
-                                console.log("view: "+ objectToBePushed);
-                                objectToBePushed = {}
-                                BasketArrayFactory.clearList();
-                                window.location = "#/customerHome";
-                            }, 3000);
 
+
+                        var actualOrder = null;
+                        $http({
+                            method: 'POST',
+                            url: 'userApi/order',
+                            data: orderToBePushed
+                        }).
+                            success(function (data, status, headers, config) {
+                                actualOrder = data;
+                                var paymentToBePushed = {
+                                    userAlias: orderToBePushed.userAlias,
+                                    orderID: actualOrder._id,
+                                    paymentAmount: 1000
+                                };
+
+                                $http({
+                                    method: 'POST',
+                                    url: 'userApi/payment',
+                                    data: paymentToBePushed
+                                }).
+                                    success(function (data, status, headers, config) {
+                                        console.log('haihai')
+                                        orderToBePushed = {};
+                                        paymentToBePushed = {};
+                                        BasketArrayFactory.clearList();
+                                        window.location = "#/customerHome";
+                                    }).
+                                    error(function (data, status, headers, config) {
+                                        $scope.error = data;
+                                    })
+                            }).
+                            error(function (data, status, headers, config) {
+                                $scope.error = data;
+                            }
+                        )
                     }
                 } else {
                     $scope.alert = 'Nothing to save';
@@ -201,7 +235,7 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             });
     }])
 
-    .controller('UserAliasOrdersControllerUser', ['$scope', '$http','userInformation', function ($scope, $http, userInformation) {
+    .controller('UserAliasOrdersControllerUser', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
         $http({
             method: 'GET',
             url: 'userApi/order/' + userInformation.getObject().userAlias
@@ -219,6 +253,12 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             $scope.ordersForSpecificUser.splice(index, 1);
         }
 
+        $scope.userDeletePayment = function (payment) {
+            $http.delete('userApi/order/' + order._id, order);
+            var index = $scope.ordersForSpecificUser.indexOf(order);
+            $scope.ordersForSpecificUser.splice(index, 1);
+        }
+
         $scope.saveChangesInOrderForCustomerQuantity = function (order) {
             userInformation.setObject(order);
             window.location = "#/editOrder";
@@ -226,7 +266,18 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
 
     }])
 
-
+    .controller('UserAliasPaymentsController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
+        $http({
+            method: 'GET',
+            url: 'userApi/payment/' + userInformation.getObject().userAlias
+        }).
+            success(function (data, status, headers, config) {
+                $scope.paymentsForSpecificUser = data;
+            }).
+            error(function (data, status, headers, config) {
+                $scope.error = data;
+            });
+    }])
 
     .controller('UserAliasOrdersControllerChangeQuantity', ['$scope', '$http', 'userInformation',
         function ($scope, $http, userInformation) {

@@ -1,10 +1,35 @@
-<!DOCTYPE html>
-<html>
-<head lang="en">
-    <meta charset="UTF-8">
-    <title></title>
-</head>
-<body>
+<div class="panel panel-default">
+    <!-- Default panel contents -->
+    <div class="panel-heading"><b>Your Payments:</b></div>
+    <div class="panel-body">
+        <p>Here you can see a list of ALL of your payments :)</p>
+        <table class="table">
+            <thead>
+            <td><b>Alias:</b></td>
+            <td><b>Order ID:</b></td>
+            <td><b>Payment Amount:</b></td>
+            <td><b>Is Payed</b></td>
+            <td><b>Payment Date:</b></td>
+            </thead>
+            <tbody>
+            <tr ng-repeat="payment in paymentsForSpecificUser">
+                <td>{{payment.userAlias}}</td>
+                <td>{{payment.orderID}}</td>
+                <td>{{payment.paymentAmount}}</td>
+                <td>
+                    <a href="#/control/payments/particular/{{payment._id}}">
+                        {{payment.isPayed}}
+                    </a></td>
+                <td>{{payment.paymentDate | date:'medium'}}</td>
+                <td>
+                    <button type="button" class="btn btn-default btn-sm" ng-click="saveChangesInOrderForCustomerQuantity(order)">
+                        <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit quantity
+                    </button>
 
-</body>
-</html>
+
+                </td>
+            </tbody>
+        </table>
+    </div>
+</div>
+</div>

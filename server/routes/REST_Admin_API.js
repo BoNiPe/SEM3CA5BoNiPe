@@ -239,7 +239,6 @@ router.post('/payment', function(req,res) {
         }
         res.header("Content-type", "application/json");
         res.end(JSON.stringify(result));
-        console.log("Admin_Api: "+result);
     })
 });
 

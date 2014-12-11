@@ -11,8 +11,8 @@ function getAllPayments(callback) {
     )
 }
 
-function getParticularPayment(paymentID, callback) {
-    paymentModel.find({_id: paymentID}, function (err, paymentData) {
+function getPaymentsForLoggedUserAlias(userAlias, callback) {
+    paymentModel.find({userAlias: userAlias}, function (err, paymentData) {
         if (err) {
             return callback(err, null)
         }
@@ -22,7 +22,6 @@ function getParticularPayment(paymentID, callback) {
 
 function postPayment(paymentObject, callback) {
     paymentModel.create(paymentObject, function (err, paymentData) {
-        console.log("paymentDataLayer: "+paymentData);
         if (err) {
             return callback(err, null)
         }
@@ -50,7 +49,7 @@ function updatePayment(paymentID, paymentObject, callback) {
 
 module.exports = {
     getAllPayments: getAllPayments,
-    getParticularPayment: getParticularPayment,
+    getPaymentsForLoggedUserAlias: getPaymentsForLoggedUserAlias,
     postPayment: postPayment,
     removePayment: removePayment,
     updatePayment: updatePayment

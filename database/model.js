@@ -21,10 +21,10 @@ exports.ProductModel = mongoose.model('product', productSchema);
 
 /** Payment SCHEMA **/
 var paymentSchema = new mongoose.Schema({
-    userAlias :  {type: String, unique: true},
+    userAlias :  String,
     orderID : {type: String, unique: true},
     paymentAmount : { type: Number },
-    isPayed : String,
+    isPayed : {type: Boolean, default: false},
     paymentDate : { type: Date, default: new Date() }
 });
 exports.PaymentModel = mongoose.model('payment', paymentSchema);

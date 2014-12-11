@@ -291,15 +291,15 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
                 $scope.error = data;
             });
 
-        $scope.adminEditOrder = function (order) {
-            editParticularObject.setObject(order);
+        $scope.adminEditPayment = function (payment) {
+            editParticularObject.setObject(payment);
             window.location = "#/control/payments/edit";
         }
 
-        $scope.adminDeleteOrder = function (order) {
-            $http.delete('adminApi/payment/' + order._id, order);
-            var index = $scope.orders.indexOf(order);
-            $scope.orders.splice(index, 1);
+        $scope.adminDeletePayment = function (payment) {
+            $http.delete('adminApi/payment/' + payment._id, payment);
+            var index = $scope.payments.indexOf(payment);
+            $scope.payments.splice(index, 1);
         }
     }])
 
@@ -323,33 +323,6 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
 
     }])
 
-    //.controller('myCtrl', ['$scope',
-    //    function($scope) {
-    //
-    //        $scope.rows = [1,2,3,4,5,6,7,8,9];
-    //
-    //        $scope.items = [
-    //            'The first choice!',
-    //            'And another choice for you.',
-    //            'but wait! A third!'
-    //        ];
-    //
-    //        $scope.status = {
-    //            isopen: false
-    //        };
-    //
-    //        $scope.toggled = function(open) {
-    //            console.log('Dropdown is now: ', open);
-    //        };
-    //
-    //        $scope.toggleDropdown = function($event) {
-    //            $event.preventDefault();
-    //            $event.stopPropagation();
-    //            $scope.status.isopen = !$scope.status.isopen;
-    //        };
-    //
-    //    }
-    //]);
 
 
 ;

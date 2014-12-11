@@ -1,0 +1,17 @@
+<div class="col-md-5" style="border: thin lightblue solid; border-radius: 5px;padding: 1em;">
+    <form class="form-horizontal">
+        <fieldset >
+            <legend style="color:darkblue;">Edit status of payment : </b>{{payment._id}}</b> for payment : {{order.productID}} of user : {{order.userAlias}}</legend>
+            <div class="form-group">
+                <label for="isPayed" class="control-label col-xs-3"><span class="label label-info">Is Payed</span></label>
+                <div class="col-xs-9">
+                    <input type="text" class="form-control" ng-model="payment.isPayed" id="isPayed" placeholder="INSERT 'Yes' or 'No'">
+                </div>
+            </div>
+
+        </fieldset>
+    </form>
+    <div class="form-group">
+        <button href=""  type="submit" ng-click="saveChangesInPayment(payment)" class="btn btn-primary">Save</button>
+    </div>
+</div>

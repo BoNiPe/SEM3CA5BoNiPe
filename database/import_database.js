@@ -1,8 +1,8 @@
 var fs = require('fs');
 var mongoose = require('mongoose');
 var model = require('./model');
-//var dbUrl = 'mongodb://localhost/wiki';
-var dbUrl = "mongodb://ca5:ca5@ds061200.mongolab.com:61200/ca5";
+var dbUrl = 'mongodb://localhost/wiki';
+//var dbUrl = "mongodb://ca5:ca5@ds061200.mongolab.com:61200/ca5";
 
 function readData(path) {
     var file = fs.readFileSync(path, 'utf8');

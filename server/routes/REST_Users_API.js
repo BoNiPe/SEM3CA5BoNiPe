@@ -8,7 +8,7 @@ router.get('/test', function(req, res) {
 
 var OrderDataLayerModel = require('../model/OrderDataLayer');
 var ProductDataLayerModel = require('../model/ProductDataLayer');
-//var PaymentDataLayerModel = require('../model/PaymentDataLayer');
+var PaymentDataLayerModel = require('../model/PaymentDataLayer');
 
 router.get('/product', function (req, res) {
     if (typeof global.mongo_error !== "undefined") {
@@ -114,6 +114,42 @@ router.put("/order/:id", function(req,res) {
         }
         res.header("Content-type", "application/json");
         res.end(JSON.stringify(currentProduct));
+    })
+});
+
+router.post('/payment', function(req,res) {
+    if (typeof global.mongo_error !== "undefined") {
+        res.status(500);
+        res.end("Error: " + global.mongo_error + " or with simple words : Your db's SWAG level is below 9000. Sorry");
+        return;
+    }
+    var createdPayment = req.body;
+    PaymentDataLayerModel.postPayment(createdPayment, function (err, result) {
+        if (err) {
+            res.status(err.status || 400);
+            res.send(JSON.stringify({error: err.toString()}));
+            return;
+        }
+        res.header("Content-type", "application/json");
+        res.end(JSON.stringify(result));
+    })
+});
+
+router.get('/payment/:userAlias', function (req, res) {
+    var userAlias = req.params.userAlias;
+    if (typeof global.mongo_error !== "undefined") {
+        res.status(500);
+        res.end("Error: " + global.mongo_error + " or with simple words : Your db's SWAG level is below 9000. Sorry");
+        return;
+    }
+    PaymentDataLayerModel.getPaymentsForLoggedUserAlias(userAlias, function (err, paymentsForUserAlias) {
+        if (err) {
+            res.status(err.status || 400);
+            res.send(JSON.stringify({error: err.toString()}));
+            return;
+        }
+        res.header("Content-type", "application/json");
+        res.end(JSON.stringify(paymentsForUserAlias));
     })
 });
 

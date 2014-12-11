@@ -26,18 +26,13 @@ Search in payments : <input type="search" ng-model="paymentfilter" placeholder="
         <td>{{payment.paymentAmount}}</td>
         <td>
             <a href="#/control/payments/particular/{{payment._id}}">
-                <button type="submit" class="btn btn-primary">
-                    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> {{payment.isPayed}}
-                </button>
+                {{payment.isPayed}}
                 </a></td>
         <td>{{payment.paymentDate | date:'medium'}}</td>
         <td>
             <button type="button" class="btn btn-default btn-sm" ng-click="adminEditPayment(payment)">
                 <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit
-            </button>
-            <font size="5">|</font>
-            <button type="button" class="btn btn-default btn-sm"  ng-click="adminDeletePayment(payment)">
-                <span class="glyphicon glyphicon-trash" aria-hidden="true"></span> Delete
+
             </button>
         </td>
     </tr>
