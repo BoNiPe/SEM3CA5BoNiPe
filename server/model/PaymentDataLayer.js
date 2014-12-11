@@ -38,6 +38,24 @@ function removePayment(paymentID, callback) {
     });
 }
 
+function removePaymentByOrder(orderID, callback) {
+    paymentModel.remove({orderID: orderID}, function (err, response) {
+        if (err) {
+            return callback(err, null)
+        }
+        callback(null, response);
+    });
+}
+
+function getParticularPayment(paymentID, callback) {
+    paymentModel.find({_id: paymentID}, function (err, response) {
+        if (err) {
+            return callback(err, null)
+        }
+        callback(null, response);
+    });
+}
+
 function updatePayment(paymentID, paymentObject, callback) {
     paymentModel.findOneAndUpdate({_id: paymentID}, paymentObject, function (err, paymentData) {
         if (err) {
@@ -52,5 +70,7 @@ module.exports = {
     getPaymentsForLoggedUserAlias: getPaymentsForLoggedUserAlias,
     postPayment: postPayment,
     removePayment: removePayment,
-    updatePayment: updatePayment
+    updatePayment: updatePayment,
+    removePaymentByOrder: removePaymentByOrder,
+    getParticularPayment: getParticularPayment
 }

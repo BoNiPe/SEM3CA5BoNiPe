@@ -1,0 +1,29 @@
+<table class="table">
+    <tr>
+        <td>Alias</td>
+        <td>{{curPayment[0].userAlias}}</td>
+    </tr>
+    <tr>
+        <td>Order ID:</td>
+        <td>{{curPayment[0].orderID}}</td>
+    </tr>
+    <tr>
+        <td>Payment Amount:</td>
+        <td>{{curPayment[0].paymentAmount}}</td>
+    </tr>
+    <tr>
+        <td>Is Payed:</td>
+        <td>{{curPayment[0].isPayed}}</td>
+    </tr>
+    <tr>
+        <td>Payment Date:</td>
+        <td>{{curPayment[0].paymentDate | date:'medium'}}</td>
+    </tr>
+</table>
+<div class="form-group">
+    <a href="#/control/payments">
+        <button type="submit" class="btn btn-primary">
+            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back to Payments
+        </button>
+    </a>
+</div>

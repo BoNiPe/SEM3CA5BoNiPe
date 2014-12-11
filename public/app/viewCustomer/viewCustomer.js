@@ -35,6 +35,7 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                 templateUrl: 'app/viewCustomer/currentProduct.html',
                 controller: 'currentProductControllerUser'
             })
+            /* ------------ ORDERS ------------*/
             .when('/myOrders', {
                 templateUrl: 'app/viewCustomer/myOrders.html',
                 controller: 'UserAliasOrdersControllerUser'
@@ -43,10 +44,18 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                 templateUrl: 'app/viewCustomer/editOrder.html',
                 controller: 'UserAliasOrdersControllerChangeQuantity'
             })
+            /* ------------ PAYMENTS ------------*/
             .when('/myPayments', {
                 templateUrl: 'app/viewCustomer/myPayments.html',
                 controller: 'UserAliasPaymentsController'
             })
+
+            .when('/myParticularPayment', {
+                templateUrl: 'app/viewCustomer/myParticularPayment.html',
+                controller: 'UserAliasPaymentsController'
+            })
+
+
 
 
         ;
@@ -251,13 +260,10 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             $http.delete('userApi/order/' + order._id, order);
             var index = $scope.ordersForSpecificUser.indexOf(order);
             $scope.ordersForSpecificUser.splice(index, 1);
+            $http.delete('userApi/payment/' + order._id, payment);
         }
 
-        $scope.userDeletePayment = function (payment) {
-            $http.delete('userApi/order/' + order._id, order);
-            var index = $scope.ordersForSpecificUser.indexOf(order);
-            $scope.ordersForSpecificUser.splice(index, 1);
-        }
+
 
         $scope.saveChangesInOrderForCustomerQuantity = function (order) {
             userInformation.setObject(order);

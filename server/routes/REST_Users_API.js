@@ -99,6 +99,25 @@ router.delete("/order/:id", function(req,res) {
     })
 });
 
+router.delete("/payment/:orderID", function(req,res) {
+    var id = req.params.orderID;
+    console.log("id of order: "+ id);
+    if (typeof global.mongo_error !== "undefined") {
+        res.status(500);
+        res.end("Error: " + global.mongo_error + " or with simple words : Your db's SWAG level is below 9000. Sorry");
+        return;
+    }
+    PaymentDataLayerModel.removePaymentByOrder(id, function (err, currentPayment) {
+        if (err) {
+            res.status(err.status || 400);
+            res.send(JSON.stringify({error: err.toString()}));
+            return;
+        }
+        res.header("Content-type", "application/json");
+        res.end(JSON.stringify(currentPayment));
+    })
+});
+
 router.put("/order/:id", function(req,res) {
     var id = req.params.id;
     if (typeof global.mongo_error !== "undefined") {

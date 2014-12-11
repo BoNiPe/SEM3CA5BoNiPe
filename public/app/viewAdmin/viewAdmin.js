@@ -311,6 +311,7 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
 
             success(function (data, status, headers, config) {
                 $scope.curPayment = data;
+                console.log("data in control: "+data);
             }).
             error(function (data, status, headers, config) {
                 if (status == 401) {
