@@ -192,7 +192,7 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             });
     }])
 
-<<<<<<< HEAD
+
     .controller('AccountController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
         var curUser = userInformation.getObject();
         $scope.account = curUser;
@@ -207,7 +207,7 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             $location.path("#/viewHome");
         }
     }])
-=======
+
     .controller('UserAliasOrdersControllerUser', ['$scope', '$http','userInformation', function ($scope, $http, userInformation) {
         $http({
             method: 'GET',
@@ -258,7 +258,6 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                 $location.path("#/viewHome");
             }
         }])
->>>>>>> Boyko
 
     .controller('EditAccountController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
         $scope.user = userInformation.getObject();
