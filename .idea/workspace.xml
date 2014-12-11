@@ -3,8 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="69908405-2667-4649-a542-507a1425e5ea" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/model/db.js" afterPath="$PROJECT_DIR$/server/model/db.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/database/import_database.js" afterPath="$PROJECT_DIR$/database/import_database.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ExpressAngularSeed.iws" />
@@ -754,7 +752,13 @@
       <option name="project" value="LOCAL" />
       <updated>1418297327957</updated>
     </task>
-    <option name="localTasksCounter" value="30" />
+    <task id="LOCAL-00030" summary="payments view fixed&#10;trying to make a dropdown">
+      <created>1418297579806</created>
+      <option name="number" value="00030" />
+      <option name="project" value="LOCAL" />
+      <updated>1418297579806</updated>
+    </task>
+    <option name="localTasksCounter" value="31" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
