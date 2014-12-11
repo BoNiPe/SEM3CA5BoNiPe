@@ -261,7 +261,59 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
     }])
 
     /* -------- Payment Controllers --------*/
-    
+    .controller('EditPaymentController', ['$scope', '$http', 'editParticularObject',
+        function ($scope, $http, editParticularObject) {
+            $scope.payment = editParticularObject.getObject();
+            $scope.saveChangesInPayment = function (payment) {
+                $http.put('adminApi/payment/' + payment._id, payment);
+                window.location = "#/control/payments";
+            }
+        }])
 
-    ;
+    .controller('PaymentController', ['$scope', '$http', 'editParticularObject', function ($scope, $http, editParticularObject) {
+        $http({
+            method: 'GET',
+            url: 'adminApi/payment'
+        }).
+            success(function (data, status, headers, config) {
+                $scope.payments = data;
+                $scope.error = null;
+            }).
+            error(function (data, status, headers, config) {
+                if (status == 401) {
+                    $scope.error = "You are not authenticated to request these data";
+                    return;
+                }
+                $scope.error = data;
+            });
+
+        $scope.adminEditOrder = function (order) {
+            editParticularObject.setObject(order);
+            window.location = "#/control/payments/edit";
+        }
+
+        $scope.adminDeleteOrder = function (order) {
+            $http.delete('adminApi/payment/' + order._id, order);
+            var index = $scope.orders.indexOf(order);
+            $scope.orders.splice(index, 1);
+        }
+    }])
+
+    .controller('PaymentDetailsController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+        $http({
+            method: 'GET',
+            url: 'adminApi/payment/' + $location.path().split("/")[4]
+        }).
+            success(function (data, status, headers, config) {
+                $scope.curPayment = data;
+            }).
+            error(function (data, status, headers, config) {
+                if (status == 401) {
+                    $scope.error = "You are not authenticated to request these data";
+                    return;
+                }
+                $scope.error = data;
+            });
+    }])
+;
 
