@@ -1,3 +1,4 @@
+
 <p><code>Number of payments in our database: {{payments.length}}</code></p>
 Search in payments : <input type="search" ng-model="paymentfilter" placeholder="Filter payments"><br/>
 <a href="#/adminHome">
@@ -24,37 +25,11 @@ Search in payments : <input type="search" ng-model="paymentfilter" placeholder="
         <td>{{payment.orderID}}</td>
         <td>{{payment.paymentAmount}}</td>
         <td>
-            <div class="dropdown">
-            <a class="dropdown-toggle rowlink" data-toggle="dropdown" href="#">
-                Click For Dropdown Menu
-            </a>
-            <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                <li>
-                    <a tabindex="-1" href="#">
-                        Action
-                    </a>
-                </li>
-                <li>
-                    <a tabindex="-1" href="#">
-                        Another action
-                    </a>
-                </li>
-            </ul>
-        </div>
-            <!--<div class="btn-group">-->
-            <!--<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-expanded="false">-->
-                <!--Action <span class="caret"></span>-->
-            <!--</button>-->
-            <!--<ul class="dropdown-menu" role="menu">-->
-                <!--<li><a href="#">Yo</a></li>-->
-                <!--<li><a href="#">Another action</a></li>-->
-                <!--<li><a href="#">Something else here</a></li>-->
-                <!--<li class="divider"></li>-->
-                <!--<li><a href="#">Separated link</a></li>-->
-            <!--</ul>-->
-        <!--</div>-->
-        </td>
-        <td><a href="#/control/payments/particular/{{payment._id}}">{{payment.isPayed}}</a></td>
+            <a href="#/control/payments/particular/{{payment._id}}">
+                <button type="submit" class="btn btn-primary">
+                    <span class="glyphicon glyphicon-cog" aria-hidden="true"></span> {{payment.isPayed}}
+                </button>
+                </a></td>
         <td>{{payment.paymentDate | date:'medium'}}</td>
         <td>
             <button type="button" class="btn btn-default btn-sm" ng-click="adminEditPayment(payment)">
@@ -68,3 +43,6 @@ Search in payments : <input type="search" ng-model="paymentfilter" placeholder="
     </tr>
     </tbody>
 </table>
+
+
+

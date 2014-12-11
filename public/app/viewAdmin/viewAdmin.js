@@ -271,6 +271,8 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
         }])
 
     .controller('PaymentController', ['$scope', '$http', 'editParticularObject', function ($scope, $http, editParticularObject) {
+
+
         $http({
             method: 'GET',
             url: 'adminApi/payment'
@@ -278,6 +280,8 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
             success(function (data, status, headers, config) {
                 $scope.payments = data;
                 $scope.error = null;
+
+
             }).
             error(function (data, status, headers, config) {
                 if (status == 401) {
@@ -304,6 +308,7 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
             method: 'GET',
             url: 'adminApi/payment/' + $location.path().split("/")[4]
         }).
+
             success(function (data, status, headers, config) {
                 $scope.curPayment = data;
             }).
@@ -314,6 +319,38 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
                 }
                 $scope.error = data;
             });
+
+
     }])
+
+    //.controller('myCtrl', ['$scope',
+    //    function($scope) {
+    //
+    //        $scope.rows = [1,2,3,4,5,6,7,8,9];
+    //
+    //        $scope.items = [
+    //            'The first choice!',
+    //            'And another choice for you.',
+    //            'but wait! A third!'
+    //        ];
+    //
+    //        $scope.status = {
+    //            isopen: false
+    //        };
+    //
+    //        $scope.toggled = function(open) {
+    //            console.log('Dropdown is now: ', open);
+    //        };
+    //
+    //        $scope.toggleDropdown = function($event) {
+    //            $event.preventDefault();
+    //            $event.stopPropagation();
+    //            $scope.status.isopen = !$scope.status.isopen;
+    //        };
+    //
+    //    }
+    //]);
+
+
 ;
 
