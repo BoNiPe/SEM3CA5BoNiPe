@@ -2,9 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69908405-2667-4649-a542-507a1425e5ea" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/viewAdmin/payments.html" />
       <change type="MOVED" beforePath="C:\Users\Desting\Desktop\Skole\3. Semester\CA's\SemesterProject\Code\Peter\GitTest\SEM3CA5BoNiPe\README.md" afterPath="$PROJECT_DIR$/readme.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewAdmin/viewAdmin.js" afterPath="$PROJECT_DIR$/public/app/viewAdmin/viewAdmin.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ExpressAngularSeed.iws" />
@@ -749,7 +747,13 @@
       <option name="project" value="LOCAL" />
       <updated>1418222208365</updated>
     </task>
-    <option name="localTasksCounter" value="26" />
+    <task id="LOCAL-00026" summary="payments view fixed&#10;trying to make a dropdown">
+      <created>1418291100080</created>
+      <option name="number" value="00026" />
+      <option name="project" value="LOCAL" />
+      <updated>1418291100080</updated>
+    </task>
+    <option name="localTasksCounter" value="27" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -861,7 +865,8 @@
     <MESSAGE value="Payments DB&#10;All Mocha tests complete" />
     <MESSAGE value="Payments backend done except post&#10;" />
     <MESSAGE value="Controllers nicely organized" />
-    <option name="LAST_COMMIT_MESSAGE" value="Controllers nicely organized" />
+    <MESSAGE value="payments view fixed&#10;trying to make a dropdown" />
+    <option name="LAST_COMMIT_MESSAGE" value="payments view fixed&#10;trying to make a dropdown" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
