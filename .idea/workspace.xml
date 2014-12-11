@@ -2,11 +2,10 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="69908405-2667-4649-a542-507a1425e5ea" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/public/app/viewCustomer/myParticularPayment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/model/PaymentDataLayer.js" afterPath="$PROJECT_DIR$/server/model/PaymentDataLayer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/routes/REST_Users_API.js" afterPath="$PROJECT_DIR$/server/routes/REST_Users_API.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewAdmin/viewAdmin.js" afterPath="$PROJECT_DIR$/public/app/viewAdmin/viewAdmin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewCustomer/myParticularPayment.html" afterPath="$PROJECT_DIR$/public/app/viewCustomer/myParticularPayment.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewCustomer/myPayments.html" afterPath="$PROJECT_DIR$/public/app/viewCustomer/myPayments.html" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewCustomer/viewCustomer.js" afterPath="$PROJECT_DIR$/public/app/viewCustomer/viewCustomer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
@@ -45,19 +44,66 @@
       <file leaf-file-name="myPayments.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/viewCustomer/myPayments.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-11.115385" vertical-offset="34" max-vertical-offset="680">
-              <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
+            <state vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="680">
+              <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="viewCustomer.js" pinned="false" current-in-tab="false">
+      <file leaf-file-name="viewCustomer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/app/viewCustomer/viewCustomer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="5627">
-              <caret line="53" column="66" selection-start-line="53" selection-start-column="66" selection-end-line="53" selection-end-column="66" />
+            <state vertical-scroll-proportion="0.18285714" vertical-offset="1415" max-vertical-offset="1870">
+              <caret line="329" column="72" selection-start-line="329" selection-start-column="72" selection-end-line="329" selection-end-column="72" />
+              <folding>
+                <element signature="e#2397#2978#0" expanded="false" />
+                <element signature="e#3195#6498#0" expanded="false" />
+                <element signature="e#6542#8280#0" expanded="false" />
+                <element signature="e#8324#10595#0" expanded="false" />
+                <element signature="e#10715#11085#0" expanded="false" />
+                <element signature="e#11219#12101#0" expanded="false" />
+                <element signature="e#12233#12627#0" expanded="false" />
+                <element signature="e#12779#13050#0" expanded="false" />
+                <element signature="e#13091#13680#0" expanded="false" />
+                <element signature="e#13724#14364#0" expanded="false" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="products.html" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/public/app/viewCustomer/products.html">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="-15.769231" vertical-offset="406" max-vertical-offset="1020">
+              <caret line="48" column="69" selection-start-line="48" selection-start-column="69" selection-end-line="48" selection-end-column="69" />
               <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="REST_Users_API.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/server/routes/REST_Users_API.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="952">
+              <caret line="174" column="21" selection-start-line="174" selection-start-column="21" selection-end-line="174" selection-end-column="26" />
+              <folding>
+                <element signature="e#105#261#0" expanded="false" />
+                <element signature="e#503#1056#0" expanded="false" />
+                <element signature="e#556#723#0" expanded="false" />
+                <element signature="e#810#947#0" expanded="false" />
+                <element signature="e#1107#1708#0" expanded="false" />
+                <element signature="e#1188#1355#0" expanded="false" />
+                <element signature="e#1438#1705#0" expanded="false" />
+                <element signature="e#1752#2337#0" expanded="false" />
+                <element signature="e#2393#3028#0" expanded="false" />
+                <element signature="e#3078#3664#0" expanded="false" />
+                <element signature="e#3721#4365#0" expanded="false" />
+                <element signature="e#4412#5012#0" expanded="false" />
+                <element signature="e#5058#5653#0" expanded="false" />
+                <element signature="e#5719#6362#0" expanded="false" />
+                <element signature="e#7023#7116#0" expanded="false" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -65,8 +111,8 @@
       <file leaf-file-name="myParticularPayment.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/viewCustomer/myParticularPayment.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-6.8461537" vertical-offset="213" max-vertical-offset="578">
-              <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
+            <state vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="578">
+              <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
               <folding />
             </state>
           </provider>
@@ -75,7 +121,7 @@
       <file leaf-file-name="currentPayment.html" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/viewAdmin/currentPayment.html">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="578">
+            <state vertical-scroll-proportion="1.9615384" vertical-offset="102" max-vertical-offset="578">
               <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
               <folding />
             </state>
@@ -85,8 +131,8 @@
       <file leaf-file-name="viewAdmin.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/public/app/viewAdmin/viewAdmin.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-5.428571" vertical-offset="3333" max-vertical-offset="3859">
-              <caret line="308" column="32" selection-start-line="308" selection-start-column="32" selection-end-line="308" selection-end-column="32" />
+            <state vertical-scroll-proportion="-4.142857" vertical-offset="1074" max-vertical-offset="3859">
+              <caret line="70" column="47" selection-start-line="70" selection-start-column="28" selection-end-line="70" selection-end-column="47" />
               <folding>
                 <element signature="e#5335#5490#0" expanded="false" />
                 <element signature="e#5534#5729#0" expanded="false" />
@@ -101,36 +147,12 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="PaymentDataLayer.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="PaymentDataLayer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/model/PaymentDataLayer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5217391" vertical-offset="612" max-vertical-offset="1377">
-              <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+            <state vertical-scroll-proportion="0.0" vertical-offset="754" max-vertical-offset="1377">
+              <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
               <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="REST_Users_API.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/server/routes/REST_Users_API.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1054">
-              <caret line="109" column="46" selection-start-line="109" selection-start-column="46" selection-end-line="109" selection-end-column="46" />
-              <folding>
-                <element signature="e#105#261#0" expanded="false" />
-                <element signature="e#556#723#0" expanded="false" />
-                <element signature="e#810#947#0" expanded="false" />
-                <element signature="e#1107#1708#0" expanded="false" />
-                <element signature="e#1188#1355#0" expanded="false" />
-                <element signature="e#1438#1705#0" expanded="false" />
-                <element signature="e#1752#2337#0" expanded="false" />
-                <element signature="e#2393#3028#0" expanded="false" />
-                <element signature="e#3078#3664#0" expanded="false" />
-                <element signature="e#4412#5012#0" expanded="false" />
-                <element signature="e#5058#5653#0" expanded="false" />
-                <element signature="e#5711#6354#0" expanded="false" />
-                <element signature="e#6358#6451#0" expanded="false" />
-              </folding>
             </state>
           </provider>
         </entry>
@@ -138,8 +160,8 @@
       <file leaf-file-name="REST_Admin_API.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/server/routes/REST_Admin_API.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-4.142857" vertical-offset="1686" max-vertical-offset="2856">
-              <caret line="215" column="46" selection-start-line="215" selection-start-column="26" selection-end-line="215" selection-end-column="46" />
+            <state vertical-scroll-proportion="-57.07143" vertical-offset="85" max-vertical-offset="2584">
+              <caret line="208" column="0" selection-start-line="208" selection-start-column="0" selection-end-line="224" selection-end-column="3" />
               <folding>
                 <element signature="e#539#1088#0" expanded="false" />
                 <element signature="e#2409#2995#0" expanded="false" />
@@ -148,19 +170,10 @@
                 <element signature="e#5621#6215#0" expanded="false" />
                 <element signature="e#6264#6868#0" expanded="false" />
                 <element signature="e#6949#7502#0" expanded="false" />
+                <element signature="e#7553#8154#0" expanded="false" />
                 <element signature="e#8200#8795#0" expanded="false" />
                 <element signature="e#9490#10094#0" expanded="false" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="index.html" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/public/index.html">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="-10.461538" vertical-offset="204" max-vertical-offset="1530">
-              <caret line="28" column="55" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="55" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -223,12 +236,12 @@
         <option value="$PROJECT_DIR$/server/model/OrderDataLayer.js" />
         <option value="$PROJECT_DIR$/database/model.js" />
         <option value="$PROJECT_DIR$/database/payments.json" />
+        <option value="$PROJECT_DIR$/public/app/viewAdmin/viewAdmin.js" />
+        <option value="$PROJECT_DIR$/server/model/PaymentDataLayer.js" />
+        <option value="$PROJECT_DIR$/public/app/viewCustomer/myParticularPayment.html" />
         <option value="$PROJECT_DIR$/public/app/viewCustomer/myPayments.html" />
         <option value="$PROJECT_DIR$/server/routes/REST_Users_API.js" />
         <option value="$PROJECT_DIR$/public/app/viewCustomer/viewCustomer.js" />
-        <option value="$PROJECT_DIR$/public/app/viewCustomer/myParticularPayment.html" />
-        <option value="$PROJECT_DIR$/public/app/viewAdmin/viewAdmin.js" />
-        <option value="$PROJECT_DIR$/server/model/PaymentDataLayer.js" />
       </list>
     </option>
   </component>
@@ -832,7 +845,13 @@
       <option name="project" value="LOCAL" />
       <updated>1418320861398</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="order and payment are now connected&#10;most admin functionality works">
+      <created>1418323797016</created>
+      <option name="number" value="00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1418323797016</updated>
+    </task>
+    <option name="localTasksCounter" value="34" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -866,7 +885,7 @@
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4232026" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24627976" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24627976" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990196" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31535947" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -920,7 +939,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="auto import into db added&#10;fixes in mongoose models" />
     <MESSAGE value="FULL REST (no tests)&#10;edits in db-filler, models" />
     <MESSAGE value="FULL Backend Mocha Testing added" />
     <MESSAGE value="TestingPushToMain" />
@@ -945,7 +963,8 @@
     <MESSAGE value="Controllers nicely organized" />
     <MESSAGE value="payments view fixed&#10;trying to make a dropdown" />
     <MESSAGE value="order and payment are now connected&#10;" />
-    <option name="LAST_COMMIT_MESSAGE" value="order and payment are now connected&#10;" />
+    <MESSAGE value="order and payment are now connected&#10;most admin functionality works" />
+    <option name="LAST_COMMIT_MESSAGE" value="order and payment are now connected&#10;most admin functionality works" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1001,14 +1020,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-0.65384614" vertical-offset="0" max-vertical-offset="119">
           <caret line="1" column="149" selection-start-line="1" selection-start-column="149" selection-end-line="1" selection-end-column="149" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/viewCustomer/products.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-15.769231" vertical-offset="406" max-vertical-offset="1020">
-          <caret line="48" column="69" selection-start-line="48" selection-start-column="69" selection-end-line="48" selection-end-column="69" />
           <folding />
         </state>
       </provider>
@@ -1297,34 +1308,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/viewCustomer/myPayments.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-11.115385" vertical-offset="34" max-vertical-offset="680">
-          <caret line="19" column="38" selection-start-line="19" selection-start-column="38" selection-end-line="19" selection-end-column="38" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/viewCustomer/viewCustomer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="612" max-vertical-offset="5627">
-          <caret line="53" column="66" selection-start-line="53" selection-start-column="66" selection-end-line="53" selection-end-column="66" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/index.html">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="-10.461538" vertical-offset="204" max-vertical-offset="1530">
           <caret line="28" column="55" selection-start-line="28" selection-start-column="49" selection-end-line="28" selection-end-column="55" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/viewCustomer/myParticularPayment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-6.8461537" vertical-offset="213" max-vertical-offset="578">
-          <caret line="23" column="23" selection-start-line="23" selection-start-column="23" selection-end-line="23" selection-end-column="23" />
           <folding />
         </state>
       </provider>
@@ -1337,18 +1324,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/public/app/viewAdmin/currentPayment.html">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-1.9615384" vertical-offset="0" max-vertical-offset="578">
-          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/public/app/viewAdmin/viewAdmin.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-5.428571" vertical-offset="3333" max-vertical-offset="3859">
-          <caret line="308" column="32" selection-start-line="308" selection-start-column="32" selection-end-line="308" selection-end-column="32" />
+        <state vertical-scroll-proportion="-4.142857" vertical-offset="1074" max-vertical-offset="3859">
+          <caret line="70" column="47" selection-start-line="70" selection-start-column="28" selection-end-line="70" selection-end-column="47" />
           <folding>
             <element signature="e#5335#5490#0" expanded="false" />
             <element signature="e#5534#5729#0" expanded="false" />
@@ -1362,32 +1341,34 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/routes/REST_Users_API.js">
+    <entry file="file://$PROJECT_DIR$/public/app/viewCustomer/myParticularPayment.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="1054">
-          <caret line="109" column="46" selection-start-line="109" selection-start-column="46" selection-end-line="109" selection-end-column="46" />
-          <folding>
-            <element signature="e#105#261#0" expanded="false" />
-            <element signature="e#556#723#0" expanded="false" />
-            <element signature="e#810#947#0" expanded="false" />
-            <element signature="e#1107#1708#0" expanded="false" />
-            <element signature="e#1188#1355#0" expanded="false" />
-            <element signature="e#1438#1705#0" expanded="false" />
-            <element signature="e#1752#2337#0" expanded="false" />
-            <element signature="e#2393#3028#0" expanded="false" />
-            <element signature="e#3078#3664#0" expanded="false" />
-            <element signature="e#4412#5012#0" expanded="false" />
-            <element signature="e#5058#5653#0" expanded="false" />
-            <element signature="e#5711#6354#0" expanded="false" />
-            <element signature="e#6358#6451#0" expanded="false" />
-          </folding>
+        <state vertical-scroll-proportion="-4.576923" vertical-offset="0" max-vertical-offset="578">
+          <caret line="7" column="20" selection-start-line="7" selection-start-column="20" selection-end-line="7" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/server/model/PaymentDataLayer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="754" max-vertical-offset="1377">
+          <caret line="49" column="9" selection-start-line="49" selection-start-column="9" selection-end-line="49" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/viewAdmin/currentPayment.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="1.9615384" vertical-offset="102" max-vertical-offset="578">
+          <caret line="3" column="23" selection-start-line="3" selection-start-column="23" selection-end-line="3" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/server/routes/REST_Admin_API.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.142857" vertical-offset="1686" max-vertical-offset="2856">
-          <caret line="215" column="46" selection-start-line="215" selection-start-column="26" selection-end-line="215" selection-end-column="46" />
+        <state vertical-scroll-proportion="-57.07143" vertical-offset="85" max-vertical-offset="2584">
+          <caret line="208" column="0" selection-start-line="208" selection-start-column="0" selection-end-line="224" selection-end-column="3" />
           <folding>
             <element signature="e#539#1088#0" expanded="false" />
             <element signature="e#2409#2995#0" expanded="false" />
@@ -1396,17 +1377,69 @@
             <element signature="e#5621#6215#0" expanded="false" />
             <element signature="e#6264#6868#0" expanded="false" />
             <element signature="e#6949#7502#0" expanded="false" />
+            <element signature="e#7553#8154#0" expanded="false" />
             <element signature="e#8200#8795#0" expanded="false" />
             <element signature="e#9490#10094#0" expanded="false" />
           </folding>
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/server/model/PaymentDataLayer.js">
+    <entry file="file://$PROJECT_DIR$/server/routes/REST_Users_API.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5217391" vertical-offset="612" max-vertical-offset="1377">
-          <caret line="48" column="0" selection-start-line="48" selection-start-column="0" selection-end-line="48" selection-end-column="0" />
+        <state vertical-scroll-proportion="0.0" vertical-offset="357" max-vertical-offset="952">
+          <caret line="174" column="21" selection-start-line="174" selection-start-column="21" selection-end-line="174" selection-end-column="26" />
+          <folding>
+            <element signature="e#105#261#0" expanded="false" />
+            <element signature="e#503#1056#0" expanded="false" />
+            <element signature="e#556#723#0" expanded="false" />
+            <element signature="e#810#947#0" expanded="false" />
+            <element signature="e#1107#1708#0" expanded="false" />
+            <element signature="e#1188#1355#0" expanded="false" />
+            <element signature="e#1438#1705#0" expanded="false" />
+            <element signature="e#1752#2337#0" expanded="false" />
+            <element signature="e#2393#3028#0" expanded="false" />
+            <element signature="e#3078#3664#0" expanded="false" />
+            <element signature="e#3721#4365#0" expanded="false" />
+            <element signature="e#4412#5012#0" expanded="false" />
+            <element signature="e#5058#5653#0" expanded="false" />
+            <element signature="e#5719#6362#0" expanded="false" />
+            <element signature="e#7023#7116#0" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/viewCustomer/products.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-15.769231" vertical-offset="406" max-vertical-offset="1020">
+          <caret line="48" column="69" selection-start-line="48" selection-start-column="69" selection-end-line="48" selection-end-column="69" />
           <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/viewCustomer/myPayments.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-12.423077" vertical-offset="0" max-vertical-offset="680">
+          <caret line="19" column="43" selection-start-line="19" selection-start-column="43" selection-end-line="19" selection-end-column="43" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/app/viewCustomer/viewCustomer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.18285714" vertical-offset="1415" max-vertical-offset="1870">
+          <caret line="329" column="72" selection-start-line="329" selection-start-column="72" selection-end-line="329" selection-end-column="72" />
+          <folding>
+            <element signature="e#2397#2978#0" expanded="false" />
+            <element signature="e#3195#6498#0" expanded="false" />
+            <element signature="e#6542#8280#0" expanded="false" />
+            <element signature="e#8324#10595#0" expanded="false" />
+            <element signature="e#10715#11085#0" expanded="false" />
+            <element signature="e#11219#12101#0" expanded="false" />
+            <element signature="e#12233#12627#0" expanded="false" />
+            <element signature="e#12779#13050#0" expanded="false" />
+            <element signature="e#13091#13680#0" expanded="false" />
+            <element signature="e#13724#14364#0" expanded="false" />
+          </folding>
         </state>
       </provider>
     </entry>

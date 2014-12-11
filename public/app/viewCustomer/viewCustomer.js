@@ -50,9 +50,9 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                 controller: 'UserAliasPaymentsController'
             })
 
-            .when('/myParticularPayment', {
+            .when('/myPayments/particular/:id', {
                 templateUrl: 'app/viewCustomer/myParticularPayment.html',
-                controller: 'UserAliasPaymentsController'
+                controller: 'UserAliasParticularPaymentsController'
             })
 
 
@@ -275,7 +275,7 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
     .controller('UserAliasPaymentsController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
         $http({
             method: 'GET',
-            url: 'userApi/payment/' + userInformation.getObject().userAlias
+            url: 'userApi/payment/byAlias/' + userInformation.getObject().userAlias
         }).
             success(function (data, status, headers, config) {
                 $scope.paymentsForSpecificUser = data;
@@ -293,7 +293,6 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                 window.location = "#/myOrders";
             }
         }])
-
 
     .controller('AccountController', ['$scope', '$http', '$window', '$location', 'userInformation',
         function ($scope, $http, $window, $location, userInformation) {
@@ -323,4 +322,26 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                 $scope.error = 'You have null values';
             }
         }
-    }]);
+    }])
+
+    .controller('UserAliasParticularPaymentsController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
+        $http({
+            method: 'GET',
+            url: 'userApi/payment/byID/' + $location.path().split("/")[3]
+        }).
+
+            success(function (data, status, headers, config) {
+                $scope.curPayment = data;
+                console.log("data in control: "+data);
+            }).
+            error(function (data, status, headers, config) {
+                if (status == 401) {
+                    $scope.error = "You are not authenticated to request these data";
+                    return;
+                }
+                $scope.error = data;
+            });
+
+
+    }])
+;

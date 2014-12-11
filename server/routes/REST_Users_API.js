@@ -154,7 +154,7 @@ router.post('/payment', function(req,res) {
     })
 });
 
-router.get('/payment/:userAlias', function (req, res) {
+router.get('/payment/byAlias/:userAlias', function (req, res) {
     var userAlias = req.params.userAlias;
     if (typeof global.mongo_error !== "undefined") {
         res.status(500);
@@ -169,6 +169,24 @@ router.get('/payment/:userAlias', function (req, res) {
         }
         res.header("Content-type", "application/json");
         res.end(JSON.stringify(paymentsForUserAlias));
+    })
+});
+
+router.get('/payment/byID/:id', function (req, res) {
+    var id = req.params.id;
+    if (typeof global.mongo_error !== "undefined") {
+        res.status(500);
+        res.end("Error: " + global.mongo_error + " or with simple words : Your db's SWAG level is below 9000. Sorry");
+        return;
+    }
+    PaymentDataLayerModel.getParticularPayment(id, function (err, currentPayment) {
+        if (err) {
+            res.status(err.status || 400);
+            res.send(JSON.stringify({error: err.toString()}));
+            return;
+        }
+        res.header("Content-type", "application/json");
+        res.end(JSON.stringify(currentPayment));
     })
 });
 
