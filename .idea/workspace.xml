@@ -3,36 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="69908405-2667-4649-a542-507a1425e5ea" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.md" afterPath="$PROJECT_DIR$/README.md" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/routes/REST_Admin_API.js" afterPath="$PROJECT_DIR$/server/routes/REST_Admin_API.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/routes/REST_Users_API.js" afterPath="$PROJECT_DIR$/server/routes/REST_Users_API.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewAdmin/adminHome.html" afterPath="$PROJECT_DIR$/public/app/viewAdmin/adminHome.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewCustomer/basket.html" afterPath="$PROJECT_DIR$/public/app/viewCustomer/basket.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewAdmin/currentOrder.html" afterPath="$PROJECT_DIR$/public/app/viewAdmin/currentOrder.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewAdmin/currentPayment.html" afterPath="$PROJECT_DIR$/public/app/viewAdmin/currentPayment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewAdmin/currentProduct.html" afterPath="$PROJECT_DIR$/public/app/viewAdmin/currentProduct.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewCustomer/currentProduct.html" afterPath="$PROJECT_DIR$/public/app/viewCustomer/currentProduct.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewAdmin/currentUser.html" afterPath="$PROJECT_DIR$/public/app/viewAdmin/currentUser.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewCustomer/customerHome.html" afterPath="$PROJECT_DIR$/public/app/viewCustomer/customerHome.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewCustomer/customerProfile.html" afterPath="$PROJECT_DIR$/public/app/viewCustomer/customerProfile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewCustomer/editBasket.html" afterPath="$PROJECT_DIR$/public/app/viewCustomer/editBasket.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewAdmin/editOrder.html" afterPath="$PROJECT_DIR$/public/app/viewAdmin/editOrder.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewCustomer/editOrder.html" afterPath="$PROJECT_DIR$/public/app/viewCustomer/editOrder.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewAdmin/editPayment.html" afterPath="$PROJECT_DIR$/public/app/viewAdmin/editPayment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewAdmin/editProduct.html" afterPath="$PROJECT_DIR$/public/app/viewAdmin/editProduct.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewCustomer/editProfile.html" afterPath="$PROJECT_DIR$/public/app/viewCustomer/editProfile.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewAdmin/editUser.html" afterPath="$PROJECT_DIR$/public/app/viewAdmin/editUser.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewCustomer/myOrders.html" afterPath="$PROJECT_DIR$/public/app/viewCustomer/myOrders.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewCustomer/myParticularPayment.html" afterPath="$PROJECT_DIR$/public/app/viewCustomer/myParticularPayment.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewCustomer/myPayments.html" afterPath="$PROJECT_DIR$/public/app/viewCustomer/myPayments.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewAdmin/newProduct.html" afterPath="$PROJECT_DIR$/public/app/viewAdmin/newProduct.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewAdmin/newUser.html" afterPath="$PROJECT_DIR$/public/app/viewAdmin/newUser.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewAdmin/orders.html" afterPath="$PROJECT_DIR$/public/app/viewAdmin/orders.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewAdmin/payments.html" afterPath="$PROJECT_DIR$/public/app/viewAdmin/payments.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewAdmin/products.html" afterPath="$PROJECT_DIR$/public/app/viewAdmin/products.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewCustomer/products.html" afterPath="$PROJECT_DIR$/public/app/viewCustomer/products.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewAdmin/users.html" afterPath="$PROJECT_DIR$/public/app/viewAdmin/users.html" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewAdmin/viewAdmin.js" afterPath="$PROJECT_DIR$/public/app/viewAdmin/viewAdmin.js" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/app/viewCustomer/viewCustomer.js" afterPath="$PROJECT_DIR$/public/app/viewCustomer/viewCustomer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="ExpressAngularSeed.iws" />
@@ -128,7 +98,7 @@
       <file leaf-file-name="viewCustomer.js" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/public/app/viewCustomer/viewCustomer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.5065963" vertical-offset="1389" max-vertical-offset="3145">
+            <state vertical-scroll-proportion="-0.16666667" vertical-offset="1644" max-vertical-offset="3145">
               <caret line="266" column="57" selection-start-line="266" selection-start-column="57" selection-end-line="266" selection-end-column="57" />
               <folding>
                 <element signature="e#2399#2980#0" expanded="false" />
@@ -827,7 +797,13 @@
       <option name="project" value="LOCAL" />
       <updated>1418327424921</updated>
     </task>
-    <option name="localTasksCounter" value="35" />
+    <task id="LOCAL-00035" summary="Titles in every page&#10;Delete order method now deletes the corresponding payment as well.">
+      <created>1418388580744</created>
+      <option name="number" value="00035" />
+      <option name="project" value="LOCAL" />
+      <updated>1418388580744</updated>
+    </task>
+    <option name="localTasksCounter" value="36" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -854,15 +830,16 @@
     <frame x="-8" y="-8" width="1382" height="744" extended-state="6" />
     <editor active="false" />
     <layout>
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.27243066" sideWeight="0.5" order="12" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.42251223" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="11" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24627976" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24627976" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3990196" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31484503" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.31535947" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="8" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32952693" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
@@ -870,7 +847,6 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Heroku" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988507" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Mongo Explorer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -915,7 +891,6 @@
     <option name="myTodoPanelSettings">
       <TodoPanelSettings />
     </option>
-    <MESSAGE value="FULL REST (no tests)&#10;edits in db-filler, models" />
     <MESSAGE value="FULL Backend Mocha Testing added" />
     <MESSAGE value="TestingPushToMain" />
     <MESSAGE value="Product model change. (update in db-filler,backend functionality, but not mocha)&#10;Starting on frontend implementation (admin)&#10;&#10;TODO : Edit Mocha tests for Product (add description)" />
@@ -940,7 +915,8 @@
     <MESSAGE value="payments view fixed&#10;trying to make a dropdown" />
     <MESSAGE value="order and payment are now connected&#10;" />
     <MESSAGE value="order and payment are now connected&#10;most admin functionality works" />
-    <option name="LAST_COMMIT_MESSAGE" value="order and payment are now connected&#10;most admin functionality works" />
+    <MESSAGE value="Titles in every page&#10;Delete order method now deletes the corresponding payment as well." />
+    <option name="LAST_COMMIT_MESSAGE" value="Titles in every page&#10;Delete order method now deletes the corresponding payment as well." />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -1181,7 +1157,7 @@
         <state vertical-scroll-proportion="-1.9508197" vertical-offset="714" max-vertical-offset="1190">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="n#style#0;n#div#0;n#!!top" expanded="true" />
+            <element signature="n#style#0;n#div#0;n#!!top" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1400,7 +1376,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/public/app/viewCustomer/viewCustomer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.5065963" vertical-offset="1389" max-vertical-offset="3145">
+        <state vertical-scroll-proportion="-0.16666667" vertical-offset="1644" max-vertical-offset="3145">
           <caret line="266" column="57" selection-start-line="266" selection-start-column="57" selection-end-line="266" selection-end-column="57" />
           <folding>
             <element signature="e#2399#2980#0" expanded="false" />
