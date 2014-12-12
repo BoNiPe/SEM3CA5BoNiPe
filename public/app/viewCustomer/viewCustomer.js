@@ -56,8 +56,6 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             })
 
 
-
-
         ;
     }])
 
@@ -112,43 +110,70 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                             quantity: $scope.currentOrders[i].productAmount,
                             userAlias: userInformation.getObject().userAlias
                         };
+                        console.log("quantity: " + orderToBePushed.quantity);
                         $scope.success = 'You successfully made ' + toBePushed.length + ' order(s).';
 
 
-                        var actualOrder = null;
+                        /* ---------- GET THE PRODUCT ---------- */
                         $http({
-                            method: 'POST',
-                            url: 'userApi/order',
-                            data: orderToBePushed
+                            method: 'GET',
+                            url: 'userApi/product/' + $scope.currentOrders[i].productID
                         }).
                             success(function (data, status, headers, config) {
-                                actualOrder = data;
-                                var paymentToBePushed = {
-                                    userAlias: orderToBePushed.userAlias,
-                                    orderID: actualOrder._id,
-                                    paymentAmount: 1000
-                                };
+                                $scope.actualProduct = data;
+                                var unitPrice = $scope.actualProduct[0].unitPrice;
+                                console.log("product: " + JSON.stringify($scope.actualProduct));
+                                console.log("unitprice: "+ $scope.actualProduct[0].unitPrice);
 
+                                /* ---------- ORDER ---------- */
+                                var actualOrder = null;
                                 $http({
                                     method: 'POST',
-                                    url: 'userApi/payment',
-                                    data: paymentToBePushed
+                                    url: 'userApi/order',
+                                    data: orderToBePushed
                                 }).
                                     success(function (data, status, headers, config) {
-                                        console.log('haihai')
-                                        orderToBePushed = {};
-                                        paymentToBePushed = {};
-                                        BasketArrayFactory.clearList();
-                                        window.location = "#/customerHome";
+                                        actualOrder = data;
+                                        var paymentToBePushed = {
+                                            userAlias: orderToBePushed.userAlias,
+                                            orderID: actualOrder._id,
+                                            paymentAmount: (unitPrice * orderToBePushed.quantity)
+                                        };
+
+                                        console.log("payment amount: " + paymentToBePushed.paymentAmount);
+
+
+                                        /* ---------- PAYMENT ---------- */
+                                        $http({
+                                            method: 'POST',
+                                            url: 'userApi/payment',
+                                            data: paymentToBePushed
+                                        }).
+                                            success(function (data, status, headers, config) {
+                                                console.log('haihai')
+                                                orderToBePushed = {};
+                                                paymentToBePushed = {};
+                                                BasketArrayFactory.clearList();
+                                                window.location = "#/customerHome";
+                                            }).
+                                            error(function (data, status, headers, config) {
+                                                $scope.error = data;
+                                            })
                                     }).
                                     error(function (data, status, headers, config) {
                                         $scope.error = data;
-                                    })
+                                    }
+                                )
+
+
+
                             }).
                             error(function (data, status, headers, config) {
                                 $scope.error = data;
-                            }
-                        )
+                            });
+
+
+
                     }
                 } else {
                     $scope.alert = 'Nothing to save';
@@ -272,7 +297,6 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
         }
 
 
-
         $scope.saveChangesInOrderForCustomerQuantity = function (order) {
             userInformation.setObject(order);
             window.location = "#/editOrder";
@@ -322,7 +346,6 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
     }])
 
 
-
     .controller('UserAliasPaymentsController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
         $http({
             method: 'GET',
@@ -345,7 +368,7 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
 
             success(function (data, status, headers, config) {
                 $scope.curPayment = data;
-                console.log("data in control: "+data);
+                console.log("data in control: " + data);
             }).
             error(function (data, status, headers, config) {
                 if (status == 401) {

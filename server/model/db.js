@@ -7,7 +7,7 @@ if( typeof global.TEST_DATABASE != "undefined" ) {
 }
 else{
   dbURI = 'mongodb://localhost/wiki';
-  //var dbUrl = "mongodb://ca5:ca5@ds061200.mongolab.com:61200/ca5";
+  //var dbURI = "mongodb://ca5:ca5@ds061200.mongolab.com:61200/ca5";
 }
 
 mongoose.connect(dbURI);
