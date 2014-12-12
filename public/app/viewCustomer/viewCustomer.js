@@ -60,6 +60,8 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
 
         ;
     }])
+
+
     .controller('CustomerController', ['$scope', '$http', function ($scope, $http) {
         $http({
             method: 'GET',
@@ -78,6 +80,9 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                 $scope.error = data;
             });
     }])
+
+
+    /* ---------- BASKET ----------*/
 
     .controller('BasketController', ['$scope', '$http', 'BasketArrayFactory', 'editParticularObject', 'userInformation',
         function ($scope, $http, BasketArrayFactory, editParticularObject, userInformation) {
@@ -183,6 +188,7 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
 
         }])
 
+    /* ---------- PRODUCTS ----------*/
     .controller('UserProductController', ['$scope', '$http', 'BasketArrayFactory',
         function ($scope, $http, BasketArrayFactory) {
 
@@ -244,6 +250,8 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             });
     }])
 
+
+    /* ---------- ORDERS ----------*/
     .controller('UserAliasOrdersControllerUser', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
         $http({
             method: 'GET',
@@ -256,11 +264,11 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
                 $scope.error = data;
             });
 
-        $scope.userDeleteOrder = function (order) {
+        $scope.userDeleteOrder = function (order, payment) {
             $http.delete('userApi/order/' + order._id, order);
             var index = $scope.ordersForSpecificUser.indexOf(order);
             $scope.ordersForSpecificUser.splice(index, 1);
-            $http.delete('userApi/payment/' + order._id, payment);
+            $http.delete('userApi/payment/byID/' + order._id, payment);
         }
 
 
@@ -272,18 +280,6 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
 
     }])
 
-    .controller('UserAliasPaymentsController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
-        $http({
-            method: 'GET',
-            url: 'userApi/payment/byAlias/' + userInformation.getObject().userAlias
-        }).
-            success(function (data, status, headers, config) {
-                $scope.paymentsForSpecificUser = data;
-            }).
-            error(function (data, status, headers, config) {
-                $scope.error = data;
-            });
-    }])
 
     .controller('UserAliasOrdersControllerChangeQuantity', ['$scope', '$http', 'userInformation',
         function ($scope, $http, userInformation) {
@@ -294,6 +290,7 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             }
         }])
 
+    /* ---------- ACCOUNT ----------*/
     .controller('AccountController', ['$scope', '$http', '$window', '$location', 'userInformation',
         function ($scope, $http, $window, $location, userInformation) {
             var curUser = userInformation.getObject();
@@ -323,6 +320,22 @@ angular.module('myAppRename.viewCustomer', ['ngRoute'])
             }
         }
     }])
+
+
+
+    .controller('UserAliasPaymentsController', ['$scope', '$http', 'userInformation', function ($scope, $http, userInformation) {
+        $http({
+            method: 'GET',
+            url: 'userApi/payment/byAlias/' + userInformation.getObject().userAlias
+        }).
+            success(function (data, status, headers, config) {
+                $scope.paymentsForSpecificUser = data;
+            }).
+            error(function (data, status, headers, config) {
+                $scope.error = data;
+            });
+    }])
+
 
     .controller('UserAliasParticularPaymentsController', ['$scope', '$http', '$location', function ($scope, $http, $location) {
         $http({

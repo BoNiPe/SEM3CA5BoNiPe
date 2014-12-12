@@ -1,5 +1,7 @@
 var express = require('express');
 var router = express.Router();
+var mongoose = require('mongoose');
+var user = mongoose.model('User');
 
 var OrderDataLayerModel = require('../model/OrderDataLayer');
 var ProductDataLayerModel = require('../model/ProductDataLayer');
@@ -279,9 +281,8 @@ router.put("/payment/:id", function(req,res) {
 });
 
 //***************************888888888888888888888888888
-var mongoose = require('mongoose');
-var user = mongoose.model('User');
-/* GET A User From The DataBase */
+
+/* ---------- USER ---------*/
 router.get('/user', function(req, res) {
     if(typeof global.mongo_error !== "undefined"){
         res.status(500);

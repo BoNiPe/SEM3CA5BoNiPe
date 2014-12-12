@@ -1,3 +1,4 @@
+<h1>Your Payments</h1>
 <div class="panel panel-default">
     <!-- Default panel contents -->
     <div class="panel-heading"><b>Your Payments:</b></div>
@@ -17,14 +18,15 @@
                 <td>{{payment.orderID}}</td>
                 <td>{{payment.paymentAmount}}</td>
                 <td>
-                    <a href="#/myPayments/particular/{{payment._id}}">
                         {{payment.isPayed}}
-                    </a></td>
+                    </td>
                 <td>{{payment.paymentDate | date:'medium'}}</td>
                 <td>
-                    <button type="button" class="btn btn-default btn-sm" ng-click="saveChangesInOrderForCustomerQuantity(order)">
-                        <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit quantity
+                    <a href="#/myPayments/particular/{{payment._id}}">
+                    <button type="button" class="btn btn-primary btn-sm">
+                        <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Show Details
                     </button>
+                    </a>
 
 
                 </td>

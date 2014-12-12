@@ -99,7 +99,7 @@ router.delete("/order/:id", function(req,res) {
     })
 });
 
-router.delete("/payment/:orderID", function(req,res) {
+router.delete("/payment/byID/:orderID", function(req,res) {
     var id = req.params.orderID;
     console.log("id of order: "+ id);
     if (typeof global.mongo_error !== "undefined") {

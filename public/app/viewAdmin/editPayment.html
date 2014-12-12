@@ -1,11 +1,12 @@
+<h1>Edit Payment</h1>
 <div class="col-md-5" style="border: thin lightblue solid; border-radius: 5px;padding: 1em;">
     <form class="form-horizontal">
         <fieldset >
-            <legend style="color:darkblue;">Edit status of payment : </b>{{payment._id}}</b> for payment : {{order.productID}} of user : {{order.userAlias}}</legend>
+            <legend style="color:darkblue;">Edit status of payment with ID: </b>{{payment._id}}</b> <br>Price: {{payment.paymentAmount}} <br> User: {{payment.userAlias}}</legend>
             <div class="form-group">
                 <label for="isPayed" class="control-label col-xs-3"><span class="label label-info">Is Payed</span></label>
                 <div class="col-xs-9">
-                    <input type="text" class="form-control" ng-model="payment.isPayed" id="isPayed" placeholder="INSERT 'Yes' or 'No'">
+                    <input type="text" class="form-control" ng-model="payment.isPayed" id="isPayed" placeholder="INSERT 'true' or 'false'">
                 </div>
             </div>
 
@@ -14,4 +15,8 @@
     <div class="form-group">
         <button href=""  type="submit" ng-click="saveChangesInPayment(payment)" class="btn btn-primary">Save</button>
     </div>
+    <a href="#/control/payments">
+        <button type="submit" class="btn btn-primary">
+            <span class="glyphicon glyphicon-arrow-left" aria-hidden="true"></span> Back to Payments
+        </button>
 </div>

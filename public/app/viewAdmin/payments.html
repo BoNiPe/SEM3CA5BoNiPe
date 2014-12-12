@@ -1,4 +1,4 @@
-
+<h1>Payments</h1>
 <p><code>Number of payments in our database: {{payments.length}}</code></p>
 Search in payments : <input type="search" ng-model="paymentfilter" placeholder="Filter payments"><br/>
 <a href="#/adminHome">
@@ -22,18 +22,22 @@ Search in payments : <input type="search" ng-model="paymentfilter" placeholder="
     <tbody>
     <tr class="rowlink" ng-repeat="payment in payments | filter: paymentfilter | orderBy:predicate:reverse">
         <td>{{payment.userAlias}}</td>
-        <td>{{payment.orderID}}</td>
-        <td>{{payment.paymentAmount}}</td>
         <td>
-            <a href="#/control/payments/particular/{{payment._id}}">
-                {{payment.isPayed}}
-                </a></td>
+            <a href="#/control/orders/particular/{{payment.orderID}}">{{payment.orderID}}</a></td>
+        <td>{{payment.paymentAmount}}</td>
+        <td> {{payment.isPayed}}</td>
         <td>{{payment.paymentDate | date:'medium'}}</td>
         <td>
             <button type="button" class="btn btn-default btn-sm" ng-click="adminEditPayment(payment)">
                 <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Edit
 
             </button>
+
+            <a href="#/control/payments/particular/{{payment._id}}">
+                <button type="button" class="btn btn-primary btn-sm">
+                    <span class="glyphicon glyphicon-search" aria-hidden="true"></span> Show Details
+                </button>
+            </a>
         </td>
     </tr>
     </tbody>

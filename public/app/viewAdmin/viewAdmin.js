@@ -221,6 +221,7 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
         }).
             success(function (data, status, headers, config) {
                 $scope.orders = data;
+
                 $scope.error = null;
             }).
             error(function (data, status, headers, config) {
@@ -311,7 +312,7 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
 
             success(function (data, status, headers, config) {
                 $scope.curPayment = data;
-                console.log("data in control: "+data);
+                console.log("data in control: " + data);
             }).
             error(function (data, status, headers, config) {
                 if (status == 401) {
@@ -323,7 +324,6 @@ angular.module('myAppRename.viewAdmin', ['ngRoute'])
 
 
     }])
-
 
 
 ;
